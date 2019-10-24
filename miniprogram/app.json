@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/music/music",
+    "pages/blog/blog",
+    "pages/profile/profile",
+    "pages/demo/demo",
+    "pages/musiclist/musiclist",
+    "pages/player/player"
+  ],
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#d81e06",
+    "list": [{
+      "pagePath": "pages/music/music",
+      "text": "音乐",
+      "iconPath": "images/music.png",
+      "selectedIconPath": "images/music-active.png"
+    },{
+      "pagePath": "pages/blog/blog",
+      "text": "发现",
+      "iconPath": "images/blog.png",
+      "selectedIconPath": "images/blog-active.png"
+    },{
+      "pagePath": "pages/profile/profile",
+      "text": "我的",
+      "iconPath": "images/me.png",
+      "selectedIconPath": "images/me-active.png"
+    }]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d81e06",
+    "navigationBarTitleText": "云音乐",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

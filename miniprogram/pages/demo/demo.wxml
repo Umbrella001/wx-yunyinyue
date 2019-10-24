@@ -1,0 +1,12 @@
+<block wx:for='{{demoData}}' wx:key='*this' wx:for-item='data' wx:for-index='idx'>
+    <view><checkbox/> {{data}}</view>
+</block>
+<button bind:tap='sort'>随机排序</button>
+<hr/>
+<block wx:for='{{demoDataObj}}' wx:key='id' wx:for-item='data' wx:for-index='idx'>
+    <view><checkbox/> {{data.name}}</view>
+</block>
+<button bind:tap='sortObj'>随机排序</button>
+
+<button bind:tap='getMusicInfo'>获取音乐列表信息</button>
+<button bind:tap='getMovieInfo'>获取电影列表信息</button>
