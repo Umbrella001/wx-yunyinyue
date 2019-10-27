@@ -1,2 +1,14 @@
-<!--pages/player/player.wxml-->
-<text>pages/player/player.wxml</text>
+<view class="player-container" style="background:url({{playerInfo.plyerImgUrl}}) no-repeat center/cover">
+</view>
+<view class="player-mask"></view>
+<view class="player-info">
+  <view class="player-disc">
+    <image class="player-img" src="{{ playerInfo.plyerImgUrl }}"></image>
+  </view>
+</view>
+
+<view class="control">
+  <text class="iconfont icon-shangyishoushangyige"></text>
+  <text class="iconfont icon-bofang"></text>
+  <text class="iconfont icon-xiayigexiayishou"></text>
+</view>

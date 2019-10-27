@@ -1,18 +1,37 @@
 // pages/player/player.js
+
+let musiclist = []
+let currentMusic = 0
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    playerInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    this.getMusicInfo()
+    currentMusic = options.index
+    const musicInfo = musiclist[currentMusic]
+    wx.setNavigationBarTitle({
+      title: musicInfo.name,
+    })
+    this.setData({
+      playerInfo:{
+        plyerImgUrl: musicInfo.al.picUrl
+      }
+    })
+    console.log(this.data.playerInfo.plyerImgUrl)
+  },
+
+  getMusicInfo(){
+    musiclist = wx.getStorageSync('musiclist');
+    console.log(musiclist)
   },
 
   /**

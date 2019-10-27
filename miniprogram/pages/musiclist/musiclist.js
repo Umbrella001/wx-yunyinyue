@@ -33,8 +33,13 @@ Page({
           coverImgName: pl.name
         }
       })
+      this.setMusiclist()
       wx.hideLoading()
     })
+  },
+
+  setMusiclist(){
+    wx.setStorageSync('musiclist', this.data.musiclist)
   },
 
   /**

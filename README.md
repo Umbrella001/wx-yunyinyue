@@ -22,6 +22,11 @@
 
 1. 完成小程序音乐模块中的轮播图，歌单的获取及展示，歌单内部歌曲的获取及展示
 
+
 ![1571901894657](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1571901894657.png)
 
 ![1571901972076](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1571901972076.png)
+
+2. 完成小程序音乐面板布局
+
+![wx-player](C:\Users\Administrator\Desktop\wx-player.png)

@@ -37,7 +37,7 @@
   font-size: 24rpx;
 }
 
-.playing view, .playing text{
+.playing view, .playing text {
   font-family: Arial, Helvetica, sans-serif;
   color: #d81e06;
 }
