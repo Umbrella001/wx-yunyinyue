@@ -2,13 +2,13 @@
 </view>
 <view class="player-mask"></view>
 <view class="player-info">
-  <view class="player-disc">
-    <image class="player-img" src="{{ playerInfo.plyerImgUrl }}"></image>
+  <view class="player-disc {{ isPlaying ? 'playing': ''}}">
+    <image class="player-img rotation {{ isPlaying ? '' : 'player-pause'}}" src="{{ picUrl }}"></image>
   </view>
 </view>
 
 <view class="control">
-  <text class="iconfont icon-shangyishoushangyige"></text>
-  <text class="iconfont icon-bofang"></text>
-  <text class="iconfont icon-xiayigexiayishou"></text>
+  <text class="iconfont icon-shangyishoushangyige" bindtap="prevMusic"></text>
+  <text class="iconfont {{ isPlaying ? 'icon-suspend_icon': 'icon-bofang'}}" bindtap="togglePlaying"></text>
+  <text class="iconfont icon-xiayigexiayishou" bindtap="nextMusic"></text>
 </view>
