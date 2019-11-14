@@ -26,16 +26,20 @@
 
    1.2 组件定义开发playlist 、musiclist
 
-   1.3 
 
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-panel.png)
 
-![1571901894657](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1571901894657.png)
-
-![1571901972076](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1571901972076.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-list.png)
 
 2. 完成小程序音乐面板布局
 
-3. 歌曲播放以及歌词联动等细节（音乐模块完成）
+   2.1 配合H5动画还原网易云音乐播放动画
+
+   2.2 借用IconFont
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-lyric.png)
+
+2. 歌曲播放以及歌词联动等细节（音乐模块完成）
 
    3.1 组件化开发 progress-bar 、lyric
 
@@ -47,4 +51,4 @@
 
    3.5 高度还原网易云音乐的播放界面细节点
 
-![1573754863719](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573754863719.png)
+   ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/lyric-panel.png)
