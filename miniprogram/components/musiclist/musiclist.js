@@ -1,4 +1,5 @@
 // components/musiclist/musiclist.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -6,6 +7,15 @@ Component({
   properties: {
     musiclist: {
       type: Array
+    }
+  },
+
+  pageLifetimes: {
+    // 页面被展示
+    show: function () {
+      this.setData({
+        playerId: parseInt(app.getMusicId())
+      })
     }
   },
 
@@ -21,7 +31,6 @@ Component({
    */
   methods: {
     handleSelect(event) {
-      console.log(event)
       const eventData = event.currentTarget.dataset
       this.setData({
         playerId: eventData.musicid

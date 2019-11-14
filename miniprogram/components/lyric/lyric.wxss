@@ -1,0 +1,39 @@
+.lyric-scroll {
+  width: 100%;
+  height: 70%;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.lyric-blur {
+  position: fixed;
+  width: 100%;
+  height: 200rpx;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg,rgba(0,0,0,.45)30rpx,rgba(0,0,0,.1)180rpx);
+  filter: blur(20px)
+}
+
+.lyric-panel {
+  position: relative;
+  height: 300rpx;
+  margin-top: 500rpx;
+}
+
+.lyric-style {
+  color: #bbb;
+  font-family: Arial,
+                 "PingFang SC",
+                 "Hiragino Sans GB",
+                 STHeiti,
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  min-height: 64rpx;
+}
+
+.lyric-playing {
+  color: #d81e06;
+  font-weight: 500;
+}
