@@ -31,6 +31,7 @@ Component({
     ready() {
       if (this.properties.isSame && this.data.showTime['totalTime'] == '00:00'){
         this._durationTime()
+        this._setProgress()
       }
       this._getMovableDis()
       this._bindBGMEvent()
@@ -45,17 +46,16 @@ Component({
       if (event.detail.source == 'touch') {
         this.data.progress = event.detail.x / (movableAreaWidth - movableViewWidth) * 100
         this.data.movableDis = event.detail.x
+        console.log('touching')
         this.setData({
           progress: this.data.progress,
           movableDis: this.data.movableDis,
           isMoving: true
         })
       }
-      console.log('isMoving', this.data.isMoving)
     },
     onTouchEnd() {
       let currentTimeTem = this._formatTime(backgroundAudioManager.currentTime)
-      console.log('onTouchEnd', playingTime)
       this.setData({
         progress: this.data.progress,
         movableDis: this.data.movableDis,
@@ -63,7 +63,6 @@ Component({
         ['showTime.currentTime']: currentTimeTem.min + ":" + currentTimeTem.sec
       })
       backgroundAudioManager.seek(this.data.progress * duration / 100)
-      console.log('isMoving11', this.data.isMoving)
     },
     _getMovableDis() {
       const query = this.createSelectorQuery()
@@ -122,13 +121,7 @@ Component({
           this._formatTime(playingTime)
           playingSec = playingTime.toString().split('.')[0]
           if (playingSec !== signTime) {
-            console.log('playingTime', playingTime)
-            this.setData({
-              movableDis: (movableAreaWidth - movableViewWidth) * playingTime / duration,
-              progress: playingTime / duration * 100,
-              ['showTime.currentTime']: `${this._formatTime(playingTime).min}:${this._formatTime(playingTime).sec}`
-            })
-            signTime = playingSec
+            this._setProgress()
 
             // 联动歌词
             this.triggerEvent('timeUpdate', {
@@ -153,6 +146,15 @@ Component({
           icon: 'loading'
         })
       })
+    },
+
+    _setProgress(){
+      this.setData({
+        movableDis: (movableAreaWidth - movableViewWidth) * playingTime / duration,
+        progress: playingTime / duration * 100,
+        ['showTime.currentTime']: `${this._formatTime(playingTime).min}:${this._formatTime(playingTime).sec}`
+      })
+      signTime = playingSec
     },
 
     _durationTime() {

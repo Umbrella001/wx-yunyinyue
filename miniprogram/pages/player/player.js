@@ -15,7 +15,7 @@ Page({
     isPlaying: false,
     isLyricShow: true,
     lyric: '',
-    isSame: false,  // 是否同一首歌 
+    isSame: false, // 是否同一首歌 
   },
 
   /**
@@ -28,18 +28,16 @@ Page({
   },
 
   _loadMusicDetail(musicId) {
-    if(musicId == app.getMusicId()){
+    if (musicId == app.getMusicId()) {
       this.setData({
         isSame: true
       })
-    }else{
+    } else {
       this.setData({
         isSame: false
       })
     }
-    if(!this.data.isSame){
-      backgroundAudioManager.stop()
-    } 
+
     let musicInfo = musiclist[currentMusicIndex]
     wx.setNavigationBarTitle({
       title: musicInfo.name
@@ -47,9 +45,12 @@ Page({
 
     app.setMusicId(musicId)
 
+    if (!this.data.isSame) {
+      backgroundAudioManager.stop()
+    }
+
     this.setData({
-      picUrl: musicInfo.al.picUrl,
-      isPlaying: false
+      picUrl: musicInfo.al.picUrl
     })
 
     wx.showLoading({
@@ -64,18 +65,24 @@ Page({
       }
     }).then((res) => {
       let result = JSON.parse(res.result)
+      if (result.data[0].url == null) {
+        wx.showToast({
+          title: '此歌曲为VIP',
+        })
+        return 
+      }
       if (!this.data.isSame) {
         backgroundAudioManager.src = result.data[0].url
         backgroundAudioManager.title = musicInfo.name
         backgroundAudioManager.coverImgUrl = musicInfo.al.picUrl
         backgroundAudioManager.singer = musicInfo.ar[0].name
         backgroundAudioManager.epname = musicInfo.ar.name
-      } 
-     
+      }
+
       this.setData({
         isPlaying: true
       })
-
+    
       wx.hideLoading()
 
       // 加载歌词
@@ -86,13 +93,12 @@ Page({
           $url: 'lyric'
         }
       }).then((res) => {
-        console.log(res)
         let lyric = '暂无歌词'
         let lrc = JSON.parse(res.result).lrc
         lrc = lrc ? lrc.lyric : lyric
-          this.setData({
-            lyric: lrc
-          })
+        this.setData({
+          lyric: lrc
+        })
       })
     })
   },
@@ -103,6 +109,7 @@ Page({
     this.setData({
       isPlaying: !this.data.isPlaying
     })
+
   },
 
   prevMusic() {
@@ -123,17 +130,17 @@ Page({
     })
   },
 
-  timeUpdate(event){
+  timeUpdate(event) {
     this.selectComponent('.lyric').update(event.detail.playingTime)
   },
 
-  onPlay(){
+  onPlay() {
     this.setData({
       isPlaying: true
     })
   },
 
-  onPause(){
+  onPause() {
     this.setData({
       isPlaying: false
     })
@@ -157,7 +164,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    console.log('xxxxxx')
   },
 
   /**

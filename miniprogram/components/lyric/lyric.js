@@ -14,7 +14,7 @@ Component({
 
   observers: {
     lyric(lrc) {
-      console.log(lrc)
+      // console.log(lrc)
       if (lrc == '暂无歌词'){
         this.setData({
           lyricInfo:[
@@ -76,7 +76,6 @@ Component({
             playingLyricIndex: i - 1,
             scrollTop: (i - 1) * lyricHeight
           })
-          console.log(playingTime, lyricTime[i].timeSec, this.data.playingLyricIndex)
           break
         }
       }
@@ -99,7 +98,6 @@ Component({
       this.setData({
         lyricInfo: lyricAndTime
       })
-      console.log(this.data.lyricInfo)
       lyricAndTime = []
     }
   }
