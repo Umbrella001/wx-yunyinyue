@@ -15,12 +15,18 @@
 - cloudfunciton
 
 1. 实现定时触发器云函数的定时周期爬数据（网易云音乐）歌单及其歌曲数据
-
 2. 使用tcb-router管理项目路由跳转部分
+3. 突破小程序读取条数限制 + 配合云数据库完成数据的增删改查
 
 - miniprogram
 
 1. 完成小程序音乐模块中的轮播图，歌单的获取及展示，歌单内部歌曲的获取及展示
+
+   1.1 swiper轮播图原生组件
+
+   1.2 组件定义开发playlist 、musiclist
+
+   1.3 
 
 
 ![1571901894657](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1571901894657.png)
@@ -29,4 +35,16 @@
 
 2. 完成小程序音乐面板布局
 
-![wx-player](C:\Users\Administrator\Desktop\wx-player.png)
+3. 歌曲播放以及歌词联动等细节（音乐模块完成）
+
+   3.1 组件化开发 progress-bar 、lyric
+
+   3.2 使用getBackgroundAudioManager完成播放音乐功能
+
+   3.3 配合movable-area、movable-view、progress完成歌词播放进度条联动
+
+   3.4 组件间通信+组件生命周期 、组件和页面通信+页面生命周期
+
+   3.5 高度还原网易云音乐的播放界面细节点
+
+![1573754863719](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573754863719.png)
