@@ -63,12 +63,14 @@
 
 - miniprogram
 
-  1. 完成小程序博客模块发布界面的授权登录
 
-     1.1 组件化两个 author-popup（授权登录弹窗），author（授权登录）
 
-     1.2 完成组件突破组件隔离使用全局样式
+1. 完成小程序博客模块发布界面的授权登录
 
-     1.3 使用button中open-type为getUserInfo进行用户信息获取，通过wx.getSetting拿到对应授权信息
+   1.1 组件化两个 author-popup（授权登录弹窗），author（授权登录）
 
-  ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-author.png)
+   1.2 完成组件突破组件隔离使用全局样式
+
+   1.3 使用button中open-type为getUserInfo进行用户信息获取，通过wx.getSetting拿到对应授权信息
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-author.png)
