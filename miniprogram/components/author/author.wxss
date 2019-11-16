@@ -1,0 +1,7 @@
+.login{
+  font-size: 32rpx;
+  height: 80rpx;
+  background: #d81e06;
+  color: #fff;
+  margin: 120rpx;
+}

@@ -1,1 +1,37 @@
-/* pages/blog/blog.wxss */
+.container {
+  position: flxed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  padding: 0 20rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.blog-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80 rpx;
+}
+
+.icon-fabu {
+  color: #2a94e6;
+  font-size: 48rpx;
+}
+
+.blog-publish {
+  width: 68rpx;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-search {
+  flex: 1;
+}

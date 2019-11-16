@@ -1,2 +1,19 @@
-<!--pages/blog/blog.wxml-->
-<text>pages/blog/blog.wxml</text>
+<view class="container">
+    <!-- 博客头部  -->
+    <view class="blog-header">
+      <view class="blog-publish" bindtap="onPublish">
+        <i class="iconfont icon-fabu"></i>
+      </view>
+      <view class="blog-search" >
+        <x-search  />
+      </view>
+    </view>
+</view>
+
+    <!-- 博客底部授权弹出层  -->
+    <x-author isShowPopup="{{isShowPopup}}"
+        bind:loginsuccess="onLoginSuccess"
+        bind:loginfail="onLoginFail"
+    >
+    </x-author>
+

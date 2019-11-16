@@ -1,0 +1,5 @@
+<view class="container">
+  <i class="iconfont icon-sousuo find"></i>
+  <input class="search-bar" placeholder="{{placeHolderText}}" placeholder-class="bar-style"></input>
+  <button class="search-btn" type="search">搜索</button>
+</view>

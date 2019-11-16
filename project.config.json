@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -59,6 +59,13 @@
 					"name": "player",
 					"pathName": "pages/player/player",
 					"query": "musicId= 1383163982&name=\"太一-Lutra（12仔 remix）\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "blog",
+					"pathName": "pages/blog/blog",
+					"query": "",
 					"scene": null
 				}
 			]

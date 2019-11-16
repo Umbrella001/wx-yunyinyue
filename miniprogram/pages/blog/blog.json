@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "x-search": "/components/search/search",
+    "x-author": "/components/author/author"
+  },
+  "navigationBarTitleText": "博客-发现"
 }
