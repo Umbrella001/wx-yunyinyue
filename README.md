@@ -1,4 +1,4 @@
-# 云开发 quickstart
+# 原生小程序云开发 ---- 仿网易云音乐
 
 这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
 
@@ -6,11 +6,13 @@
 - 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
 - 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
 
-## 参考文档
+## 1️⃣  参考文档
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
-### 项目进度
+## 2️⃣  项目进度
+
+### 2️⃣ . 1️⃣  音乐模块开发
 
 - cloudfunciton
 
@@ -24,7 +26,7 @@
 
    1.1 swiper轮播图原生组件
 
-   1.2 组件定义开发playlist 、musiclist
+   1.2 组件定义开发playlist （歌单列表）、musiclist（音乐列表）
 
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-panel.png)
@@ -41,7 +43,7 @@
 
 2. 歌曲播放以及歌词联动等细节（音乐模块完成）
 
-   3.1 组件化开发 progress-bar 、lyric
+   3.1 组件化开发 progress-bar（播放进度条） 、lyric（歌词界面）
 
    3.2 使用getBackgroundAudioManager完成播放音乐功能
 
@@ -52,3 +54,21 @@
    3.5 高度还原网易云音乐的播放界面细节点
 
    ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/lyric-panel.png)
+
+### 2️⃣ . 2️⃣  博客发现模块开发
+
+- cloudfunciton
+
+  （撰写中...）
+
+- miniprogram
+
+  1. 完成小程序博客模块发布界面的授权登录
+
+     1.1 组件化两个 author-popup（授权登录弹窗），author（授权登录）
+
+     1.2 完成组件突破组件隔离使用全局样式
+
+     1.3 使用button中open-type为getUserInfo进行用户信息获取，通过wx.getSetting拿到对应授权信息
+
+  ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-author.png)
