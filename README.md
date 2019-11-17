@@ -12,13 +12,15 @@
 
 ② 注册个小程序是第一步（首次注册可以看[官网文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#申请帐号)），然后将项目在微信开发者工具打开，然后迫在眉睫的当然就是部署服务器（也就是创建自己的云服务）
 
-③ 在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云；
+③ 在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_0l.png)
+
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_01.png)
 
 ④ 然后你将cloudfunciton下的几个云函数，右键上传并部署到你的云服务中，成功后就是差最后一步了
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy/deploy_02.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_02.png)
 
 ⑤ 项目刚起步，用到了一个云数据库表，所以你进去你【云开发】界面点击【数据库】，下面新建一个集合名称，名字要起对，叫 playlist。这是歌曲的接口。现在项目已经完成了音乐模块，后续还有一些优化，后面会更新，具体可看文档
 
