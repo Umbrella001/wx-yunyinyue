@@ -6,6 +6,24 @@
 - 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
 - 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
 
+## 0️⃣  运行部署到自己电脑中运行
+
+① 首先可以的话，可以Fock一下我的项目到自己的Github，项目还在更新后续可以方便查看文档，然后把我的代码下载下来解压到自己电脑
+
+② 注册个小程序是第一步（首次注册可以看[官网文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#申请帐号)），然后将项目在微信开发者工具打开，然后迫在眉睫的当然就是部署服务器（也就是创建自己的云服务）
+
+③ 在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云；
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy/deploy_0l.png)
+
+④ 然后你将cloudfunciton下的几个云函数，右键上传并部署到你的云服务中，成功后就是差最后一步了
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy/deploy_02.png)
+
+⑤ 项目刚起步，用到了一个云数据库表，所以你进去你【云开发】界面点击【数据库】，下面新建一个集合名称，名字要起对，叫 playlist。这是歌曲的接口。现在项目已经完成了音乐模块，后续还有一些优化，后面会更新，具体可看文档
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy/deploy_03.png)
+
 ## 1️⃣  参考文档
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)

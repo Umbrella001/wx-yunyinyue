@@ -1,2 +1,20 @@
-<!--pages/blog-edit/blog-edit.wxml-->
-<text>pages/blog-edit/blog-edit.wxml</text>
+<view class="container">
+  <textarea class="content" 
+    placeholder="记录美好时光..."
+    bind:input="onInput"
+  ></textarea>
+
+  <view class="image-list">
+  <!-- 显示图片 -->
+  
+  <!-- 选择图片 -->
+    <view class="image-wrap selectphoto">
+      <i class="iconfont icon-jiahao"></i>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <text class="words-num">{{wordsNum}}</text>
+  <button class="send-btn">发布</button>
+</view>

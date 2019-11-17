@@ -9,16 +9,15 @@ Page({
   },
 
   onPublish() {
-    // this.setData({
-    //   isShowPopup: !this.data.isShowPopup
-    // })
-
     wx.getSetting({
       success: (res) => {
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
-            success(res) {
+            success:(res) =>  {
               console.log(res)
+              this.onLoginSuccess({
+                detail: res.userInfo 
+              })
             }
           })
         } else {
@@ -32,6 +31,10 @@ Page({
 
   onLoginSuccess(event){
     console.log(event)
+    const detail = event.detail
+    wx.navigateTo({
+      url: `../blog-edit/blog-edit?userName=${detail.nickName}&avatarUrl=${detail.avatarUrl}`,
+    })
   },
   onLoginFail(){
     wx.showModal({
