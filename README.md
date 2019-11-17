@@ -10,7 +10,7 @@
 
 ① 首先可以的话，可以Fork一下我的项目到自己的Github，项目还在更新后续可以方便查看文档，然后把我的代码下载下来解压到自己电脑
 
-② 注册个小程序是第一步（首次注册可以看[官网文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#申请帐号)），然后将项目在微信开发者工具打开，然后迫在眉睫的当然就是部署服务器（也就是创建自己的云服务）
+② 注册个小程序是第一步（首次注册可以看[官网文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#申请帐号)），然后将项目在微信开发者工具打开，接下来迫在眉睫的当然就是部署服务器（也就是创建自己的云服务）
 
 ③ 在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云
 
@@ -18,13 +18,15 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_01.png)
 
-④ 然后你将 `cloudfuncitons` 下的几个云函数，右键上传并部署到你的云服务中，成功后就是差最后一步了
+④ 然后你将 ==cloudfuncitons== 下的几个云函数，右键上传并部署到你的云服务中，成功后就是差最后一步了
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_02.png)
 
-⑤ 项目刚起步，用到了一个云数据库表，所以你进去你【云开发】界面点击【数据库】，下面新建一个集合名称，名字要起对，叫 `playlist` → 这是歌曲的数据存放地；现在项目已经完成了音乐模块，后续还有一些优化，后面会更新，具体可看文档
+⑤ 项目刚起步，用到了一个云数据库表，所以你进去你【云开发】界面点击【数据库】，下面新建一个集合名称，名字要起对，叫 ==playlist== → 这是歌曲的数据存放地；现在项目已经完成了音乐模块，后续还有一些优化，后面会更新，具体可看文档
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_03.png)
+
+⑥ 后续随着项目功能模块增加，云服务那边的部署就会复杂一点，但我会在这里说明好的，按照上面来应该没有问题，欢迎star
 
 ## 1️⃣  参考文档
 
