@@ -1,20 +1,18 @@
-// pages/player/player.js
+let musiclist = [] // 歌单歌曲列表
+let currentMusicIndex = 0 // 当前播放歌曲的索引
 
-let musiclist = []
-let currentMusicIndex = 0
-// 获取全局唯一的背景音频管理器
-const backgroundAudioManager = wx.getBackgroundAudioManager()
-const app = getApp()
+const backgroundAudioManager = wx.getBackgroundAudioManager() // 获取全局唯一的背景音频管理器
+const app = getApp() // 获取全局app实例
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    picUrl: '',
-    isPlaying: false,
-    isLyricShow: true,
-    lyric: '',
+    picUrl: '', // 歌曲的封面图
+    isPlaying: false, // 歌曲是否播放中，默认false没有播放
+    isLyricShow: true, // 显示歌曲歌词，默认true不显示歌词
+    lyric: '', // 歌曲歌词
     isSame: false, // 是否同一首歌 
   },
 
@@ -23,10 +21,11 @@ Page({
    */
   onLoad(options) {
     currentMusicIndex = options.index
-    musiclist = wx.getStorageSync('musiclist')
+    musiclist = wx.getStorageSync('musiclist') // 获取歌单歌曲
     this._loadMusicDetail(options.musicId)
   },
 
+  // 加载歌曲的信息包括歌词 
   _loadMusicDetail(musicId) {
     if (musicId == app.getMusicId()) {
       this.setData({
@@ -69,7 +68,7 @@ Page({
         wx.showToast({
           title: '此歌曲为VIP',
         })
-        return 
+        return
       }
       if (!this.data.isSame) {
         backgroundAudioManager.src = result.data[0].url
@@ -82,7 +81,7 @@ Page({
       this.setData({
         isPlaying: true
       })
-    
+
       wx.hideLoading()
 
       // 加载歌词
@@ -103,6 +102,7 @@ Page({
     })
   },
 
+  // 点击播放按钮切换播放和暂停 
   togglePlaying() {
     this.data.isPlaying ? backgroundAudioManager.pause() : backgroundAudioManager.play()
 
@@ -112,6 +112,7 @@ Page({
 
   },
 
+  // 点击播放上一首和下一首歌曲
   prevMusic() {
     currentMusicIndex--
     currentMusicIndex = currentMusicIndex < 0 ? musiclist.length - 1 : currentMusicIndex
@@ -124,16 +125,19 @@ Page({
     this._loadMusicDetail(musiclist[currentMusicIndex].id)
   },
 
+  // 切换歌词显示与否
   lyricShowChange() {
     this.setData({
       isLyricShow: !this.data.isLyricShow
     })
   },
 
+  // 重新载入歌曲获取总时间 -- 修复BUG
   timeUpdate(event) {
     this.selectComponent('.lyric').update(event.detail.playingTime)
   },
 
+  // 歌曲后台面板的播放与暂停
   onPlay() {
     this.setData({
       isPlaying: true
@@ -144,54 +148,5 @@ Page({
     this.setData({
       isPlaying: false
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-    console.log('xxxxxx')
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
 })
