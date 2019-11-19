@@ -1,6 +1,4 @@
-// pages/music/music.js
-
-const MAX_LIMIT = 15
+const MAX_LIMIT = 15  // 歌单每次请求的最大量
 
 Page({
 
@@ -17,47 +15,18 @@ Page({
       {
         url: 'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
       }
-    ],
-    playlist: []
+    ],   // 轮播图
+    playlist: [],  // 歌单列表
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载--首次加载获取第一页歌单列表
    */
   onLoad: function(options) {
     this._getplaylist();
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成 
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 页面相关事件处理函数--监听用户下拉动作--下拉重新请求
    */
   onPullDownRefresh: function() {
     this.setData({
@@ -67,19 +36,13 @@ Page({
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 页面上拉触底事件的处理函数--加载更多歌单
    */
   onReachBottom: function() {
     this._getplaylist();
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-
+  // 向云服务请求获取歌单列表
   _getplaylist(){
     wx.showLoading({
       title: '歌单加载中...',

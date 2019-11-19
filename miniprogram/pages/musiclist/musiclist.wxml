@@ -1,3 +1,4 @@
+<!-- 歌单头部封面 -->
 <view class='detail-container' style='background: url({{coverImgInfo.coverImgUrl}}) no-repeat top/cover'></view>
 <view class='detail-mask'></view>
 <view class='detail-info'>
@@ -6,5 +7,5 @@
    <view class='detail-name'>{{coverImgInfo.coverImgName}}    </view>
   </view>
 </view>
-
+<!-- 组件 --- 歌曲条目 -->
 <x-musiclist musiclist='{{musiclist}}'/>
