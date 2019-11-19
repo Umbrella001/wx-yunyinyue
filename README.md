@@ -111,9 +111,5 @@
 
 图片不展示那么多，可以自己部署本地，自己真机测试，有什么缺点或者优化可以私我~
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/publish-image.png)
-
-
-
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/publish-video.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/publish-type.png)
 
