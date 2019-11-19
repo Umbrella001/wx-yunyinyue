@@ -1,3 +1,4 @@
+<!-- 音乐模块--首页轮播图 -->
 <swiper 
     indicator-dots="true"
     indicator-active-color="#d81e06"
@@ -12,6 +13,7 @@
   </block>
 </swiper>
 
+<!-- 歌单列表 -->
 <view class="playlist-container">
   <block wx:for="{{playlist}}"  wx:key="_id">
       <x-playlist playlist="{{item}}">
