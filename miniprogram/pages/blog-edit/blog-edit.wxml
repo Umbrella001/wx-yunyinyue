@@ -23,7 +23,7 @@
     <!-- 显示视频 -->
     <block wx:for="{{videos}}" wx:key="*this" wx:if="{{isBtnType}}">
         <view class="image-wrap">
-          <video id="myVideo" src="{{item}}" autoplay="{{!play}}"  controls object-fit="fill" bindtap="videoTap" muted="{{!play}}">
+          <video id="myVideo" src="{{item}}" autoplay="{{!play}}"  controls object-fit="cover" bindtap="videoTap" muted="{{!play}}">
           </video>
           <i class="iconfont icon-shanchu" bind:tap="delectImg" data-index="{{index}}"></i>
         </view>

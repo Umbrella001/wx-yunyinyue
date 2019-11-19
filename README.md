@@ -96,3 +96,24 @@
    1.3 使用button中open-type为getUserInfo进行用户信息获取，通过wx.getSetting拿到对应授权信息
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-author.png)
+
+
+
+2. 博客模块发布编辑页制作（测试：【真机调试】，开发工具部分功能测不了，本人使用IOS测，Android没测多少有BUG可以私我）
+
+   2.1 编辑字数检测，监测不同机型拉起键盘高度改变发布底部发布布局样式
+
+   2.2 可以根据用户需求上传图片或者视频，默认最多9，视频1
+
+   2.3 点击图片或者视频都可以进入预览图片或者播放视频，点击右上角的叉叉可进行删除
+
+   2.4 解决BUG：修复播放视频时，textarea输入框（原生组件）遮住播放视频的返回编辑页的按钮；增加切换发布类型（图片 / 视频）仍可以记录上一个编辑的最后格式
+
+图片不展示那么多，可以自己部署本地，自己真机测试，有什么缺点或者优化可以私我~
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/publish-image.png)
+
+
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/publish-video.png)
+
