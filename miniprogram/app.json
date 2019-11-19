@@ -3,7 +3,6 @@
     "pages/music/music",
     "pages/blog/blog",
     "pages/profile/profile",
-    "pages/demo/demo",
     "pages/musiclist/musiclist",
     "pages/player/player",
     "pages/blog-edit/blog-edit"

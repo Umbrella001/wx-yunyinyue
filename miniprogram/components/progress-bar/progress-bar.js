@@ -1,9 +1,9 @@
-let movableAreaWidth = 0,
-  movableViewWidth = 0,
-  playingTime = 0,
-  signTime = '-1',
-  playingSec,
-  duration = 0,
+let movableAreaWidth = 0, // 歌曲播放进度条宽度
+  movableViewWidth = 0, // 歌曲圆点宽度
+  playingTime = 0, // 当前播放的进度时间
+  signTime = '-1',  // 当前歌曲播放的分（分钟）
+  playingSec, // 获取歌曲播放的分（分钟）
+  duration = 0,  // 储存歌曲总时长
   isMoving = false // 判断用户是否正在拖动进度条，是则不设置值（此时音视频不播放），否时则说明没有拖动
 const backgroundAudioManager = wx.getBackgroundAudioManager()
 Component({
@@ -21,15 +21,15 @@ Component({
     showTime: {
       currentTime: '00:00',
       totalTime: '00:00'
-    },
-    movableDis: 0,
-    progress: 0,
-    isMoving: false
+    }, // 歌曲播放时间和总时间初始值
+    movableDis: 0, // 进度条上圆点的移动距离
+    progress: 0, // 歌曲播放的进程
+    isMoving: false // 用户是否拖拽进度条圆点
   },
 
   lifetimes: {
     ready() {
-      if (this.properties.isSame && this.data.showTime['totalTime'] == '00:00'){
+      if (this.properties.isSame && this.data.showTime['totalTime'] == '00:00') {
         this._durationTime()
         this._setProgress()
       }
@@ -42,6 +42,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 用户拖拽圆点
     onChange(event) {
       if (event.detail.source == 'touch') {
         this.data.progress = event.detail.x / (movableAreaWidth - movableViewWidth) * 100
@@ -54,6 +55,8 @@ Component({
         })
       }
     },
+
+    // 用户停止拖拽（松开进度条圆点）
     onTouchEnd() {
       let currentTimeTem = this._formatTime(backgroundAudioManager.currentTime)
       this.setData({
@@ -64,6 +67,8 @@ Component({
       })
       backgroundAudioManager.seek(this.data.progress * duration / 100)
     },
+
+    // 获取当前设备最后得到的进度条及其进度条圆点的尺寸
     _getMovableDis() {
       const query = this.createSelectorQuery()
       query.select('.movable-area').boundingClientRect()
@@ -75,8 +80,8 @@ Component({
       })
     },
 
+    // 监听背景音频播放事件
     _bindBGMEvent() {
-      // 监听背景音频播放事件
       backgroundAudioManager.onPlay(() => {
         console.log('onPlay')
         this.setData({
@@ -118,8 +123,10 @@ Component({
         if (!this.data.isMoving) {
           console.log('onTimeUpdate')
           playingTime = backgroundAudioManager.currentTime
+          console.log('123321',playingTime)
           this._formatTime(playingTime)
           playingSec = playingTime.toString().split('.')[0]
+          console.log('44444', playingSec)
           if (playingSec !== signTime) {
             this._setProgress()
 
@@ -148,7 +155,8 @@ Component({
       })
     },
 
-    _setProgress(){
+  //  设置进度条播放进度
+    _setProgress() {
       this.setData({
         movableDis: (movableAreaWidth - movableViewWidth) * playingTime / duration,
         progress: playingTime / duration * 100,
@@ -157,6 +165,7 @@ Component({
       signTime = playingSec
     },
 
+    // 重新载入歌曲时获取总时间
     _durationTime() {
       duration = backgroundAudioManager.duration
       this.setData({
@@ -164,6 +173,7 @@ Component({
       })
     },
 
+    // 格式化时间
     _formatTime(times) {
       let min = Math.floor(times / 60)
       let sec = Math.floor(times % 60)
@@ -174,6 +184,7 @@ Component({
       }
     },
 
+    // 歌词时间（分）补零
     _parseZero(time) {
       return time = time < 10 ? '0' + time : time
     }

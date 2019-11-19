@@ -1,3 +1,4 @@
+<!-- 歌词面板 -->
 <scroll-view hidden="{{isLyricShow}}" class="lyric-scroll" scroll-y scroll-top="{{scrollTop}}" scroll-with-animation="true">
   <view class="lyric-panel">
     <block wx:for="{{lyricInfo}}" wx:key="item">
@@ -5,4 +6,5 @@
     </block>
   </view>
 </scroll-view>
+<!-- 歌词面板模糊层 -->
 <view hidden="{{isLyricShow}}" class="lyric-blur"></view>
