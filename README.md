@@ -18,7 +18,7 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_01.png)
 
-④ 然后你将 `cloudfuncitons` 下的几个云函数，右键上传并部署到你的云服务中，成功后就是差最后一步了
+④ 然后你将 `cloudfuncitons` 下的几个云函数，右键终端打开 `npm install` 一下 ，因为这些云函数中有些用到了其他库的依赖（你也可以直接在cloudfunctions顶层云函数文件夹中选择终端，然后 `npm install`），有些小伙伴会报错比如没有权限或者没有识别到 ·npm· 这个指令，问题就是你需要在你电脑全局安装一个Node@8+，此时也会同时带有npm的，如果还是不行就是权限问题（Window / Mac），你需要以管理员的身份调出你的终端进行操作；（如果嫌麻烦的还可以在自己电脑装一个 [git Bash](https://git-scm.com/download/)）
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_02.png)
 
