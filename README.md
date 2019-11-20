@@ -26,13 +26,13 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_03.png)
 
-⑥ 【这一步可以不部置】项目中涉及图片或者视频资源的上传，需要在【云开发】界面点击【存储】，创建两个放资源的文件夹，一个是放图片的 `blog-image`，另一个是 `blog-video`；这步骤可以跳，不创建的话也会开发工具也会自动新建，当然对于低版本开发工具是否有这个功能，所以最好升级最新，否则就按上面操作就行
+⑥ 【这一步可以不部置】项目中涉及图片或者视频资源的上传，需要在【云开发】界面点击【存储】，创建两个放资源的文件夹，一个是放图片的 `blog-image`，另一个是 `blog-video`；这步骤可以跳，不创建的话也会开发工具也会自动新建，当然对于低版本开发工具是否有这个功能就不知道了，所以最好升级最新版本的开发工具，否则就按上面操作就行
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/cloud-save.png)
 
 
 
-⑦ 后续随着项目功能模块增加，云服务那边的部署就会复杂一点，但我会在这里说明好的，按照上面来应该没有问题，欢迎 ★★★star★★★
+⑦ 后续随着项目功能模块增加，云服务那边的部署就会复杂一点，但我会在这里说明好的，按照上面来应该没有问题，欢迎  :sparkles::sparkles::sparkles: star​ :sparkles::sparkles::sparkles:
 
 ## 1️⃣  参考文档
 
