@@ -5,7 +5,7 @@
     bindinput="onInput"
     bindfocus="onFocus"
     bindblur="onBlur"
-    wx:if="{{ !play }}"
+    hidden="{{ play }}"
   ></textarea>
   <!-- 切换发布类型按钮 -->
   <view class="public-type">
@@ -16,14 +16,14 @@
   <!-- 显示图片 -->
     <block wx:for="{{images}}" wx:key="*this" wx:if="{{!isBtnType}}">
         <view class="image-wrap">
-          <image  class="image" src="{{item}}" mode="widthFix" bindtap="onPreviewImg" data-imgsrc="{{item}}"></image>
+          <image  class="image" src="{{item}}" mode="aspectFill" bindtap="onPreviewImg" data-imgsrc="{{item}}"></image>
           <i class="iconfont icon-shanchu" bind:tap="delectImg" data-index="{{index}}"></i>
         </view>
     </block>
     <!-- 显示视频 -->
     <block wx:for="{{videos}}" wx:key="*this" wx:if="{{isBtnType}}">
         <view class="image-wrap">
-          <video id="myVideo" src="{{item}}" autoplay="{{!play}}"  controls object-fit="cover" bindtap="videoTap" muted="{{!play}}">
+          <video id="myVideo" src="{{item}}" autoplay="{{!play}}"  controls object-fit="contain" bindtap="videoTap" muted="{{!play}}">
           </video>
           <i class="iconfont icon-shanchu" bind:tap="delectImg" data-index="{{index}}"></i>
         </view>
@@ -37,5 +37,5 @@
 <!-- 发布页面底部 -->
 <view class="footer" style="bottom: {{footerHeight}}px">
   <text class="words-num">{{wordsNum}}</text>
-  <button class="send-btn">发布</button>
+  <button class="send-btn" bind:tap="testSend">发布</button>
 </view>
