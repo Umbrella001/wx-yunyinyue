@@ -10,6 +10,28 @@
     </view>
 </view>
 
+<!-- 无数据时提示  -->
+  <view class="blog-empty" hidden="{{blogList}}">
+      <image class="empty-img" src="../../images/blog-empty.svg"></image>
+      <view class="blog-content">
+          <text class="blog-tip">好凄凉，神马都没有~</text>
+          <button class="blog-send" bindtap="onPublish">写点什么</button>
+      </view>
+  </view>
+
+    <!-- 博客列表 -->
+    <view class="blog-list">
+      <block wx:for="{{blogList}}" wx:key="_id">
+        <view class="blog-panel">
+          <x-blog-card 
+            blog="{{item}}" 
+            bind:tap="goComment"
+            data-blogid="{{item._id}}"
+            />
+        </view>
+      </block>
+    </view> 
+
     <!-- 博客底部授权弹出层  -->
     <x-author isShowPopup="{{isShowPopup}}"
         bind:loginsuccess="onLoginSuccess"

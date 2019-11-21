@@ -1,0 +1,60 @@
+page {
+  background: #f1f1f1
+}
+
+.blog{
+  padding: 20rpx;
+  background:#fff;
+  font-family: Arial, "PingFang SC", "Hiragino Sans GB", STHeiti,
+ "Microsoft YaHei","WenQuanYi Micro Hei", sans-serif;
+}
+
+.blog-title{
+  display: flex;
+}
+
+.blog-box{
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-user{
+  font-size: 32rpx;
+  font-family:"微软正黑体","Microsoft YaHei";
+  font-weight: 500
+}
+
+.blog-time{ 
+   color: #a0a0a0;
+   font-size: 28rpx;
+   margin-bottom: 4rpx;
+}
+
+.blog-author{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  border: 1px solid rgba(216, 30, 6, .4);
+}
+
+.bog-content{
+  width: 100%;
+  padding: 20rpx 4rpx;
+  font-size: 30rpx;
+}
+
+.blog-img{
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1)
+}
+
+.blog-images .blog-img{
+  width: 230rpx;
+  height: 230rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.blog-images .blog-img:nth-child(3n){
+  margin-right: 0
+}

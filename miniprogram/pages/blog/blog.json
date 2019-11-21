@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "x-search": "/components/search/search",
-    "x-author": "/components/author/author"
+    "x-author": "/components/author/author",
+    "x-blog-card": "/components/blog-card/blog-card"
   },
-  "navigationBarTitleText": "博客-发现"
+  "navigationBarTitleText": "博客-发现",
+  "enablePullDownRefresh": true
 }

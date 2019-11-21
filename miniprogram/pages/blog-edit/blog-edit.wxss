@@ -66,7 +66,7 @@
   margin-right: 20rpx;
 }
 
-/* 图片样式 */
+/* 图片列表 */
 
 .image-list{
   display: flex;
@@ -84,12 +84,6 @@
   position: relative;
   overflow: hidden;
   text-align: center; 
-}
-
-.selectphoto{
-  line-height: 220rpx;
-  border: 1px dotted #ccc;
-  border-radius: 30rpx;
 }
 
 .image {
@@ -110,4 +104,10 @@
   line-height: 40rpx;
   font-size: 38rpx;
   font-weight: bolder;
+}
+
+.selectphoto{
+  line-height: 220rpx;
+  border: 1px dotted #ccc;
+  border-radius: 30rpx;
 }

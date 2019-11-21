@@ -1,5 +1,5 @@
 .container {
-  position: flxed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -34,4 +34,51 @@
 
 .blog-search {
   flex: 1;
+}
+
+.blog-list {
+  margin-top: 120rpx;
+}
+
+.blog-panel {
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 博客列表没有数据时 */
+
+.blog-empty {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320rpx;
+  z-index: 98;
+  text-align: center;
+}
+
+.empty-img {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 360rpx;
+  height: 270rpx;
+}
+
+.blog-content{
+  margin-top: 160rpx;
+}
+
+.blog-tip{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30rpx;
+  color: #8d8d8d;
+}
+
+.blog-send {
+  color: #fff;
+  background: #d81e06;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  margin-top: 20rpx;
 }

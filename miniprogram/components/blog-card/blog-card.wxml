@@ -1,0 +1,32 @@
+<view class="blog">
+  <view class="blog-title">
+    <image class="blog-author" src="{{blog.avatarUrl}}"></image>
+    <view class="blog-box">
+      <view class="blog-user">{{blog.userName}}</view>
+      <view class="blog-time">{{_publishTime}}</view>
+    </view>
+  </view>
+  <view class="bog-content">{{blog.content}}</view>
+  <view class="blog-images">
+    <block wx:for="{{blog.img}}" wx:key="*this">
+      <image 
+        wx:if="{{!blog.publishType}}"
+        class="blog-img" 
+        src="{{item}}" 
+        mode="aspectFill"
+        catch:tap="onPreviewImg"
+        data-images="{{blog.img}}"
+        data-imgsrc="{{item}}"
+      ></image>
+      <video 
+        wx:if="{{blog.publishType}}"
+        id="blogVideo"
+        class="blog-img" 
+        src="{{item}}"
+        object-fit="contain"
+        controls
+        catchtap="onPlaying"
+      ></video>
+    </block>
+  </view>
+</view>

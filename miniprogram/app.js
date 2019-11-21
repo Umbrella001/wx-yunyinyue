@@ -16,15 +16,26 @@ App({
     }
 
     this.globalData = {
-      playingMusicId: -1
+      playingMusicId: -1,
+      isBtnType: 0
     }
   },
   
+  //  获取和设置音乐id
   setMusicId(musicId) {
     this.globalData.playingMusicId = musicId
   },
 
   getMusicId(){
     return this.globalData.playingMusicId
+  },
+
+  // 获取和设置发布或者展示的资源类型（图片和视频）
+  getResourceType(){
+    return this.globalData.isBtnType
+  },
+
+  setResourceType(sign){
+    this.globalData.isBtnType = sign
   }
 })

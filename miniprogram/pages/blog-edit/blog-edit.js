@@ -4,12 +4,13 @@ const TEXTAREA_WORD_LENGTH = 140, // 输入框的字数限制
 
 let fileExtName = '', // 上传图片或视频的格式扩展名
      _item = '', // 上传资源的循环项
-     videoContext = wx.createVideoContext('myVideo'), // 获取video标签实例
      content = '',   // 用户输入的内容
      userInfo = {},  // 用户信息（名字和头像） 
      sendType = []  // 发布博客是检测发布的是图片还是视频
 
 const db = wx.cloud.database() // 初始化数据库
+
+const app = getApp();  // 创建全局app实例
 
 Page({
 
@@ -32,6 +33,9 @@ Page({
   onLoad(options){
     console.log(options)
     userInfo = options
+    this.setData({
+      isBtnType: app.getResourceType()
+    })
   },
 
   // 监听输入框的字数
@@ -64,7 +68,7 @@ Page({
   // 上传图片或者视频
   uploadImg() {
     let remainImg = IMG_UPLOAD_NUM - this.data.images.length
-    if (!this.data.isBtnType) {
+    if (!app.getResourceType()) {
       console.log("pic")
       wx.chooseImage({
         count: remainImg,
@@ -91,7 +95,7 @@ Page({
           this.setData({
             videos: this.data.videos.concat(res.tempFilePath)
           })
-          videoContext = wx.createVideoContext('myVideo')
+          let videoContext = wx.createVideoContext('myVideo')
           videoContext.pause()
           videoContext.stop()
           if (VIDEO_UPLOAD_NUM - this.data.videos.length == 0) {
@@ -108,8 +112,8 @@ Page({
   delectImg(event) {
     console.log(event)
     const idx = event.currentTarget.dataset.index
-    this.data.isBtnType ? this.data.videos.splice(idx, 1) : this.data.images.splice(idx, 1)
-    if (!this.data.isBtnType) {
+    app.getResourceType() ? this.data.videos.splice(idx, 1) : this.data.images.splice(idx, 1)
+    if (!app.getResourceType()) {
       this.setData({
         images: this.data.images
       })
@@ -132,8 +136,9 @@ Page({
 
   // 切换上传类型是图片还是视频 
   triggerImg() {
+    app.setResourceType(0)
     this.setData({
-      isBtnType: 0
+      isBtnType: app.getResourceType()
     })
     if (IMG_UPLOAD_NUM - this.data.images.length != 0) {
       this.setData({
@@ -147,8 +152,9 @@ Page({
   },
 
   triggerVideo() {
+    app.setResourceType(1)
     this.setData({
-      isBtnType: 1
+      isBtnType: app.getResourceType()
     })
     if (VIDEO_UPLOAD_NUM - this.data.videos.length != 0) {
       this.setData({
@@ -173,8 +179,9 @@ Page({
 
   //点击暂停/开始
   videoTap() {
-    //获取video
-
+    //获取video标签实例
+    let videoContext = wx.createVideoContext('myVideo')
+    
     if (!this.data.play) {
       // 开始播放
       videoContext.play() //开始播放
@@ -197,7 +204,7 @@ Page({
   // 测试博客（发布规则，内容和图片/视频，不能都为空）
   testSend(){
     // 判断发布的内容是图片还是视频
-    sendType = this.data.isBtnType ? this.data.videos : this.data.images
+    sendType = app.getResourceType() ? this.data.videos : this.data.images
 
     if (content.trim() == '') {
       wx.showModal({
@@ -236,7 +243,9 @@ Page({
     // 将图片发布在云储存 fileID 云文件ID 每次只上传一个资源
     let promiseArr = [], // 存放Promise实例
          fileImgs = [], // 上传的图片或视频链接
-         saveCloudFile = this.data.isBtnType ? 'blog-video/' : 'blog-image/'   // 图片保存在blog-img，视频保存在blog-video
+         saveCloudFile = app.getResourceType() ? 'blog-video/' : 'blog-image/'   // 图片保存在blog-img，视频保存在blog-video
+
+    const publishType = app.getResourceType()
     
 
     wx.showLoading({
@@ -271,6 +280,7 @@ Page({
           content,
           img: fileImgs,
           ...userInfo,
+          publishType,
           publishTime: db.serverDate()  // 服务端时间 
         }
       }).then((res)=>{
@@ -280,9 +290,16 @@ Page({
           image: '../../images/show-success.png'
         })
         
-        wx.navigateBack({
-          url: '../blog/blog'
-        })
+        setTimeout(()=>{
+          wx.navigateBack({
+            url: "../blog/blog"
+          })
+          const pages = getCurrentPages()
+          // 获取上一级页面栈 prevPage
+          let prevPage = pages[pages.length - 2]
+          prevPage.onPullDownRefresh()
+        },800)
+       
       })
     }).catch((err) => {
       console.log('aaa',err)
