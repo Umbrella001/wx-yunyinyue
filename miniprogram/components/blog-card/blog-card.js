@@ -16,9 +16,9 @@ Component({
 
   lifetimes:{
     ready(){
-      let videoContext = wx.createVideoContext('blogVideo')
-      videoContext.pause()
-      videoContext.stop()
+      let videoReady = wx.createVideoContext('blogVideo')
+      videoReady.pause()
+      videoReady.stop()
     }
   },
   /**
@@ -28,7 +28,7 @@ Component({
     ['blog.publishTime'](val) {
       if (val) {
         this.setData({
-          _publishTime: formatTime(val)
+          _publishTime: formatTime(val, 'yy-MM-dd ww | zz hh:mm')
         })
       }
     }
@@ -57,8 +57,8 @@ Component({
     // 播放视频
     onPlaying(){
       // 获取video实例
-      let videoContext = wx.createVideoContext('blogVideo') 
-      
+      let videoContext = wx.createVideoContext('blogVideo',this) 
+
       if (!this.data.playing){
         videoContext.play() //开始播放
         videoContext.requestFullScreen() // 进入全屏

@@ -9,12 +9,10 @@ Page({
     blogList: [],  // 存放博客页面的博客列表数据
   },
 
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options){
-    console.log('gg',options)
     this._loadBlogList()
   },
 

@@ -11,13 +11,13 @@
 </view>
 
 <!-- 无数据时提示  -->
-  <view class="blog-empty" hidden="{{blogList}}">
+  <!-- <view class="blog-empty" wx:if="{{!blogList.length}}">
       <image class="empty-img" src="../../images/blog-empty.svg"></image>
       <view class="blog-content">
           <text class="blog-tip">好凄凉，神马都没有~</text>
           <button class="blog-send" bindtap="onPublish">写点什么</button>
       </view>
-  </view>
+  </view> -->
 
     <!-- 博客列表 -->
     <view class="blog-list">

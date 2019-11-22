@@ -25,7 +25,8 @@
         src="{{item}}"
         object-fit="contain"
         controls
-        catchtap="onPlaying"
+        autoplay="{{playing}}"
+        catch:tap="onPlaying"
       ></video>
     </block>
   </view>
