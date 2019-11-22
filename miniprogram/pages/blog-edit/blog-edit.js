@@ -1,16 +1,16 @@
 const TEXTAREA_WORD_LENGTH = 140, // 输入框的字数限制
-          IMG_UPLOAD_NUM = 9, // 图片上传的最大数量
-          VIDEO_UPLOAD_NUM = 1 // 视频上传的最大数量
+  IMG_UPLOAD_NUM = 9, // 图片上传的最大数量
+  VIDEO_UPLOAD_NUM = 1 // 视频上传的最大数量
 
 let fileExtName = '', // 上传图片或视频的格式扩展名
-     _item = '', // 上传资源的循环项
-     content = '',   // 用户输入的内容
-     userInfo = {},  // 用户信息（名字和头像） 
-     sendType = []  // 发布博客是检测发布的是图片还是视频
+  _item = '', // 上传资源的循环项
+  content = '', // 用户输入的内容
+  userInfo = {}, // 用户信息（名字和头像） 
+  sendType = [] // 发布博客是检测发布的是图片还是视频
 
 const db = wx.cloud.database() // 初始化数据库
 
-const app = getApp();  // 创建全局app实例
+const app = getApp(); // 创建全局app实例
 
 Page({
 
@@ -30,7 +30,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options){
+  onLoad(options) {
     console.log(options)
     userInfo = options
     this.setData({
@@ -181,7 +181,7 @@ Page({
   videoTap() {
     //获取video标签实例
     let videoContext = wx.createVideoContext('myVideo')
-    
+
     if (!this.data.play) {
       // 开始播放
       videoContext.play() //开始播放
@@ -202,7 +202,7 @@ Page({
   },
 
   // 测试博客（发布规则，内容和图片/视频，不能都为空）
-  testSend(){
+  testSend() {
     // 判断发布的内容是图片还是视频
     sendType = app.getResourceType() ? this.data.videos : this.data.images
 
@@ -233,7 +233,7 @@ Page({
           }
         }
       })
-    }else{
+    } else {
       this.send(sendType)
     }
   },
@@ -242,11 +242,10 @@ Page({
   send(sendType) {
     // 将图片发布在云储存 fileID 云文件ID 每次只上传一个资源
     let promiseArr = [], // 存放Promise实例
-         fileImgs = [], // 上传的图片或视频链接
-         saveCloudFile = app.getResourceType() ? 'blog-video/' : 'blog-image/'   // 图片保存在blog-img，视频保存在blog-video
+      fileImgs = [], // 上传的图片或视频链接
+      saveCloudFile = app.getResourceType() ? 'blog-video/' : 'blog-image/' // 图片保存在blog-img，视频保存在blog-video
 
     const publishType = app.getResourceType()
-    
 
     wx.showLoading({
       title: '发布中...',
@@ -263,10 +262,7 @@ Page({
           success: res => {
             console.log(res)
             fileImgs = fileImgs.concat(res.fileID)
-            setTimeout(()=>{
-              console.log('成功')
-              resolve(i)
-            }, i * 1000)
+            resolve()
           },
           fail: err => {
             console.log(res)
@@ -274,80 +270,44 @@ Page({
           }
         })
       })
-
-      p.then((i)=>{
-        console.log('操作数据库：第' + i + '次')
-        db.collection('blog').add({
-          data: {
-            content,
-            img: fileImgs,
-            ...userInfo,
-            publishType,
-            publishTime: db.serverDate()  // 服务端时间 
-          }
-        })
-        if (i == sendType.length -1 ){
-          console.log('发布完成',i)
-          wx.hideLoading()
-          wx.showToast({
-            title: '发布成功',
-            image: '../../images/show-success.png'
-          })
-
-          setTimeout(() => {
-            wx.navigateBack({
-              url: "../blog/blog"
-            })
-            const pages = getCurrentPages()
-            // 获取上一级页面栈 prevPage
-            let prevPage = pages[pages.length - 2]
-            prevPage.onPullDownRefresh()
-          }, 800)
-        }
-      }).catch(()=>{
-        wx.hideLoading()
-        wx.showToast({
-          title: '发布失败',
-          image: '../../images/show-fail.png'
-        })
-      })
-      // promiseArr.push(p)  // 拿到所有执行的promise对象
+      promiseArr.push(p) // 拿到所有执行的promise对象
     }
     // 存入云数据库
-    // Promise.all(promiseArr).then((res) => {
-    //   db.collection('blog').add({
-    //     data: {
-    //       content,
-    //       img: fileImgs,
-    //       ...userInfo,
-    //       publishType,
-    //       publishTime: db.serverDate()  // 服务端时间 
-    //     }
-    //   }).then((res)=>{
-    //     wx.hideLoading()
-    //     wx.showToast({
-    //       title: '发布成功',
-    //       image: '../../images/show-success.png'
-    //     })
-        
-    //     setTimeout(()=>{
-    //       wx.navigateBack({
-    //         url: "../blog/blog"
-    //       })
-    //       const pages = getCurrentPages()
-    //       // 获取上一级页面栈 prevPage
-    //       let prevPage = pages[pages.length - 2]
-    //       prevPage.onPullDownRefresh()
-    //     },800)
-       
-    //   })
-    // }).catch((err) => {
-    //   console.log('aaa',err)
-    //   wx.hideLoading()
-    //   wx.showToast({
-    //     title: '发布失败',
-    //     image: '../../images/show-fail.png'
-    //   })
-    // })
+    Promise.all(promiseArr).then((res) => {
+      db.collection('blog').add({
+        data: {
+          content,
+          img: fileImgs,
+          ...userInfo,
+          publishType,
+          publishTime: db.serverDate() // 服务端时间 
+        }
+      }).then((res) => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '发布成功',
+          mask: true,
+          image: '../../images/show-success.png'
+        })
+
+        setTimeout(() => {
+          wx.navigateBack({
+            url: "../blog/blog"
+          })
+          const pages = getCurrentPages()
+          console.log('yemian',pages)
+          // 获取上一级页面栈 prevPage
+          let prevPage = pages[0]
+          prevPage.onPullDownRefresh()
+        }, 800)
+      })
+    }).catch((err) => {
+      console.log('aaa', err)
+      wx.hideLoading()
+      wx.showToast({
+        title: '发布失败',
+        image: '../../images/show-fail.png'
+      })
+    })
   }
 })

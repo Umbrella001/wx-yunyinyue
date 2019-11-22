@@ -62,6 +62,9 @@ Page({
   // 同意授权成功时，进行页面跳转 → 发布编辑页
   onLoginSuccess(event){
     console.log(event)
+    this.setData({
+      isShowPopup: false
+    })
     const detail = event.detail
     wx.navigateTo({
       url: `../blog-edit/blog-edit?userName=${detail.nickName}&avatarUrl=${detail.avatarUrl}`,
