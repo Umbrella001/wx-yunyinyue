@@ -1,48 +1,34 @@
 # ♬ 原生小程序云开发 ---- 仿网易云音乐 + 博客 ♪
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+:rocket: 这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+- **数据库：** 一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
+- **文件存储：** 在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
+- **云函数：** 在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+
+------
+
+
 
 ## 0️⃣  运行部署到自己电脑中运行
 
-```
 ① 首先可以的话，可以Fork一下我的项目到自己的Github，项目还在更新后续可以方便查看文档，然后把我的代码下载下来解压到自己电脑
-```
 
-```
 ② 注册个小程序是第一步（首次注册可以看[官网文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#申请帐号)），然后将项目在微信开发者工具打开，接下来迫在眉睫的当然就是部署服务器（也就是创建自己的云服务）
-```
 
-```
 ③ 在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云
-```
-
-
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_01.png)
 
-```
 ④ 然后你将 `cloudfuncitons` 下的几个云函数，右键终端打开 `npm install` 一下 ，因为这些云函数中有些用到了其他库的依赖（你也可以直接在cloudfunctions顶层云函数文件夹中选择终端，然后 `npm install`），有些小伙伴会报错比如没有权限或者没有识别到 ·npm· 这个指令，问题就是你需要在你电脑全局安装一个Node@8+，此时也会同时带有npm的，如果还是不行就是权限问题（Window / Mac），你需要以管理员的身份调出你的终端进行操作；（如果嫌麻烦的还可以在自己电脑装一个 [git Bash](https://git-scm.com/download/)）
-```
-
-
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_02.png)
 
-```
 ⑤ 项目刚起步，用到了一个云数据库表，所以你进去你【云开发】界面点击【数据库】，下面新建一个集合名称，名字要起对，叫 `playlist` → 这是歌曲的数据存放地；现在项目已经完成了音乐模块，后续还有一些优化，后面会更新，具体可看文档；【补充：】博客模块开发完成，需要再增加一个集合名称为 `blog`
-```
-
-
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_03.png)
 
-```
 ⑥ 【这一步可以不部置】项目中涉及图片或者视频资源的上传，需要在【云开发】界面点击【存储】，创建两个放资源的文件夹，一个是放图片的 `blog-image`，另一个是 `blog-video`；这步骤可以跳，不创建的话也会开发工具也会自动新建，当然对于低版本开发工具是否有这个功能就不知道了，所以最好升级最新版本的开发工具，否则就按上面操作就行
-```
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/cloud-save.png)
 
@@ -80,8 +66,6 @@
 
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-list.jpg)
-
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-list.png)
 
 > 2.【完成音乐面板布局 + 歌曲播放以及歌词联动等细节（音乐模块完成）】
 
