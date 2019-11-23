@@ -55,6 +55,28 @@
   width: 320rpx;
   z-index: 98;
   text-align: center;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+  0% {
+    opacity: 0
+  }
+
+  40%{
+    opacity: 0
+  }
+
+  60%{
+    opacity: 0.5
+  }
+
+  100% {
+    opacity: 1
+  }
 }
 
 .empty-img {

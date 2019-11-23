@@ -5,19 +5,22 @@
         <i class="iconfont icon-fabu"></i>
       </view>
       <view class="blog-search" >
-        <x-search  />
+        <x-search 
+        bind:search="goSearch"
+        bind:confirmSearch="goSearch"
+         />
       </view>
     </view>
 </view>
 
 <!-- 无数据时提示  -->
-  <!-- <view class="blog-empty" wx:if="{{!blogList.length}}">
+  <view class="blog-empty" wx:if="{{!blogList.length}}">
       <image class="empty-img" src="../../images/blog-empty.svg"></image>
       <view class="blog-content">
           <text class="blog-tip">好凄凉，神马都没有~</text>
           <button class="blog-send" bindtap="onPublish">写点什么</button>
       </view>
-  </view> -->
+  </view>
 
     <!-- 博客列表 -->
     <view class="blog-list">

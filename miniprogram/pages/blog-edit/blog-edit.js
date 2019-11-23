@@ -295,7 +295,6 @@ Page({
             url: "../blog/blog"
           })
           const pages = getCurrentPages()
-          console.log('yemian',pages)
           // 获取上一级页面栈 prevPage
           let prevPage = pages[0]
           prevPage.onPullDownRefresh()
