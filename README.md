@@ -87,11 +87,15 @@
 
 - cloudfunciton
 
-  （撰写中...）
+  1. 创建博客blog集合数据库，数据由miniprogram前端部分向数据库增加字段（用户微信名称，用户微信头像，发布的图片或者视频的FileID，发布的内容，发布的服务端时间）
+
+  2. 发布的图片和视频将存储在云存储中（图片blog-image，视频blog-video），前端页面通过fileID进行获取
+
+  3. 使用微信小程序创建索引管理，对涉及搜索的字段进行优化慢查询操作（针对content发布内容，根据服务器时间publishTime排序）
+
+     ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-search.png)
 
 - miniprogram
-
-
 
 1. 完成小程序博客模块发布界面的授权登录
 
@@ -127,7 +131,7 @@
 
    3.3 链接数据库集合 【blog】 ，添加博客卡片需要的数据（用户名，头像，发布的 图片/视频 地址链接，发布文案，及其发布时间）
 
-4. 完成博客卡片列表
+4. 完成博客卡片列表 + 模糊搜索功能
 
    4.1 从发布成功到展示博客列表，完成自动查询数据库并展示发布内容
 
@@ -136,6 +140,8 @@
    4.3 继承了发布编辑页的功能，在博客列表点击图片或者视频都可以预览或者播放
 
    4.4 点击博客卡片可以进入博客评论页（开发中...）
+   
+   4.5 配合云数据库进行模糊搜索并展示对应搜索结果的博客列表
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-card.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-card.jpg)
 
