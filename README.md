@@ -87,13 +87,13 @@
 
 - cloudfunciton
 
-  1. 创建博客blog集合数据库，数据由miniprogram前端部分向数据库增加字段（用户微信名称，用户微信头像，发布的图片或者视频的FileID，发布的内容，发布的服务端时间）
+  1.创建博客blog集合数据库，数据由miniprogram前端部分向数据库增加字段（用户微信名称，用户微信头像，发布的图片或者视频的FileID，发布的内容，发布的服务端时间）
 
-  2. 发布的图片和视频将存储在云存储中（图片blog-image，视频blog-video），前端页面通过fileID进行获取
+  2.发布的图片和视频将存储在云存储中（图片blog-image，视频blog-video），前端页面通过fileID进行获取
 
-  3. 使用微信小程序创建索引管理，对涉及搜索的字段进行优化慢查询操作（针对content发布内容，根据服务器时间publishTime排序）
+  3.使用微信小程序创建索引管理，对涉及搜索的字段进行优化慢查询操作（针对content发布内容，根据服务器时间publishTime排序）
 
-     ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-search.png)
+  ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-search.png)
 
 - miniprogram
 
@@ -144,4 +144,3 @@
    4.5 配合云数据库进行模糊搜索并展示对应搜索结果的博客列表
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-card.jpg)
-
