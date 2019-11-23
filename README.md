@@ -34,6 +34,10 @@
 
 ⑦ 后续随着项目功能模块增加，云服务那边的部署就会复杂一点，但我会在这里说明好的，按照上面来应该没有问题，欢迎  :sparkles::sparkles::sparkles: star​ :sparkles::sparkles::sparkles:
 
+------
+
+
+
 ## 1️⃣  参考文档
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
@@ -50,38 +54,35 @@
 
 - miniprogram
 
-1. 完成小程序音乐模块中的轮播图，歌单的获取及展示，歌单内部歌曲的获取及展示
+1. > 【完成小程序音乐模块中的轮播图，歌单的获取及展示，歌单内部歌曲的获取及展示】
 
-   1.1 swiper轮播图原生组件
+   > > 1.1 swiper轮播图原生组件
 
-   1.2 组件定义开发playlist （歌单列表）、musiclist（音乐列表）
+   > > 1.2 组件定义开发playlist （歌单列表）、musiclist（音乐列表） 
+   > >
+   > > 1.3 对接网易云歌单接口进行请求展示，格式化播放量
+   
 
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-panel.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-list.jpg)
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-list.png)
 
-2. 完成小程序音乐面板布局
+2. > 【完成音乐面板布局 + 歌曲播放以及歌词联动等细节（音乐模块完成）】
 
-   2.1 配合H5动画还原网易云音乐播放动画
+   > > 2.1 配合H5动画还原网易云音乐播放动画
 
-   2.2 借用IconFont
+   > > 2.2 组件化开发 progress-bar（播放进度条） 、lyric（歌词界面）
+   
+   > > 2.3 用getBackgroundAudioManager完成播放音乐功能
+   
+   > > 2.4 配合movable-area、movable-view、progress完成歌词播放进度条联动
+   > >
+   > > 2.5 组件间通信+组件生命周期 、组件和页面通信+页面生命周期
+   > >
+   > > 2.6 高度还原网易云音乐的播放界面细节点
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-lyric.png)
-
-2. 歌曲播放以及歌词联动等细节（音乐模块完成）
-
-   3.1 组件化开发 progress-bar（播放进度条） 、lyric（歌词界面）
-
-   3.2 使用getBackgroundAudioManager完成播放音乐功能
-
-   3.3 配合movable-area、movable-view、progress完成歌词播放进度条联动
-
-   3.4 组件间通信+组件生命周期 、组件和页面通信+页面生命周期
-
-   3.5 高度还原网易云音乐的播放界面细节点
-
-   ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/lyric-panel.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-player.png)
 
 ### 2️⃣ . 2️⃣  博客发现模块开发
 
@@ -97,50 +98,52 @@
 
 - miniprogram
 
-1. 完成小程序博客模块发布界面的授权登录
+1. > 【完成小程序博客模块发布界面的授权登录】
 
-   1.1 组件化两个 author-popup（授权登录弹窗），author（授权登录）
+   > > 1.1 组件化两个 author-popup（授权登录弹窗），author（授权登录）
 
-   1.2 完成组件突破组件隔离使用全局样式
+   > > 1.2 完成组件突破组件隔离使用全局样式
 
-   1.3 使用button中open-type为getUserInfo进行用户信息获取，通过wx.getSetting拿到对应授权信息
+   > > 1.3 使用button中open-type为getUserInfo进行用户信息获取，通过wx.getSetting拿到对应授权信息
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-author.png)
 
 
 
-2. 博客模块发布编辑页制作（测试：【真机调试】，开发工具部分功能测不了，本人使用IOS测，Android没测多少有BUG可以私我）
+2. > 【博客模块发布编辑页制作（测试：【真机调试】，开发工具部分功能测不了，本人使用IOS测，Android没测多少有BUG可以私我）】
 
-   2.1 编辑字数检测，监测不同机型拉起键盘高度改变发布底部发布布局样式
+   > > 2.1 编辑字数检测，监测不同机型拉起键盘高度改变发布底部发布布局样式
 
-   2.2 可以根据用户需求上传图片或者视频，默认最多9，视频1
+   > > 2.2 可以根据用户需求上传图片或者视频，默认最多9，视频1
 
-   2.3 点击图片或者视频都可以进入预览图片或者播放视频，点击右上角的叉叉可进行删除
+   > > 2.3 点击图片或者视频都可以进入预览图片或者播放视频，点击右上角的叉叉可进行删除
 
-   2.4 解决BUG：修复播放视频时，textarea输入框（原生组件）遮住播放视频的返回编辑页的按钮；增加切换发布类型（图片 / 视频）仍可以记录上一个编辑的最后格式
+   > > 2.4 解决BUG：修复播放视频时，textarea输入框（原生组件）遮住播放视频的返回编辑页的按钮；增加切换发布类型（图片 / 视频）仍可以记录上一个编辑的最后格式
 
 图片不展示那么多，可以自己部署本地，自己真机测试，有什么缺点或者优化可以私我~
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/publish-type.jpg)
 
-3. 将用户图片或者视频上传云存储，将博客展示卡片需要的内容信息添加到云数据库中
+3. > 【将用户图片或者视频上传云存储，将博客展示卡片需要的内容信息添加到云数据库中】
 
-   3.1 检查用户发布的内容是否符合发布规则（发布文字和图片 / 视频 两者必有其一方可进行发布操作）
+   > > 3.1 检查用户发布的内容是否符合发布规则（发布文字和图片 / 视频 两者必有其一方可进行发布操作）
 
-   3.2 使用 `wx.cloud.uploadFile` 将图片或者视频资源上传到云存储
+   > > 3.2 使用 `wx.cloud.uploadFile` 将图片或者视频资源上传到云存储
 
-   3.3 链接数据库集合 【blog】 ，添加博客卡片需要的数据（用户名，头像，发布的 图片/视频 地址链接，发布文案，及其发布时间）
+   > > 3.3 链接数据库集合 【blog】 ，添加博客卡片需要的数据（用户名，头像，发布的 图片/视频 地址链接，发布文案，及其发布时间）
 
-4. 完成博客卡片列表 + 模糊搜索功能
-
-   4.1 从发布成功到展示博客列表，完成自动查询数据库并展示发布内容
-
-   4.2 增加一个PublishType字段用于区分发布的是图片还是视频，方便做展示处理
-
-   4.3 继承了发布编辑页的功能，在博客列表点击图片或者视频都可以预览或者播放
-
-   4.4 点击博客卡片可以进入博客评论页（开发中...）
    
-   4.5 配合云数据库进行模糊搜索并展示对应搜索结果的博客列表
+
+4. > 【完成博客卡片列表 + 模糊搜索功能】
+
+   > > 4.1 从发布成功到展示博客列表，完成自动查询数据库并展示发布内容
+
+   > > 4.2 增加一个PublishType字段用于区分发布的是图片还是视频，方便做展示处理
+
+   > > 4.3 继承了发布编辑页的功能，在博客列表点击图片或者视频都可以预览或者播放
+
+   > > 4.4 点击博客卡片可以进入博客评论页（开发中...）
+   
+   > > 4.5 配合云数据库进行模糊搜索并展示对应搜索结果的博客列表
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-card.jpg)
