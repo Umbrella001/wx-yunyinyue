@@ -20,7 +20,7 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_01.png)
 
-④ 然后你将 `cloudfuncitons` 下的几个云函数，右键终端打开 `npm install` 一下 ，因为这些云函数中有些用到了其他库的依赖（你也可以直接在cloudfunctions顶层云函数文件夹中选择终端，然后 `npm install`），有些小伙伴会报错比如没有权限或者没有识别到 ·npm· 这个指令，问题就是你需要在你电脑全局安装一个Node@8+，此时也会同时带有npm的，如果还是不行就是权限问题（Window / Mac），你需要以管理员的身份调出你的终端进行操作；（如果嫌麻烦的还可以在自己电脑装一个 [git Bash](https://git-scm.com/download/)）
+④ 然后将 `cloudfuncitons` 下的几个云函数逐个右键【上传并部署：云端安装依赖】，可以通过微信开发这工具有下角的小圆圈查看上传进度，注意如果有网路问题导致上传部署失败，则对应的云函数再右键上传一次
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_02.png)
 
@@ -28,9 +28,11 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_03.png)
 
-⑥ 【这一步可以不部置】项目中涉及图片或者视频资源的上传，需要在【云开发】界面点击【存储】，创建两个放资源的文件夹，一个是放图片的 `blog-image`，另一个是 `blog-video`；这步骤可以跳，不创建的话也会开发工具也会自动新建，当然对于低版本开发工具是否有这个功能就不知道了，所以最好升级最新版本的开发工具，否则就按上面操作就行
+⑥ 【重要】确认全部云函数上传完成，进入【云开发】界面点击【云函数】，找到 `getPlaylist` 这个云函数，点击【云端测试】，左侧跳出测试面板，不用传参数，直接点【运行测试】，日志返回成功后，我们去【数据库】中可以发现 `playlist` 集合有了音乐歌单数据，这步骤没有成功完成将会影响小程序音乐模块的歌单展示！
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/cloud-save.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/cloud-palylist.png)
+
+⑥ 【这一步可以不配置】项目中涉及图片或者视频资源的上传，需要在【云开发】界面点击【存储】，创建两个放资源的文件夹，一个是放图片的 `blog-image`，另一个是 `blog-video`；这步骤可以跳，不创建的话也会开发工具也会自动新建，当然对于低版本开发工具是否有这个功能就不知道了，所以最好升级最新版本的开发工具，否则就按上面操作就行
 
 ⑦ 后续随着项目功能模块增加，云服务那边的部署就会复杂一点，但我会在这里说明好的，按照上面来应该没有问题，欢迎  :sparkles::sparkles::sparkles: star​ :sparkles::sparkles::sparkles:
 
@@ -64,6 +66,8 @@
 
 > > 1.3 对接网易云歌单接口进行请求展示，格式化播放量
 
+> > 1.4 增加歌单首页【全局搜索歌曲 → 直接搜索自己喜欢的歌曲】（后续上新）
+
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-list.jpg)
 
@@ -77,9 +81,7 @@
 
 > > 2.4 配合movable-area、movable-view、progress完成歌词播放进度条联动
 
-> > 2.5 组件间通信+组件生命周期 、组件和页面通信+页面生命周期
-
-> > 2.6 高度还原网易云音乐的播放界面细节点
+> > 2.5 歌曲播放面板增加【喜欢功能 → 点击添加到我喜欢列表】、【分享功能 → 分享歌曲】、【评论+打赏功能（占不涉及支付，以免小程序发布不了）】（后续上新）
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-player.png)
 
@@ -135,12 +137,22 @@
 
 > > 4.1 从发布成功到展示博客列表，完成自动查询数据库并展示发布内容
 
-> > 4.2 增加一个PublishType字段用于区分发布的是图片还是视频，方便做展示处理
+> > 4.2 增加一个 `PublishType` 字段用于区分发布的是图片还是视频，方便做展示处理
 
 > > 4.3 继承了发布编辑页的功能，在博客列表点击图片或者视频都可以预览或者播放
 
-> > 4.4 点击博客卡片可以进入博客评论页（开发中...）
+> > 4.4 点击博客卡片可以进入博客评论页，展示对应博客信息以及对应评论列表
 
 > > 4.5 配合云数据库进行模糊搜索并展示对应搜索结果的博客列表
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/blog-card.jpg)
+
+> 5.【完成博客评论推送 + 博客分享推送】（博客模块完成）
+
+> > 5.1 结合云调用 `templateMessage.send` 实现评论的模版推送功能
+
+> > 5.2 完成博客模块的分享功能，微信好友点击可以到达博客评论页
+
+> > 5.3 后续配合数据库一对多，多对多设计完成【博客喜欢列表】及其【博客点赞、踩功能】（后续上线）
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/comment-share.jpg)
