@@ -130,4 +130,16 @@ Page({
   onReachBottom: function() {
     this._loadBlogList(this.data.blogList.length)
   },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(event) {
+    let blogObj = event.target.dataset.blog
+    console.log('laji', event, blogObj)
+    return {
+      title: blogObj.content,
+      path: `/pages/blog-comment/blog-comment?blogid=${blogObj._id}`
+    }
+  }
 })

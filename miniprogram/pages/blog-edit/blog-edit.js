@@ -257,15 +257,13 @@ Page({
         _item = sendType[i]
         fileExtName = /\.\w+$/.exec(_item)[0]
         wx.cloud.uploadFile({
-          cloudPath: saveCloudFile + Date.now() + '-' + Math.random() * 10000 + fileExtName,
+          cloudPath: saveCloudFile + i + Date.now() + '-' + Math.random() * 10000 + fileExtName,
           filePath: _item,
           success: res => {
-            console.log(res)
             fileImgs = fileImgs.concat(res.fileID)
             resolve()
           },
           fail: err => {
-            console.log(res)
             reject()
           }
         })
@@ -274,6 +272,12 @@ Page({
     }
     // 存入云数据库
     Promise.all(promiseArr).then((res) => {
+      // 修复BUG -- 发布图片顺序问题
+      if (saveCloudFile == 'blog-image/'){
+        fileImgs.sort((a,b) => {
+          return Number(a.substring(a.indexOf('image/') + 6, a.indexOf('image/') + 6 + 2)) - Number(b.substring(b.indexOf('image/') + 6, b.indexOf('image/') + 6 + 2))
+        })
+      }  
       db.collection('blog').add({
         data: {
           content,

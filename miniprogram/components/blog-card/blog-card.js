@@ -11,7 +11,12 @@ Component({
   },
 
   data:{
-    playing: false
+    playing: false,  // 视频是否自动播放
+    isLove: false,  // 是否喜欢，默认false不喜欢
+  },
+
+  options: {
+    styleIsolation: 'apply-shared'
   },
 
   lifetimes:{
@@ -74,6 +79,11 @@ Component({
           playing: false
         })
       }
+    },
+    support(){
+      this.setData({
+        isLove: !this.data.isLove
+      })
     }
   }
 })

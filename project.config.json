@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -73,6 +73,13 @@
 					"name": "blog-edit",
 					"pathName": "pages/blog-edit/blog-edit",
 					"query": "userName=\"ღMINGღ\"&avatarUrl= \"https://wx.qlogo.cn/mmopen/vi_32/ad8ia0YRCPtCsoAOK…3Ev0zzDTVAc5femia0IziayJ1gjC3jRP3erGM3iciaz8g/132\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "blogComment",
+					"pathName": "pages/blog-comment/blog-comment",
+					"query": "blogid=\"827b73655dda6ae7001886bd04f41305\"",
 					"scene": null
 				}
 			]

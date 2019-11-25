@@ -31,6 +31,14 @@
             bind:tap="goComment"
             data-blogid="{{item._id}}"
             />
+            <x-blog-control
+              iconfont="iconfont"
+              icon-pinglun="icon-pinglun"
+              icon-fenxiang="icon-fenxiang"
+              blog="{{item}}"
+              blogid="{{item._id}}"
+              blogower="{{item.userName}}"
+            />
         </view>
       </block>
     </view> 

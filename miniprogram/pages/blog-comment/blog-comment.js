@@ -1,66 +1,67 @@
-// pages/blog-comment/blog-comment.js
+import formatTime from '../../utils/format-time.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    blog: {}, // 博文
+    blogComment: [], // 博伦
+    isSupport: false, // 评论是否支持
+    isOppose: false, //  评论是否反对
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log('kk',options)
+  onLoad: function(options) {
+    this._loadBlogComment(options.blogid)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  _loadBlogComment(blogid) {
+    wx.showLoading({
+      title: '加载中',
+    })
 
+    wx.cloud.callFunction({
+      name: "blog",
+      data: {
+        blogid,
+        $url: "detail"
+      }
+    }).then((res) => {
+      wx.hideLoading()
+      let blogComment = res.result.commentList.data
+      for (let i = 0, len = blogComment.length; i < len; i++) {
+        blogComment[i].commentTime = formatTime(blogComment[i].commentTime)
+      }
+      this.setData({
+        blog: res.result.blogDetail[0],
+        blogComment
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 博客评论的点赞和踩
+  support() {
+    this.setData({
+      isSupport: !this.data.isSupport
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  oppose() {
+    this.setData({
+      isOppose: !this.data.isOppose
+    })
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function(event) {
+    let blogObj = this.data.blog
+    return {
+      title: blogObj.content,
+      path: `/pages/blog-comment/blog-comment?blogid=${blogObj._id}`
+    }
   }
 })

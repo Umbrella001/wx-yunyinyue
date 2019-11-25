@@ -1,61 +1,122 @@
 page {
-  background: #f1f1f1
+  background: #f1f1f1;
 }
 
-.blog{
+.blog {
   padding: 20rpx;
-  background:#fff;
-  font-family: Arial, "PingFang SC", "Hiragino Sans GB", STHeiti,
- "Microsoft YaHei","WenQuanYi Micro Hei", sans-serif;
+  background: #fff;
+  font-family: Arial,
+                 "PingFang SC",
+                 "Hiragino Sans GB",
+                 STHeiti,
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
 }
 
-.blog-title{
+.blog-title {
   display: flex;
+  position: relative;
 }
 
-.blog-box{
+.blog-box {
   flex-direction: column;
   align-items: center;
 }
 
-.blog-user{
+.blog-user {
   font-size: 32rpx;
-  font-family:"微软正黑体","Microsoft YaHei";
-  font-weight: 500
+  font-family: "微软正黑体", "Microsoft YaHei";
+  font-weight: 500;
 }
 
-.blog-time{ 
-   color: #a0a0a0;
-   font-size: 27rpx;
-   margin-bottom: 4rpx;
+.blog-time {
+  color: #a0a0a0;
+  font-size: 27rpx;
+  margin-bottom: 4rpx;
 }
 
-.blog-author{
+.blog-author {
   width: 68rpx;
   height: 68rpx;
   border-radius: 50%;
   margin-right: 20rpx;
   margin-top: 2rpx;
-  border: 1px solid rgba(216, 30, 6, .4);
+  border: 1px solid rgba(216, 30, 6, 0.4);
 }
 
-.bog-content{
+.blog-love {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 50%;
+  right: 10rpx;
+  transform: translateY(-50%);
+}
+
+.icon-dianzan {
+  font-size: 54rpx;
+  opacity: 0.7;
+}
+
+.love {
+  color: #d81e06;
+  opacity: 1;
+  animation-duration: 1s;
+  animation-name: lovesize;
+  animation-fill-mode: forwards;
+}
+
+@keyframes lovesize {
+  0% {
+    font-size: 54rpx;
+  }
+
+  33% {
+    font-size: 66rpx;
+  }
+
+  66% {
+    font-size: 42rpx;
+  }
+
+  100% {
+    font-size: 54rpx;
+  }
+}
+
+.love-num {
+  display: inline-block;
+  font-size: 32rpx;
+  width: 70rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  padding: 2rpx 8rpx;
+  background: #d1d1d19a;
+  color: rgba(216, 31, 6);
+  margin-left: 10rpx;
+  margin-top: 8rpx;
+}
+
+.bog-content {
   width: 100%;
   padding: 20rpx 4rpx;
   font-size: 30rpx;
 }
 
-.blog-img{
-  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1)
+.blog-img {
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.blog-images .blog-img{
+.blog-images .blog-img {
   width: 230rpx;
   height: 230rpx;
   margin-right: 10rpx;
   margin-bottom: 10rpx;
 }
 
-.blog-images .blog-img:nth-child(3n){
-  margin-right: 0
+.blog-images .blog-img:nth-child(3n) {
+  margin-right: 0;
 }

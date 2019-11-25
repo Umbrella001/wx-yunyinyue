@@ -1,5 +1,5 @@
 <x-author-popup isShowPopup="{{isShowPopup}}">
-    <view slot="author">
+    <view slot="modal-content">
         <button class="login"
             open-type="getUserInfo"
             bind:getuserinfo="onUserInfo"

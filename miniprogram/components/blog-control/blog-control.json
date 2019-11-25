@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "x-author": "/components/author/author",
+    "x-author-popup": "/components/author-popup/author-popup"
+  }
+}
