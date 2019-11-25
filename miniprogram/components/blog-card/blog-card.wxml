@@ -7,7 +7,7 @@
     </view>
     <view class="blog-love">
       <i class="iconfont icon-dianzan {{isLove ? 'love': ''}}" catch:tap="support"></i>
-      <text class="love-num" style="display: {{ isLove ? 'inline-block': 'none' }}">8</text>
+      <text class="love-num">{{loveNum}}</text>
     </view>
   </view>
   <view class="bog-content">{{blog.content}}</view>

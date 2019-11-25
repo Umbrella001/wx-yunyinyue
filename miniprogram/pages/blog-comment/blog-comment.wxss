@@ -85,18 +85,20 @@
 }
 
 .comment-advise {
+  position: relative;
   display: flex;
   align-items: center;
   margin-left: 12rpx;
 }
 
 .icon-zan1, .icon-cai {
+  position: absolute;
   font-size: 42rpx;
   opacity: 0.7;
 }
 
 .icon-zan1 {
-  margin-bottom: 6rpx;
+  bottom: -1rpx;
 }
 
 .support {
@@ -139,7 +141,7 @@
 }
 
 .icon-cai {
-  margin-top: 6rpx;
+  left: 125rpx;
 }
 
 .oppose {
@@ -192,7 +194,7 @@
   padding: 0 4rpx;
   color: #fff;
   border-radius: 24rpx;
-  margin: 0 6rpx;
+  margin-left: 26px;
 }
 
 /* 无评论时提示 */

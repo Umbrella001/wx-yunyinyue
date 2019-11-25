@@ -55,6 +55,8 @@ page {
 }
 
 .icon-dianzan {
+  position: absolute;
+  right: 90rpx;
   font-size: 54rpx;
   opacity: 0.7;
 }
@@ -73,14 +75,14 @@ page {
   }
 
   33% {
-    font-size: 66rpx;
+    font-size: 64rpx;
   }
 
   66% {
-    font-size: 42rpx;
+    font-size: 40rpx;
   }
 
-  100% {
+  99% {
     font-size: 54rpx;
   }
 }

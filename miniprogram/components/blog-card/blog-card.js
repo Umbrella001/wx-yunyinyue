@@ -13,6 +13,7 @@ Component({
   data:{
     playing: false,  // 视频是否自动播放
     isLove: false,  // 是否喜欢，默认false不喜欢
+    loveNum: 99
   },
 
   options: {
@@ -81,6 +82,13 @@ Component({
       }
     },
     support(){
+      if(!this.data.isLove){
+        wx.showToast({
+          title: '爱心模式即将上线',
+          duration: 2000,
+          image: '../../images/show-tip.png'
+        })
+      }    
       this.setData({
         isLove: !this.data.isLove
       })

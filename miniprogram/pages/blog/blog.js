@@ -136,7 +136,6 @@ Page({
    */
   onShareAppMessage: function(event) {
     let blogObj = event.target.dataset.blog
-    console.log('laji', event, blogObj)
     return {
       title: blogObj.content,
       path: `/pages/blog-comment/blog-comment?blogId=${blogObj._id}`

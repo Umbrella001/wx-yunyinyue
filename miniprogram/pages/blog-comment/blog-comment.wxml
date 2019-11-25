@@ -21,9 +21,9 @@
         </view>
         <view class="comment-advise">
           <i class="iconfont icon-zan1 {{ isSupport ? 'support' : ''}}" catch:tap="support"></i>
-          <text class="advise-num">1200</text>
+          <text class="advise-num">{{supportNum}}</text>
           <i class="iconfont icon-cai {{ isOppose ? 'oppose' : ''}}" catch:tap="oppose"></i>
-          <text class="advise-num">43</text>
+          <text class="advise-num">{{opposeNum}}</text>
         </view>
       </view>
     </block>
