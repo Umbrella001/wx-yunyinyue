@@ -16,31 +16,31 @@
 
 ② 注册个小程序是第一步（首次注册可以看[官网文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#申请帐号)），然后将项目在微信开发者工具打开，接下来迫在眉睫的当然就是部署服务器（也就是创建自己的云服务）
 
-③ 在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云
+③ 【创建云环境】在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_01.png)
 
-④ 然后将 `cloudfuncitons` 下的几个云函数逐个右键【上传并部署：云端安装依赖】，可以通过微信开发这工具有下角的小圆圈查看上传进度，注意如果有网路问题导致上传部署失败，则对应的云函数再右键上传一次
+④ 【上传部署云函数】然后将 `cloudfuncitons` 下的几个云函数逐个右键【上传并部署：云端安装依赖】，可以通过微信开发这工具有下角的小圆圈查看上传进度，注意如果有网路问题导致上传部署失败，则对应的云函数再右键再上传一次
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_02.png)
 
-⑤ 项目刚起步，用到了一个云数据库表，所以你进去你【云开发】界面点击【数据库】，下面新建一个集合名称，名字要起对，叫 `playlist` → 这是歌曲的数据存放地；现在项目已经完成了音乐模块，后续还有一些优化，后面会更新，具体可看文档；【补充：】博客模块开发完成，需要再增加一个集合名称为 `blog`
+⑤ 【创建数据库集合】项目至今用到三个云数据库表，点击【云开发】界面点击【数据库】，新建集合名称，名字不要拼错，`playlist` → 歌曲的数据集合；`blog` → 博客模块数据集合；`blog-comment` → 博客评论数据集合
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_03.png)
 
-⑥ 【重要】确认全部云函数上传完成，进入【云开发】界面点击【云函数】，找到 `getPlaylist` 这个云函数，点击【云端测试】，左侧跳出测试面板，不用传参数，直接点【运行测试】，日志返回成功后，我们去【数据库】中可以发现 `playlist` 集合有了音乐歌单数据，这步骤没有成功完成将会影响小程序音乐模块的歌单展示！
+⑥ 【重要】确认全部云函数上传完成，进入【云开发】界面点击【云函数】，找到 `getPlaylist` 这个云函数，点击【云端测试】，左侧跳出测试面板，不用传参数，直接点【运行测试】，日志返回成功后，我们再去【数据库】中可以发现 `playlist` 集合有了音乐歌单数据，说明数据载入成功，这步骤没有成功完成将会影响小程序音乐模块的歌单展示！
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/cloud-palylist.png)
 
 ⑥ 【这一步可以不配置】项目中涉及图片或者视频资源的上传，需要在【云开发】界面点击【存储】，创建两个放资源的文件夹，一个是放图片的 `blog-image`，另一个是 `blog-video`；这步骤可以跳，不创建的话也会开发工具也会自动新建，当然对于低版本开发工具是否有这个功能就不知道了，所以最好升级最新版本的开发工具，否则就按上面操作就行
 
-⑦ 后续随着项目功能模块增加，云服务那边的部署就会复杂一点，但我会在这里说明好的，按照上面来应该没有问题，欢迎  :sparkles::sparkles::sparkles: star​ :sparkles::sparkles::sparkles:
+⑦ 后续随着项目功能模块增加，云服务那边的部署就会复杂一点，但我会在这里说明好的，按照上面来应该没有问题，欢迎  :sparkles::sparkles::sparkles: star​ :sparkles::sparkles::sparkles: ，有问题或者学习交流可以 加企鹅 <u>1255421861</u>，欢迎各路大神指点迷津！！
 
 ------
 
 
 
-## 1️⃣  参考文档
+## 1️⃣  微信小程序开发文档
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
@@ -67,6 +67,8 @@
 > > 1.3 对接网易云歌单接口进行请求展示，格式化播放量
 
 > > 1.4 增加歌单首页【全局搜索歌曲 → 直接搜索自己喜欢的歌曲】（后续上新）
+
+> > 1.5 增加歌单列表【歌曲排名、音质标识、VIP标识】（后续上新）
 
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-list.jpg)
