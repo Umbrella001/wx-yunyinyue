@@ -39,5 +39,11 @@
 </scroll-view>
 
 <view class="blog-ctrl">
-  <x-blog-control blogid="{{blog._id}}" iconfont="iconfont" icon-pinglun="icon-pinglun" icon-fenxiang="icon-fenxiang" />
+  <x-blog-control 
+    blogid="{{blog._id}}" 
+    iconfont="iconfont" 
+    icon-pinglun="icon-pinglun" 
+    icon-fenxiang="icon-fenxiang"
+    bind:RefreshComment="_loadBlogComment"
+   />
 </view>

@@ -135,6 +135,8 @@ Component({
           content: '',
           isShowComment: false
         })
+
+        this.triggerEvent('RefreshComment')
       }).catch((err) => {
         wx.hideLoading()
         wx.showToast({

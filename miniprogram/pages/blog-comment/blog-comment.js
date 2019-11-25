@@ -6,6 +6,7 @@ Page({
    */
   data: {
     blog: {}, // 博文
+    blogid: '', // 博客id
     blogComment: [], // 博伦
     isSupport: false, // 评论是否支持
     isOppose: false, //  评论是否反对
@@ -17,19 +18,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
-    this._loadBlogComment(options.blogId)
+    this.setData({
+      blogid: options.blogId
+    })
+    this._loadBlogComment()
   },
 
-  _loadBlogComment(blogid) {
+  _loadBlogComment() {
     wx.showLoading({
       title: '加载中',
     })
-    console.log('xxx',blogid)
     wx.cloud.callFunction({
       name: "blog",
       data: {
-        blogid,
+        blogid: this.data.blogid,
         $url: "detail"
       }
     }).then((res) => {
