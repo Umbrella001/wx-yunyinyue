@@ -100,7 +100,7 @@ Page({
   // 点击博客卡片内容进入详情评论页
   goComment(event) {
     wx.navigateTo({
-      url: '../blog-comment/blog-comment?blogid=' + event.target.dataset.blogid,
+      url: '../blog-comment/blog-comment?blogId=' + event.target.dataset.blogid,
     })
 
   },
@@ -139,7 +139,7 @@ Page({
     console.log('laji', event, blogObj)
     return {
       title: blogObj.content,
-      path: `/pages/blog-comment/blog-comment?blogid=${blogObj._id}`
+      path: `/pages/blog-comment/blog-comment?blogId=${blogObj._id}`
     }
   }
 })

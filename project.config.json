@@ -76,10 +76,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "blogComment",
 					"pathName": "pages/blog-comment/blog-comment",
-					"query": "blogid=\"827b73655dda6ae7001886bd04f41305\"",
+					"query": "blogId=827b73655dda6ae7001886bd04f41305",
 					"scene": null
 				}
 			]

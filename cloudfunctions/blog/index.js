@@ -55,6 +55,7 @@ exports.main = async(event, context) => {
 
     let commentCount = await blogComment.count()
     let total = commentCount.total
+    console.log('total',total)
     let queryTimes = Math.ceil(total / MAX_LIMIT)
     let commentList = {
       data: []
@@ -73,7 +74,7 @@ exports.main = async(event, context) => {
         promiseArr.push(promise)
       }
       if(promiseArr.length > 0){
-        commentList = ( await Promise.all(promiseArr)).reduce((acc,cur)=>{
+        commentList = (await Promise.all(promiseArr)).reduce((acc, cur) => {
           return {
             data: acc.data.concat(cur.data)
           }

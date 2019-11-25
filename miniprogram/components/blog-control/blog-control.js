@@ -97,6 +97,7 @@ Component({
       // 向数据库增加对应评论所需字段
       wx.showLoading({
         title: '评论中...',
+        mask: true
       })
 
       console.log('blogid',this.properties.blogid)

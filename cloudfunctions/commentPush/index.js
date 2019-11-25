@@ -21,8 +21,7 @@ exports.main = async (event, context) => {
         }
       },
       templateId: 'V1lGF_YoFGVNuAKUytkEuQbsnM6uTRB8q7IaWKfiG4Y',
-      formId: event.formId,
-      emphasisKeyword: ""
+      formId: event.formId
     })
     return result
   } catch (err) {

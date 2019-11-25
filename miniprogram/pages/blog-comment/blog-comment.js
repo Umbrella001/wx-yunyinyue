@@ -15,14 +15,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this._loadBlogComment(options.blogid)
+    console.log(options)
+    this._loadBlogComment(options.blogId)
   },
 
   _loadBlogComment(blogid) {
     wx.showLoading({
       title: '加载中',
     })
-
+    console.log('xxx',blogid)
     wx.cloud.callFunction({
       name: "blog",
       data: {
@@ -39,6 +40,8 @@ Page({
         blog: res.result.blogDetail[0],
         blogComment
       })
+    }).catch((err)=>{
+      console.log(err)
     })
   },
 
@@ -61,7 +64,7 @@ Page({
     let blogObj = this.data.blog
     return {
       title: blogObj.content,
-      path: `/pages/blog-comment/blog-comment?blogid=${blogObj._id}`
+      path: `/pages/blog-comment/blog-comment?blogId=${blogObj._id}`
     }
   }
 })
