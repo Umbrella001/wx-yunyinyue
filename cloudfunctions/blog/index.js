@@ -8,7 +8,7 @@ const TcbRouter = require('tcb-router') // 导入小程序路由
 const db = cloud.database() // 初始化数据库
 const blogData = db.collection('blog') // 连接blog数据库
 const blogComment = db.collection('blog-comment')  // 连接blog-comment数据库
-const wxContext = cloud.getWXContext() // 获取小程序调用上下文
+
 const MAX_LIMIT = 100  // 查询的次数限制
 
 // 云函数入口函数
@@ -90,12 +90,13 @@ exports.main = async(event, context) => {
   })
 
   // 获取我发布的博客列表
-  app.router("getMyBloglist", async(ctx,next) => {
-    ctx.body = blogData.where({
-      openid: wxContext.OPENID
+  const wxContext = cloud.getWXContext() // 获取小程序调用上下文
+  app.router("getMyBloglist", async(ctx,next) => { 
+    ctx.body =await blogData.where({
+      _openid: wxContext.OPENID
     }).skip(event.start).limit(event.count)
     .get().then((res)=>{
-      return res.data
+      return res
     })
   })
 

@@ -1,4 +1,3 @@
-// pages/profile-develop/profile-develop.js
 Page({
 
   /**

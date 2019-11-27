@@ -1,2 +1,19 @@
-<!--pages/profile-bloglist/profile-bloglist.wxml-->
-<text>pages/profile-bloglist/profile-bloglist.wxml</text>
+<view>
+  <block wx:for="{{bloglist}}" wx:key="_id">
+    <view class="blog-pannel">
+        <x-blog-card 
+          blog="{{item}}"
+          bind:tap="goComment"
+          data-blogid="{{item._id}}"
+        />
+        <x-blog-control 
+          blog="{{item}}"
+          blogId="{{item._id}}"
+          blogower="{{item.userName}}"
+          iconfont="iconfont"
+          icon-pinglun="icon-pinglun"
+          icon-fenxiang="icon-fenxiang"
+        />
+    </view>
+  </block>
+</view>
