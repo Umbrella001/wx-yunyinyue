@@ -76,6 +76,9 @@ Page({
         backgroundAudioManager.coverImgUrl = musicInfo.al.picUrl
         backgroundAudioManager.singer = musicInfo.ar[0].name
         backgroundAudioManager.epname = musicInfo.ar.name
+
+        //  将播放的歌曲放入最近播放storage中
+        this.historyMusic()
       }
 
       this.setData({
@@ -100,6 +103,32 @@ Page({
         })
       })
     })
+  },
+
+  // 将播放历史储存进对应的storage中
+  historyMusic(){
+    let music = musiclist[currentMusicIndex],
+    openid = app.globalData.openid
+
+    let historyList = wx.getStorageSync(openid),
+    ishave = false
+
+    console.log('1231', Object.prototype.toString.call(wx.getStorageSync(openid)), historyList.length) 
+
+    for(let i = 0,len = historyList.length;i < len;i++){
+      console.log(i);
+      if(historyList[i].id == music.id){
+        ishave = true
+        break
+      }
+    }
+    if (!ishave) {
+      historyList.unshift(music)
+      wx.setStorage({
+        key: openid,
+        data: historyList,
+      })
+    }
   },
 
   // 点击播放按钮切换播放和暂停 

@@ -8,6 +8,7 @@ const TcbRouter = require('tcb-router') // 导入小程序路由
 const db = cloud.database() // 初始化数据库
 const blogData = db.collection('blog') // 连接blog数据库
 const blogComment = db.collection('blog-comment')  // 连接blog-comment数据库
+const wxContext = cloud.getWXContext() // 获取小程序调用上下文
 const MAX_LIMIT = 100  // 查询的次数限制
 
 // 云函数入口函数
@@ -17,6 +18,7 @@ exports.main = async(event, context) => {
     event
   })
 
+  // 获取博客列表（模糊查询）
   app.router('list', async(ctx, next) => {
 
     let keyword = event.keyword
@@ -41,6 +43,7 @@ exports.main = async(event, context) => {
       })
   })
 
+  //  获取博客详细 + 评论列表
   app.router('detail', async(ctx,next) =>{
     let blogid = event.blogid
 
@@ -52,7 +55,6 @@ exports.main = async(event, context) => {
     })
 
     // 博客评论查询
-
     let commentCount = await blogComment.count()
     let total = commentCount.total
     console.log('total',total)
@@ -85,6 +87,16 @@ exports.main = async(event, context) => {
       blogDetail,
       commentList
     }
+  })
+
+  // 获取我发布的博客列表
+  app.router("getMyBloglist", async(ctx,next) => {
+    ctx.body = blogData.where({
+      openid: wxContext.OPENID
+    }).skip(event.start).limit(event.count)
+    .get().then((res)=>{
+      return res.data
+    })
   })
 
   return app.serve()

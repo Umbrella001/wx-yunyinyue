@@ -27,6 +27,7 @@
         </view>
       </view>
     </block>
+
     <!-- 无评论时提示  -->
     <view class="comment-empty" wx:if="{{!blogComment.length}}">
       <image class="empty-img" src="../../images/blog-empty.svg"></image>
@@ -38,6 +39,7 @@
 
 </scroll-view>
 
+<!-- 博客评论页底部控件 -->
 <view class="blog-ctrl">
   <x-blog-control 
     blogid="{{blog._id}}" 

@@ -10,14 +10,17 @@ App({
         //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
-        env: 'um-music-t1q1i',
+        env: '',
         traceUser: true,
       })
     }
 
+    this.getOpenid()
+
     this.globalData = {
-      playingMusicId: -1,
-      isBtnType: 0
+      playingMusicId: -1,  // 播放歌曲的搜索
+      isBtnType: 0,  // 图片或者视频
+      openid: ''  //  用户的openid （用户使用同一个小程序openid不变）
     }
   },
   
@@ -37,5 +40,20 @@ App({
 
   setResourceType(sign){
     this.globalData.isBtnType = sign
-  }
+  },
+
+   // 获取用户的openid并储存在storage中
+   getOpenid(){
+    wx.cloud.callFunction({
+      name:"login"
+    }).then((res)=>{
+      let openid = res.result.openid
+      this.globalData.openid = openid
+
+      // 将openid存储到storage中
+      if (wx.getStorageSync(openid) == ''){
+        wx.setStorageSync(openid, [])
+      } 
+    })
+   }
 })

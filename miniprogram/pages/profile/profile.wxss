@@ -1,1 +1,138 @@
-/* pages/profile/profile.wxss */
+page {
+  background: #f1f1f1;
+}
+
+/* 我的主页封面 */
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 480rpx;
+  box-shadow: 0 2rpx 2rpx 3rpx rgba(0, 0, 0, 0.1);
+  color: #fff;
+  background-size: cover;
+  font-family: Arial,
+                 "PingFang SC",
+                 "Hiragino Sans GB",
+                 STHeiti,
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  background-image: url(https://hbimg.huabanimg.com/ad44374f29e0a2f45748fbcda3f1f761a5c1610e28d0e-3dtmRE_fw658);
+}
+
+.avatar-url {
+  overflow: hidden;
+  width: 200rpx;
+  height: 200rpx;
+  border: 6rpx solid #d81e06;
+  border-radius: 50%;
+}
+
+.nickname {
+  margin-top: 14rpx;
+  font-size: 36rpx;
+}
+
+.replace-theme, .head-frame {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 20rpx;
+  background: #f3f3f38c;
+  color: #252525;
+  width: 170rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+
+.icon-pifu, .icon-touxiang {
+  font-size: 24rpx;
+}
+
+.replace-theme {
+  top: 30rpx;
+}
+
+.head-frame {
+  top: 100rpx;
+}
+
+.theme-text {
+  font-size: 24rpx;
+  margin-top: 4rpx;
+  margin-left: 10rpx;
+}
+
+.sign-day {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 28rpx;
+  left: 20rpx;
+  width: 110rpx;
+  height: 48rpx;
+  background: #f3f3f38c;
+  color: #252525;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+
+.sign-text {
+  font-size: 24rpx;
+  margin-left: 6rpx;
+}
+
+/* 我的主页导航栏 */
+
+.profile-nav {
+  width: 100%;
+  height: 100%;
+  padding: 68rpx;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.nav-item {
+  position: relative;
+  width: 100%;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 6rpx;
+  background: #fff;
+  color: #383838;
+  margin-bottom: 8rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+
+.nav-item:nth-child(5) {
+  margin-bottom: 60rpx;
+}
+
+.nav-item:nth-child(5), .nav-item:last-child {
+  border-bottom: none;
+  font-size: 36rpx;
+}
+
+.iconfont {
+  font-size: 38rpx;
+  margin-left: 8rpx;
+  color: #d81e06;
+}
+
+.icon-you {
+  float: right;
+  margin-right: 8rpx;
+  opacity: 0.7;
+}
+
+.text {
+  position: absolute;
+  left: 68rpx;
+  font-size: 28rpx;
+  color: #4d4d4d;
+}

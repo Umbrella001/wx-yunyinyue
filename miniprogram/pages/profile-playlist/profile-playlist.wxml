@@ -1,0 +1,12 @@
+<!-- 灰度层 -->
+<view class="mask"></view>
+
+<!-- 最近播放列表展示 -->
+<x-musiclist musiclist="{{musicList}}"></x-musiclist>
+
+<!-- 无播放历史提示信息 -->
+<x-empty-content 
+  content="{{musicList}}"
+  tip="去留下你的音乐足迹吧~"
+/>
+
