@@ -1,5 +1,11 @@
-page{
-  background: #f1f1f1;
+.blog-background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-image: url(https://hbimg.huabanimg.com/c91effed70421339c1acf3f0d57640e0cfceb6ed14abe-IBB90I_fw658);
 }
 
 .blog-display{
@@ -19,7 +25,7 @@ page{
 .display-box{
   display: inline-block;
   width: 50%;
-  margin-left: 64rpx;
+  margin-left: 48rpx;
   color: #fff;
 }
 
