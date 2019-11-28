@@ -20,7 +20,8 @@ App({
     this.globalData = {
       playingMusicId: -1,  // 播放歌曲的搜索
       isBtnType: 0,  // 图片或者视频
-      openid: ''  //  用户的openid （用户使用同一个小程序openid不变）
+      openid: '',  //  用户的openid （用户使用同一个小程序openid不变）
+      musicOpenid: '' ,  // 用户喜欢歌曲列表openid
     }
   },
   
@@ -48,12 +49,19 @@ App({
       name:"login"
     }).then((res)=>{
       let openid = res.result.openid
+      let musicOpenid = openid + "loveList"
       this.globalData.openid = openid
+      this.globalData.musicOpenid = musicOpenid
 
-      // 将openid存储到storage中
+      // 将openid存储到storage中（用户最近播放列表）
       if (wx.getStorageSync(openid) == ''){
         wx.setStorageSync(openid, [])
-      } 
+      }
+
+      // 用户我的喜爱歌曲列表
+      if (wx.getStorageSync(musicOpenid) == ''){
+        wx.setStorageSync(musicOpenid,[])
+      }
     })
    }
 })

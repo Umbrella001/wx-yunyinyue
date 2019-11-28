@@ -1,2 +1,13 @@
-<!--pages/profile-lovelist/profile-lovelist.wxml-->
-<text>pages/profile-lovelist/profile-lovelist.wxml</text>
+<!-- 我的喜爱遮罩层 -->
+<view class="mask"></view>
+
+<!-- 无数据时显示 -->
+<x-empty-content content="{{loveList}}" tip="搜集我喜欢的歌曲~"/>
+
+<!-- 我喜欢的歌曲列表 -->
+<x-musiclist 
+  musiclist="{{loveList}}" 
+  indexColor="#fb937e"
+  musicColor="#fdbf5c"
+  singerColor="#fed8bf"
+></x-musiclist>

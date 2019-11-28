@@ -7,6 +7,22 @@ Component({
   properties: {
     musiclist: {
       type: Array
+    },
+    playingColor:{
+      type: String,
+      value: "#d81e06"
+    },
+    indexColor: {
+      type: String,
+      value: "#888"
+    },
+    musicColor:{
+      type: String,
+      value: "#333"
+    },
+    singerColor:{
+      type: String,
+      value: "#666"
     }
   },
 

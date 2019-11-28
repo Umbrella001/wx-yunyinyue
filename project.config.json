@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -85,8 +85,15 @@
 				{
 					"id": 7,
 					"name": "temp",
-					"pathName": "pages/profile-bloglist/profile-bloglist",
+					"pathName": "pages/profile-lovelist/profile-lovelist",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "歌曲播放面板",
+					"pathName": "pages/player/player",
+					"query": "musicId=1345186983&index=10",
 					"scene": null
 				}
 			]

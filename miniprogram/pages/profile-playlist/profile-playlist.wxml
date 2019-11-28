@@ -2,7 +2,12 @@
 <view class="mask"></view>
 
 <!-- 最近播放列表展示 -->
-<x-musiclist musiclist="{{musicList}}"></x-musiclist>
+<x-musiclist
+  musiclist="{{musicList}}"
+  indexColor="#d43f8d"
+  musicColor="#cc208e"
+  singerColor="#7028e4"
+ ></x-musiclist>
 
 <!-- 无播放历史提示信息 -->
 <x-empty-content 

@@ -6,7 +6,6 @@
 }
 
 .musiclist-index {
-  color: #888;
   font-size: 34rpx;
   width: 80rpx;
 }
@@ -24,16 +23,13 @@
 
 .musiclist-name {
   font-size: 30rpx;
-  color: #333;
 }
 
 .musiclist-alia {
   font-size: 28rpx;
-  color: #666;
 }
 
 .musiclist-singer {
-  color: #777;
   font-size: 24rpx;
 }
 

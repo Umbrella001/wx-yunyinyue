@@ -94,7 +94,7 @@
   <!-- 二维码弹窗遮罩层 -->
   <view class="qrcode-mask" bindtap="closePopup"></view>
   <!-- 二维码弹窗主体 -->
-  <view class="popup">
+  <view class="popup {{showQrcode ? 'showAnimation' : ''}}">
     <view class="popup-title">小程序码</view>
     <view class="popup-img">
       <image src="{{qrcodeImg}}" mode="widthFix" bindtap="previewImage"></image>

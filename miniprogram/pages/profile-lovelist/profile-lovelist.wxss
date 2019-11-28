@@ -1,1 +1,22 @@
-/* pages/profile-lovelist/profile-lovelist.wxss */
+page{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image: url(https://hbimg.huabanimg.com/993d028ad6989b2407b01080cf54c759184b824fa5a1a-WbjOas_fw658);
+}
+
+.mask{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, .1);
+  color: #9a97ef
+}

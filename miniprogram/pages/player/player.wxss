@@ -87,6 +87,69 @@
   }
 }
 
+/* 歌曲选择面板 */
+.select-bar{
+  position: relative;
+  top: 760rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80rpx;
+}
+
+.select-box{
+  width: 80rpx;
+}
+
+.icon-dianzan, .icon-fenxiang, .icon-gengduo{
+  font-size: 48rpx;
+}
+
+.love{
+  font-size: 48rpx;
+  color: #d81e06;
+  animation-duration: .5s;
+  animation-name: loveAnimation;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loveAnimation{
+  0%{
+    font-size: 48rpx;
+  }
+  50%{
+    font-size: 54rpx;
+  }
+  100%{
+    font-size: 48rpx;
+  }
+}
+
+.icon-fenxiang{
+  font-size: 46rpx;
+  color: #d81e06;
+}
+
+.share-box{
+  border: none;
+  margin: 0;
+  background: transparent;
+}
+
+.share-box::after{
+  border: none
+}
+
+.icon-pinglun{
+  color: #275df0;
+  font-size: 52rpx;
+}
+
+.icon-gengduo{
+  color: #fff;
+}
+
+/* 歌曲控制进度条及控制面板 */
 .player-pause{
   animation-play-state: paused;
 }

@@ -6,6 +6,24 @@
   <view class="player-disc {{ isPlaying ? 'playing': ''}}" bind:tap="lyricShowChange" hidden="{{!isLyricShow}}">
     <image class="player-img rotation {{ isPlaying ? '' : 'player-pause'}}" src="{{ picUrl }}"></image>
   </view>
+  <view class="select-bar" hidden="{{!isLyricShow}}">
+    <view class="select-box">
+      <i class="iconfont icon-dianzan {{selected ? 'love' : ''}}" bind:tap="onSelect"></i>
+    </view>
+    <view class="select-box">
+      <i class="iconfont icon-pinglun"></i>
+    </view>
+    <button class="select-box share-box" 
+      open-type="share" 
+      data-shareimg="{{ picUrl }}"
+      data-musicname="{{musicName}}"
+    >
+      <i class="iconfont icon-fenxiang"></i>
+    </button>
+    <view class="select-box">
+      <i class="iconfont icon-gengduo"></i>
+    </view>
+  </view>
 </view>
 
 <!-- 歌词面板 -->

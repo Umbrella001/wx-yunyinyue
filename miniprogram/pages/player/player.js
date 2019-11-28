@@ -10,10 +10,13 @@ Page({
    */
   data: {
     picUrl: '', // 歌曲的封面图
+    musicName: '',  // 歌曲名字
     isPlaying: false, // 歌曲是否播放中，默认false没有播放
     isLyricShow: true, // 显示歌曲歌词，默认true不显示歌词
+    selected: false,  // 是否喜欢当前歌曲
     lyric: '', // 歌曲歌词
     isSame: false, // 是否同一首歌 
+    loveList: []  // 我喜欢的歌曲列表
   },
 
   /**
@@ -22,7 +25,28 @@ Page({
   onLoad(options) {
     currentMusicIndex = options.index
     musiclist = wx.getStorageSync('musiclist') // 获取歌单歌曲
+    this.isHaveMusic()
     this._loadMusicDetail(options.musicId)
+  },
+
+  // 判断当前歌曲是否存在于我西黄列表
+  isHaveMusic(){
+    let storageLovelist = wx.getStorageSync(app.globalData.musicOpenid) // 获取储存的歌单列表
+    this.setData({
+      loveList: storageLovelist
+    })
+    for (let i = 0, len = storageLovelist.length; i < len; i++) {
+      if (storageLovelist[i].id == musiclist[currentMusicIndex].id) {
+        this.setData({
+          selected: true
+        })
+        break
+      } else {
+        this.setData({
+          selected: false
+        })
+      }
+    }
   },
 
   // 加载歌曲的信息包括歌词 
@@ -49,7 +73,8 @@ Page({
     }
 
     this.setData({
-      picUrl: musicInfo.al.picUrl
+      picUrl: musicInfo.al.picUrl,
+      musicName: musicInfo.name
     })
 
     wx.showLoading({
@@ -67,7 +92,12 @@ Page({
       if (result.data[0].url == null) {
         wx.showToast({
           title: '此歌曲为VIP',
+          image: "../../images/music-vip.png",
+          duration: 2500
         })
+        setTimeout(()=>{
+          this.nextMusic()
+        },2000)
         return
       }
       if (!this.data.isSame) {
@@ -113,10 +143,7 @@ Page({
     let historyList = wx.getStorageSync(openid),
     ishave = false
 
-    console.log('1231', Object.prototype.toString.call(wx.getStorageSync(openid)), historyList.length) 
-
     for(let i = 0,len = historyList.length;i < len;i++){
-      console.log(i);
       if(historyList[i].id == music.id){
         ishave = true
         break
@@ -145,12 +172,14 @@ Page({
   prevMusic() {
     currentMusicIndex--
     currentMusicIndex = currentMusicIndex < 0 ? musiclist.length - 1 : currentMusicIndex
+    this.isHaveMusic()
     this._loadMusicDetail(musiclist[currentMusicIndex].id)
   },
 
   nextMusic() {
     currentMusicIndex++
     currentMusicIndex = currentMusicIndex > musiclist.length - 1 ? 0 : currentMusicIndex
+    this.isHaveMusic()
     this._loadMusicDetail(musiclist[currentMusicIndex].id)
   },
 
@@ -177,5 +206,39 @@ Page({
     this.setData({
       isPlaying: false
     })
+  },
+
+  // 是否将歌曲加入我的喜爱列表
+  onSelect(){
+    let newLovelist = []
+    if(!this.data.selected){
+      newLovelist = this.data.loveList.unshift(musiclist[currentMusicIndex])
+    }else{
+      let delMusicId = musiclist[currentMusicIndex].id
+      for(let i = 0,len = this.data.loveList.length; i < len; i ++){
+        if(this.data.loveList[i].id == delMusicId){
+          let prom = this.data.loveList.splice(i,1)
+          break
+        }
+      }
+    }
+    this.setData({
+      selected: !this.data.selected
+    })
+
+    wx.setStorageSync(app.globalData.musicOpenid, this.data.loveList)
+  },
+
+  /**
+ * 用户点击右上角分享
+ */
+  onShareAppMessage: function (event) {
+    console.log(event)
+    let music = event.target.dataset
+    return{
+      title: '快来听听这首 >> ' + music.musicname,
+      path: `/pages/player/player?musicId=${musiclist[currentMusicIndex].id}&index=${currentMusicIndex}`,
+      imageUrl: music.shareimg
+    }
   }
 })
