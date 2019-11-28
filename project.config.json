@@ -83,9 +83,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "temp",
-					"pathName": "pages/profile-playlist/profile-playlist",
+					"pathName": "pages/profile-bloglist/profile-bloglist",
 					"query": "",
 					"scene": null
 				}

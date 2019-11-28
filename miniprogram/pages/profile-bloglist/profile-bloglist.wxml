@@ -1,4 +1,14 @@
 <view>
+  <view class="blog-display">
+    <view class="display-box">
+      <i class="iconfont icon-xieboke icon-box"></i>
+      <text>博客数量： {{bloglist.length}}</text>
+    </view>
+    <view class="display-box">
+      <i class="iconfont icon-dianzan icon-box"></i>
+      <text>获得爱心： 123</text>
+    </view>
+  </view>
   <block wx:for="{{bloglist}}" wx:key="_id">
     <view class="blog-pannel">
         <x-blog-card 

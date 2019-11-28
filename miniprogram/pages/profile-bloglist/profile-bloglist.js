@@ -6,7 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bloglist: []
+    bloglist: [],
+    shareImage: [
+      "https://hbimg.huabanimg.com/14566753b582c22b5f91aba9dbe01f96752478c681fb7-vxd392_fw658",
+      "https://hbimg.huabanimg.com/cec54a69e0d0a9b584462a5de1b05958169a81b59a6df-Kq0XDM_fw658",
+      "https://hbimg.huabanimg.com/0a172cfb1e004412ed300af65a330da2d001f043ea653-RvO3or_fw658",
+      "https://hbimg.huabanimg.com/2cbadce412029b8fb0bce887a0d7d35f958f2d7eb8d38-6sJIyx_fw658",
+      "https://hbimg.huabanimg.com/2e33d3985ff04c24039a96e858377d1a945f23b0bcb4a-KsIJEa_fw658",
+      "https://hbimg.huabanimg.com/bbaf1dab3139c58fd5b6c2985e2e3e8f9b876d588b4b4-cxA9GI_fw658"
+    ]
   },
 
   /**
@@ -18,7 +26,7 @@ Page({
   // 调用云函数获取我发布的博客
   getMyBloglist() {
     wx.showLoading({
-      title: '界面加载中',
+      title: '博客加载中',
     })
     wx.cloud.callFunction({
       name: "blog",
@@ -89,11 +97,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (event) {
     const blog = event.target.dataset.blog
+    const len = this.data.shareImage.length
+    let random = Math.floor(Math.random()*len)
     return{
       title: blog.content,
-      path: `/pages/blog-comment/blog-comment?blogId=${blog._id}`
+      path: `/pages/blog-comment/blog-comment?blogId=${blog._id}`,
+      imageUrl: this.data.shareImage[random]
     }
   }
 })
