@@ -85,7 +85,7 @@
 
 > > 2.5 歌曲播放面板增加【喜欢功能 → 点击添加到我喜欢列表】、【分享功能 → 分享歌曲】、【评论+打赏功能（占不涉及支付，以免小程序发布不了）】（后续上新）
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-player.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-player.jpg)
 
 ### 2️⃣ . 2️⃣  博客发现模块开发
 
@@ -188,3 +188,9 @@
 > > ① 首先去 [微信开发者平台](https://mp.weixin.qq.com) 中的【成员管理】将你朋友的微信号加入访问读写权限
 > >
 > > ② 最后在【云开发】界面中的【数据库】中找到 `blog` 集合，然后选择【权限设置】将 "仅创建者可读写" → "所有用户可读"
+
+> 3. 【我的喜爱】用户可以将喜欢的歌曲添加进我的喜爱
+
+> > 3.1 跟【最近播放】的思路一样，使用storage将用户点击的喜欢歌曲加入即可
+
+> > 3.2 后续将用户点赞的博客也放入【我的喜爱】页面中，方便用户查看（后续迭代）
