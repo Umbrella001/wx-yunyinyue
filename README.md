@@ -16,7 +16,7 @@
 
 ② 注册个小程序是第一步（首次注册可以看[官网文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/getstart.html#申请帐号)），然后将项目在微信开发者工具打开，接下来迫在眉睫的当然就是部署服务器（也就是创建自己的云服务）
 
-③ 【创建云环境】在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待20-30min中后重新启动微信开发工具，此时点击【编译】就可以成功对接云
+③ 【创建云环境】在微信开发者工具中，点击左上角的【云开发】进去创建云服务界面，设置好之后，返回大概等待 20-30min 中后重新启动微信开发工具，此时点击【编译】就可以成功对接云
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/deploy_01.png)
 
@@ -169,7 +169,7 @@
 
 
 
-![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/profile.png)
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/profile.jpg)
 
 > 1. 【最近播放】可查看播放歌曲的历史
 
