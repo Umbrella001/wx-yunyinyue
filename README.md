@@ -158,3 +158,32 @@
 > > 5.3 后续配合数据库一对多，多对多设计完成【博客喜欢列表】及其【博客点赞、踩功能】（后续上线）
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/comment-share.jpg)
+
+2️⃣ . 3️⃣  个人中心模块开发
+
+- :apple: cloudfunciton
+
+  > 1.云调用 `cloud.openapi.wxacode.getUnlimited` 生成小程序码，配合 `cloud.uploadFile` 生成小程序码图片
+
+- :green_apple: miniprogram
+
+![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/profile.png)
+
+> 1. 【最近播放】可查看播放歌曲的历史
+
+> > 1.1 使用微信小程序的storage进行储存，播放历史的歌曲列表，使用用户openid作为key，实现不同用户只能读取自己的播放历史
+
+> > 1.2 除非用户清楚小程序数据，否则播放历史将存在小程序的storage中
+
+> > 1.3 修复播放历史中循环的不是历史歌曲BUG
+
+> 2. 【我的博客】用户可以查看自己发布的博客
+
+> > 2.1 使用组件复用即可完成这个版块的布局样式，用过用户openid去查询数据库，拿到自己的博客列表
+
+> > 2.2 部分同学反馈，怎么让看到朋友写的博客，两个步骤；
+> >
+> > ① 首先你要去 [微信开发者平台](https://mp.weixin.qq.com) 中的【成员管理】将你朋友的微信号加入访问读写权限
+> >
+> > ② 在【云开发】界面中的【数据库】中找到 `blog` 集合，然后选择【权限设置】将 "仅创建者可读写" → "所有用户可读"
+
