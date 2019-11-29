@@ -26,7 +26,7 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
-## 2️⃣  项目进度
+## 2️⃣  设计思路与项目进度
 
 ### 2️⃣ . 1️⃣  音乐模块开发
 
@@ -65,7 +65,7 @@
 
 > > 2.4 配合movable-area、movable-view、progress完成歌词播放进度条联动
 
-> > 2.5 歌曲播放面板增加【喜欢功能 → 点击添加到我喜欢列表】、【分享功能 → 分享歌曲】、【评论+打赏功能（占不涉及支付，以免小程序发布不了）】（后续上新）
+> > 2.5 歌曲播放面板增加【评论+打赏功能（占不涉及支付，以免小程序发布不了）】（后续上新）
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-player.jpg)
 
