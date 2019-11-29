@@ -9,7 +9,7 @@
 	</block>
 </view>
 
-<button class="again_btn"  bindtap="againBtn">再抽一次</button>
+<button class="again_btn"  bindtap="againBtn" hidden="{{!showAgain}}">再抽一次</button>
 
 <!-- 奖品弹窗 -->
 <view class="luck-display" wx:if="{{isShowLuck}}">
