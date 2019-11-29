@@ -63,7 +63,7 @@
   <view class="nav-item">
     <navigator class="content" 
         hover-class="none" 
-        url="/pages/profile-develop/profile-develop"
+        url="/pages/profile-luckdraw/profile-luckdraw"
     >
       <i class="iconfont icon-wodefuli icon-nav"></i>
       <text class="text">福利中心</text>

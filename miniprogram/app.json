@@ -10,7 +10,8 @@
     "pages/profile-playlist/profile-playlist",
     "pages/profile-bloglist/profile-bloglist",
     "pages/profile-lovelist/profile-lovelist",
-    "pages/profile-develop/profile-develop"
+    "pages/profile-develop/profile-develop",
+    "pages/profile-luckdraw/profile-luckdraw"
   ],
   "requiredBackgroundModes": [
     "audio",

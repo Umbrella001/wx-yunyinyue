@@ -159,9 +159,8 @@ page {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  top: 50%;
+  top: 300rpx;
   left: -500rpx;
-  transform: translateY(-50%);
   width: 500rpx;
   height: 600rpx;
   z-index: 99;
@@ -177,14 +176,16 @@ page {
 
 @keyframes sAnimation{
   0%{
-    top: 50%;
     left: -500rpx;
-    transform: translateY(-50%);
+  }
+  40%{
+    left: 130rpx;
+  }
+  70%{
+    left: 150rpx;
   }
   100%{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+  left:  130rpx;
   }
 }
 
