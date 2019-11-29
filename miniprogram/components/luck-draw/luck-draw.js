@@ -1,6 +1,6 @@
-let timer;
-let cjIn = false;
-let cjChange = 0; //抽奖过程KEY
+let timer; 
+let onDrawing = false;  // 是否可进行抽奖标识，默认为false可进行抽奖
+let drawIndex = 0; //抽奖过程KEY
 
 Component({
   /**
@@ -10,6 +10,9 @@ Component({
 
   },
 
+    /**
+   * 关闭组件样式隔离
+   */
   options: {
     styleIsolation: 'apply-shared'
   },
@@ -18,6 +21,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    // 奖品参数信息
     prizeList: [
       { id: '001', index: 1, imgsrc: 'https://hbimg.huabanimg.com/18b925338313c77ee90c6a0a2f052a7988e10ce515ca7-T4bMZ0_fw658', prizeName: '谢谢参与' },
       { id: '002', index: 2, imgsrc: 'https://hbimg.huabanimg.com/2acfd641286f1a7e4050ca13e207c1d2fc2cbf5f12ca2-W5O1vm_fw658', prizeName: '金币 x20' },
@@ -29,7 +33,7 @@ Component({
       { id: '008', index: 8, imgsrc: 'https://hbimg.huabanimg.com/513f6f7d9f323e7cc3e252444237a84b52a98890c375-LGfXRi_fw658', prizeName: '水晶盒 x1' },
     ],
 
-    cjChange: null, //抽奖过程KEY
+    drawIndex: null, //抽奖过程KEY
     prizeResult: null, //抽奖结果KEY
     prizeName: null, //抽奖结果KEY对应的奖品名称
     isShowLuck: false,  // 是否显示奖品弹窗，默认false不显示
@@ -44,21 +48,17 @@ Component({
   methods: {
 
     //抽奖操作
-    cj() {
-      console.log(123)
-      if (cjIn) {
+    startDraw() {
+      if (onDrawing) {
         return;
       } else {
-        cjIn = true;
+        onDrawing = true;
       }
-
 
       clearInterval(timer);
       timer = setInterval(()=>{
         this.changePrize()
       }, 80);
-
-
 
       // 随机将品池
       let random = Math.floor(Math.random() * this.data.prizeList.length)
@@ -68,7 +68,7 @@ Component({
         prizeResult: this.data.prizeList[random].index,
         prizeName: this.data.prizeList[random].prizeName,
       }
-      console.log(res.prizeResult)
+
       if (res.stutus == 1) {
         setTimeout( ()=> {
           clearInterval(timer);
@@ -90,21 +90,18 @@ Component({
           }, 1200)
         }, 1800)
       }
-      // test end
-
-
-
     },
+
     //抽奖过程奖品切换
     changePrize() {
-      cjChange++;
-      cjChange = cjChange > 8 ? 1 : cjChange;
+      drawIndex++;
+      drawIndex = drawIndex > 8 ? 1 : drawIndex;
 
       this.setData({
-        cjChange: cjChange
+        drawIndex: drawIndex
       });
 
-      if (this.data.prizeResult == cjChange) {
+      if (this.data.prizeResult == drawIndex) {
         clearInterval(timer);
         let currentAward = this.data.prizeList[this.data.prizeResult - 1]
         this.setData({
@@ -115,18 +112,19 @@ Component({
         });
       }
     },
+
     //点击再抽一次按钮
     againBtn() {
-      cjIn = false;
-      cjChange = 0; //抽奖过程KEY
+      onDrawing = false;
+      drawIndex = 0; //抽奖过程KEY
 
       this.setData({
-        cjChange: null, //抽奖过程KEY
-        prizeResult: null, //抽奖结果KEY
-        prizeName: null, //抽奖结果KEY对应的奖品名称
-        showAgain: false, //是否抽奖后显示再抽一次按钮
-        awardImage: '',
-        awardName: ''
+        drawIndex: null, // 清空抽奖过程KEY
+        prizeResult: null, // 清空抽奖结果KEY
+        prizeName: null, // 清空抽奖结果KEY对应的奖品名称
+        showAgain: false, // 是否抽奖后显示再抽一次按钮
+        awardImage: '',  // 清空奖品展示的图片
+        awardName: '' // 清空奖品的展示名称
       });
     },
 
