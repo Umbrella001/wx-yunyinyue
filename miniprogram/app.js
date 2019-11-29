@@ -15,7 +15,9 @@ App({
       })
     }
 
-    this.getOpenid()
+    this.getPlaylist()  // 首次启动自动调用一次歌单爬取
+
+    this.getOpenid()   // 获取用户openid
 
     this.globalData = {
       playingMusicId: -1,  // 播放歌曲的搜索
@@ -41,6 +43,15 @@ App({
 
   setResourceType(sign){
     this.globalData.isBtnType = sign
+  },
+
+  // 修复：启动小程序自动加载爬取小程序歌曲数据
+  getPlaylist(){
+    wx.cloud.callFunction({
+      name: "getPlaylist"
+    }).then((res) => {
+      console.log(res)
+    })
   },
 
    // 获取用户的openid并储存在storage中
