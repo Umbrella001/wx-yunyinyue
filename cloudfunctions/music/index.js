@@ -21,7 +21,7 @@ exports.main = async(event, context) => {
     ctx.body = await db.collection('playlist')
       .skip(event.start)
       .limit(event.count)
-      .orderBy('createTime', 'desc')
+      .orderBy('trackNumberUpdateTime', 'desc')
       .get()
       .then((res) => {
         return res
