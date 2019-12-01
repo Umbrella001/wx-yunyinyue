@@ -17,6 +17,8 @@ App({
 
     this.getPlaylist()  // 首次启动自动调用一次歌单爬取
 
+    this.checkUpdate() // 检测版本更新
+
     this.getOpenid()   // 获取用户openid
 
     this.globalData = {
@@ -74,5 +76,44 @@ App({
         wx.setStorageSync(musicOpenid,[])
       }
     })
-   }
+   },
+
+  // 冷启动时检查一次更新状态
+ checkUpdate(){
+   const updateManager = wx.getUpdateManager()
+
+   updateManager.onCheckForUpdate((res) => {
+     // 检测是否
+     if(res.hasUpdate){
+       updateManager.onUpdateReady(()=>{
+         wx.showModal({
+           title: '更新提示',
+           content: '新版本已经准备好，是否重启应用？',
+           confirmText: '立即体验',
+           confirmColor: '#d81e06',
+           cancelColor: '#a0a0a0',
+           success: (res) => {
+            if(res.coonfirm){
+              updateManager.applyUpdate()
+            }else{
+              wx.showModal({
+                title: '温馨提示',
+                content: '建议使用新版本,体验更丰富的功能噢 ',
+                confirmText: '体验一下',
+                confirmColor: '#d81e06',
+                cancelText: '下次再说',
+                cancelColor: '#a0a0a0',
+                success: (res) =>{
+                  if(res.confirm){
+                    updateManager.applyUpdate()
+                  }
+                }
+              })
+            }
+           }
+         })
+       })
+     }
+   })
+ }
 })

@@ -1,5 +1,3 @@
-@import 'search-icon.wxss';
-
 .container {
   display: flex;
   align-items: center;

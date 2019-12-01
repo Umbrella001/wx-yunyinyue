@@ -1,6 +1,7 @@
 .container {
   position: relative;
   background: #f1f1f1;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tab {

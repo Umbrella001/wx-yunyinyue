@@ -111,8 +111,6 @@ Component({
           commentTime: db.serverDate()
         }
       }).then((res) => {
-        console.log('comment',res)
-
         wx.cloud.callFunction({
           name: "commentPush",
           data:{

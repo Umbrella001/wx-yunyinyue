@@ -21,7 +21,8 @@
   <form slot="modal-content" bind:submit="send" report-submit="true">
     <textarea 
       name="content" 
-      class="comment-content" 
+      class="comment-content"
+      value="{{content}}"
       placeholder="写下你的想法..."
       fixed="true"
     ></textarea>

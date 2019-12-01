@@ -7,6 +7,7 @@
 }
 
 .ctrl-item {
+  display: flex;
   flex: 1;
   align-items: center;
   justify-content: center;
@@ -20,7 +21,6 @@
                  "WenQuanYi Micro Hei",
                  sans-serif;
   font-size: 26rpx;
-  margin: 20rpx;
 }
 
 .ctrl-item .icon {

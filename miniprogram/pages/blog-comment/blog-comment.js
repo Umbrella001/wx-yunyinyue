@@ -56,7 +56,10 @@ Page({
     wx.showToast({
       title: '点赞和踩模式即将上线',
       duration: 2000,
-      image: '../../images/show-tip.png'
+      image: '../../images/show-tip.png',
+      complete(){
+        wx.hideToast()
+      }
     })
     if (this.data.isOppose) {
       this.setData({

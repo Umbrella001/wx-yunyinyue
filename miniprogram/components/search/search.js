@@ -9,6 +9,13 @@ Component({
   },
 
   /**
+* 关闭组件样式隔离
+*/
+  options: {
+    styleIsolation: 'apply-shared'
+  },
+
+  /**
    * 组件的初始数据
    */
   data: {

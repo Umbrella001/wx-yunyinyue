@@ -1,4 +1,5 @@
-let timer; 
+let loopTimer;
+let timer;
 let onDrawing = false;  // 是否可进行抽奖标识，默认为false可进行抽奖
 let drawIndex = 0; //抽奖过程KEY
 
@@ -55,10 +56,11 @@ Component({
         onDrawing = true;
       }
 
-      clearInterval(timer);
-      timer = setInterval(()=>{
+      clearInterval(loopTimer);
+      clearTimeout(timer)
+      loopTimer = setInterval(()=>{
         this.changePrize()
-      }, 80);
+      }, 100);
 
       // 随机将品池
       let random = Math.floor(Math.random() * this.data.prizeList.length)
@@ -70,25 +72,33 @@ Component({
       }
 
       if (res.stutus == 1) {
-        setTimeout( ()=> {
-          clearInterval(timer);
-          timer = setInterval(()=>{
+        timer = setTimeout( ()=> {
+          clearInterval(loopTimer);
+          loopTimer = setInterval(()=>{
             this.changePrize()
           }, 200);
 
-          setTimeout( ()=> {
-            clearInterval(timer);
-            timer = setInterval(()=>{
+          timer = setTimeout( ()=> {
+            clearInterval(loopTimer);
+            loopTimer = setInterval(()=>{
               this.changePrize()
-            }, 420);
-            setTimeout( () => {
-              this.setData({
-                prizeResult: res.prizeResult,
-                prizeName: res.prizeName,
-              });
-            }, 1000)
-          }, 1200)
-        }, 1800)
+            }, 280);
+
+            timer = setTimeout(() => {
+              clearInterval(loopTimer)
+              loopTimer = setInterval(() => {
+                this.changePrize()
+              },380);
+
+              timer = setTimeout(() => {
+                this.setData({
+                  prizeResult: res.prizeResult,
+                  prizeName: res.prizeName,
+                });
+             }, 1300)
+            }, 1400)
+          }, 1500)
+        }, 1600)
       }
     },
 
@@ -102,7 +112,8 @@ Component({
       });
 
       if (this.data.prizeResult == drawIndex) {
-        clearInterval(timer);
+        clearInterval(loopTimer)
+        clearTimeout(timer)
         let currentAward = this.data.prizeList[this.data.prizeResult - 1]
         this.setData({
           showAgain: true,

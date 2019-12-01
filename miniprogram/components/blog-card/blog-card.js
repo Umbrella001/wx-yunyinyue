@@ -87,6 +87,8 @@ Component({
           title: '爱心模式即将上线',
           duration: 2000,
           image: '../../images/show-tip.png'
+        },() => {
+          wx.hideToast()
         })
       }    
       this.setData({

@@ -1,4 +1,5 @@
 let keyword = '' // 搜索的关键字
+let isAuthorize = false // 是否授权
 
 const LOAD_LIST_NUM = 10 // 每次请求的博客数量
 
@@ -9,7 +10,7 @@ Page({
   data: {
     isShowPopup: false, // 是否显示授权底部弹窗，默认false不显示
     blogList: [], // 存放博客页面的博客列表数据
-    isAuthorize: false, // 是否授权
+
     blogShareImg: [    "https://hbimg.huabanimg.com/0f2e924f9f24b483a6d31ee780208a20306f2a3a11750-rFPrzG_fw658",
     "https://hbimg.huabanimg.com/0b95640080a36c0990a811f0f74efb98cb9b512652fc4-6gkC2J_fw658",
     "https://hbimg.huabanimg.com/05f503e79e197232ac0675f4639cd7459ab4b327bdf37-3HoX31_fw658",
@@ -50,11 +51,14 @@ Page({
 
   // 点击发布按钮时，获取授权信息，如没有授权则弹窗
   onPublish() {
-    if (!this.data.isAuthorize) {
+    if (!isAuthorize) {
       wx.showToast({
         title: '检测是否授权',
         mask: true,
-        image: '../../images/music-author.png'
+        image: '../../images/music-author.png',
+        complete() {
+          wx.hideToast()
+        }
       })
     }
     wx.getSetting({
@@ -62,9 +66,7 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: (res) => {
-              this.setData({
-                isAuthorize: true
-              })
+              isAuthorize = true
               wx.hideToast()
               this.onLoginSuccess({
                 detail: res.userInfo
@@ -75,8 +77,8 @@ Page({
           wx.hideToast()
           this.setData({
             isShowPopup: true,
-            isAuthorize: false
           })
+          isAuthorize =  false
         }
       }
     })
@@ -109,7 +111,6 @@ Page({
     wx.navigateTo({
       url: '../blog-comment/blog-comment?blogId=' + event.target.dataset.blogid,
     })
-
   },
   // 执行数据库关键字查询
   goSearch(options) {
