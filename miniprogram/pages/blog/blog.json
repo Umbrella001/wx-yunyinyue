@@ -5,6 +5,6 @@
     "x-blog-card": "/components/blog-card/blog-card",
     "x-blog-control":"/components/blog-control/blog-control"
   },
-  "navigationBarTitleText": "博客-发现",
+  "navigationBarTitleText": "博客广场",
   "enablePullDownRefresh": true
 }
