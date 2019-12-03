@@ -69,7 +69,7 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/music-player.jpg)
 
-### 2️⃣ . 2️⃣  博客发现模块开发
+2️⃣ . 2️⃣  博客发现模块开发
 
 - :apple: cloudfunciton
 
@@ -141,7 +141,7 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/comment-share.jpg)
 
-2️⃣ . 3️⃣  个人中心模块开发
+### 2️⃣ . 3️⃣  个人中心模块开发
 
 - :apple: cloudfunciton
 
@@ -189,3 +189,28 @@
 
 ![image](https://github.com/Umbrella001/wx-yunyinyue/raw/master/DocImage/profile-tabbar.jpg)
 
+## 3️⃣  更新及其BUG列表（上线版本）
+
+假设已经上线了(┬＿┬)，审核过不了呀惨！；小程序的审核流程有兴趣的可以去官网看看，对于这款小程序存在音乐又含有开放性的博客广场很难过审核，所以只能拿来练练手，部署体验了；很难受...，但是我会一直维护，开发到一个满意的小程序为止，无私贡献我的小源码，如果有什么不足的代码或者更好的想法，都可以联系我，我们一起讨论，一起进步【企鹅：1255421861 】
+
+> v1.0.0
+
+> > ✪ :tada: :tada:【伞音世界】假设上线，体（部）验（署）一下吧 :tada: :tada:
+
+
+
+> v1.0.1
+
+> > ✪ 修复【博客广场】发布后图片顺序不能按照编辑的图片顺序排序问题
+
+> > ✪ 修复【伞云音乐】获取歌单列表超时和歌单展示最新错误的问题
+
+
+
+> v1.1.1
+
+> > ✪ 优化【博客广场】【我的喜爱】新UI视图体验，更简洁圆滑
+
+> > ✪ 增加【我的喜爱】可以切换展示我喜爱的歌曲和我喜爱的博客列表
+
+> > ✪ 修复【博客广场】下拉刷新，没有同步博客爱心的问题
