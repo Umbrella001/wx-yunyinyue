@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 8,
 			"list": [
 				{
 					"id": 0,
@@ -81,13 +81,6 @@
 				},
 				{
 					"id": 6,
-					"name": "blogComment",
-					"pathName": "pages/blog-comment/blog-comment",
-					"query": "blogId=827b73655dda6ae7001886bd04f41305",
-					"scene": null
-				},
-				{
-					"id": 6,
 					"name": "profile",
 					"pathName": "pages/profile/profile",
 					"query": "",
@@ -105,6 +98,13 @@
 					"name": "歌曲播放面板",
 					"pathName": "pages/player/player",
 					"query": "musicId=1345186983&index=10",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "开发中的界面",
+					"pathName": "pages/profile-develop/profile-develop",
+					"query": "",
 					"scene": null
 				}
 			]

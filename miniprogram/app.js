@@ -17,15 +17,16 @@ App({
 
     this.getPlaylist()  // 首次启动自动调用一次歌单爬取
 
-    this.checkUpdate() // 检测版本更新
-
     this.getOpenid()   // 获取用户openid
+
+    this.checkUpdate() // 检测版本更新
 
     this.globalData = {
       playingMusicId: -1,  // 播放歌曲的搜索
       isBtnType: 0,  // 图片或者视频
       openid: '',  //  用户的openid （用户使用同一个小程序openid不变）
       musicOpenid: '' ,  // 用户喜欢歌曲列表openid
+      blogOpenid: '',  // 用户喜欢的博客列表openid
     }
   },
   
@@ -52,7 +53,7 @@ App({
     wx.cloud.callFunction({
       name: "getPlaylist"
     }).then((res) => {
-      console.log(res)
+      console.log("新增歌单：",res.result)
     })
   },
 
@@ -63,8 +64,11 @@ App({
     }).then((res)=>{
       let openid = res.result.openid
       let musicOpenid = openid + "loveList"
+      let blogOpenid = openid + "blogList"
+
       this.globalData.openid = openid
       this.globalData.musicOpenid = musicOpenid
+      this.globalData.blogOpenid = blogOpenid
 
       // 将openid存储到storage中（用户最近播放列表）
       if (wx.getStorageSync(openid) == ''){
@@ -75,6 +79,12 @@ App({
       if (wx.getStorageSync(musicOpenid) == ''){
         wx.setStorageSync(musicOpenid,[])
       }
+
+      // 用户我的喜欢博客列表
+      if (wx.getStorageSync(blogOpenid) == '') {
+        wx.setStorageSync(blogOpenid, [])
+      }
+
     })
    },
 

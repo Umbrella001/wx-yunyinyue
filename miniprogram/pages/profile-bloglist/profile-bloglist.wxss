@@ -1,43 +1,11 @@
 .blog-background{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-image: url(https://hbimg.huabanimg.com/c91effed70421339c1acf3f0d57640e0cfceb6ed14abe-IBB90I_fw658);
+  width: 100%;
+  height: 100%;
 }
 
-.blog-display{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 96%;
-  height: 140rpx;
-  background: #fff;
-  box-sizing: border-box;
-  border-radius: 10rpx;
-  margin: 12rpx auto ;
-  background-size: cover;
-  background-image: url(https://hbimg.huabanimg.com/cb9560259863be3b4b8eb89ace3aa283eb5cf9ee4226-kpbuaN_fw658);
-}
-
-.display-box{
-  display: inline-block;
-  width: 50%;
-  margin-left: 48rpx;
-  color: #fff;
-}
-
-.icon-box{
-  font-size: 40rpx;
-  color: #d81e06;
-  margin-right: 8rpx;
-}
-
-.display-box:first-child::after{
-  content: "|";
-  float: right;
+.blog-container{
+  width: 98%;
+  margin: 180rpx auto 0;
 }
 
 .blog-pannel{

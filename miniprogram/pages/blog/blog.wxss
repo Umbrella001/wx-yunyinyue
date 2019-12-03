@@ -38,7 +38,8 @@
 }
 
 .blog-list {
-  margin-top: 120rpx;
+  width: 98%;
+  margin: 120rpx  auto 0;
 }
 
 .blog-panel {

@@ -33,7 +33,7 @@
 }
 
 .playlist-name {
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 26rpx;
   padding: 2px 0 0 6px;
   display: -webkit-box;

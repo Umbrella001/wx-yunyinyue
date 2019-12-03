@@ -247,6 +247,8 @@ Page({
 
     const publishType = app.getResourceType()
 
+    const loveNum = 0  // 博客喜欢的爱心数
+
     wx.showLoading({
       title: '发布中...',
       mask: true
@@ -284,6 +286,7 @@ Page({
           img: fileImgs,
           ...userInfo,
           publishType,
+          loveNum,
           publishTime: db.serverDate() // 服务端时间 
         }
       }).then((res) => {

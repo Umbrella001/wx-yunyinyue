@@ -1,0 +1,36 @@
+.display-box{
+  position: absolute;
+  top: -160rpx;
+  left: 50%;
+  margin-top: 20rpx;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 96%;
+  height: 140rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  background: #000;
+  background-size: cover;
+}
+
+.showAnimation{
+  top: 0;
+  -webkit-transition: top 1.4s ease-in-out;
+  transition: top 1.4s ease-in-out; 
+}
+
+.display-card{
+  display: inline-block;
+  width: 50%;
+  margin-left: 60rpx;
+  color: #fff;
+}
+
+.icon-box{
+  font-size: 40rpx;
+  color: #d81e06;
+  margin-right: 8rpx;
+}

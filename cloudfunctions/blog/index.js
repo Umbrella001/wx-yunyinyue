@@ -100,5 +100,34 @@ exports.main = async(event, context) => {
     })
   })
 
+  // 自增特定博客的loveNum
+  const _ = db.command
+  app.router("incLove", async(ctx,next) => {
+    let curBlogid = event.currentBlogid
+    ctx.body = await blogData.where({ 
+      _id:curBlogid 
+      }).update({
+      data:{
+        loveNum: _.inc(1)
+      }
+    }).then((res) => {
+      console.log(res)
+    })
+  })
+
+  // 自减特定博客的loveNum
+  app.router("reduceLove", async (ctx, next) => {
+    let curBlogid = event.currentBlogid
+    ctx.body = await blogData.where({
+      _id: curBlogid
+    }).update({
+      data: {
+        loveNum: _.inc(-1)
+      }
+    }).then((res) => {
+      console.log(res)
+    })
+  })
+
   return app.serve()
 }

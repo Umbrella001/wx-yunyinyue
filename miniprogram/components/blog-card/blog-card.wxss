@@ -1,5 +1,5 @@
 page {
-  background: #f1f1f1;
+  background: #000;
 }
 
 .blog {
@@ -12,6 +12,7 @@ page {
                  "Microsoft YaHei",
                  "WenQuanYi Micro Hei",
                  sans-serif;
+  border-radius: 20rpx 20rpx 0 0;
 }
 
 .blog-title {
@@ -75,11 +76,11 @@ page {
   }
 
   33% {
-    font-size: 64rpx;
+    font-size: 60rpx;
   }
 
   66% {
-    font-size: 40rpx;
+    font-size: 42rpx;
   }
 
   99% {
@@ -96,7 +97,7 @@ page {
   text-align: center;
   border-radius: 20rpx;
   padding: 2rpx 8rpx;
-  background: #d1d1d19a;
+  background: #e7e7e79a;
   color: rgba(216, 31, 6);
   margin-left: 10rpx;
   margin-top: 8rpx;
@@ -113,8 +114,8 @@ page {
 }
 
 .blog-images .blog-img {
-  width: 230rpx;
-  height: 230rpx;
+  width: 220rpx;
+  height: 220rpx;
   margin-right: 10rpx;
   margin-bottom: 10rpx;
 }

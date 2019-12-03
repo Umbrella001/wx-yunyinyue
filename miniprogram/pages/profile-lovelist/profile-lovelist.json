@@ -1,7 +1,9 @@
 {
   "usingComponents": {
-      "x-musiclist": "/components/musiclist/musiclist",
-      "x-empty-content": "/components/empty-content/empty-content"
+    "x-musiclist": "/components/musiclist/musiclist",
+    "x-display-box": "/components/display-box/display-box",
+    "x-blog-card": "/components/blog-card/blog-card",
+    "x-blog-control": "/components/blog-control/blog-control"
   },
   "navigationBarTitleText": "我的喜爱"
 }

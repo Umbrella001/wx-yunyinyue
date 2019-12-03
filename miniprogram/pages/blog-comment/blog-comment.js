@@ -15,10 +15,8 @@ Page({
     opposeNum: 43  // 虚拟踩量
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
+    
     this.setData({
       blogid: options.blogId
     })
@@ -37,6 +35,7 @@ Page({
         $url: "detail"
       }
     }).then((res) => {
+      console.log(res)
       wx.hideLoading()
       let blogComment = res.result.commentList.data
       for (let i = 0, len = blogComment.length; i < len; i++) {

@@ -4,6 +4,7 @@
   background: #fff;
   height: 80rpx;
   border-top: 1px solid #f0f0f0;
+  border-radius: 0 0 20rpx 20rpx;
 }
 
 .ctrl-item {

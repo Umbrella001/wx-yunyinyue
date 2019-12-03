@@ -1,7 +1,7 @@
 <scroll-view scroll-y="true" class="container">
   <!-- 博客正文 -->
   <view class="blog-card">
-    <x-blog-card blog="{{blog}}" />
+    <x-blog-card blog="{{blog}}" blogid="{{blogid}}" />
   </view>
   <!-- 博客评论列表 -->
   <view class="tab">

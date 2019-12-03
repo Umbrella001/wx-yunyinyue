@@ -1,32 +1,35 @@
 <view class="blog-background">
-  <view class="blog-display">
-    <view class="display-box">
-      <i class="iconfont icon-xieboke icon-box"></i>
-      <text>博客数量： {{bloglist.length}}</text>
-    </view>
-    <view class="display-box">
-      <i class="iconfont icon-dianzan icon-box"></i>
-      <text>获得爱心： *** </text>
-    </view>
-  </view>
-  <block wx:for="{{bloglist}}" wx:key="_id">
-    <view class="blog-pannel">
-        <x-blog-card 
-          blog="{{item}}"
-          bind:tap="goComment"
-          data-blogid="{{item._id}}"
-        />
-        <x-blog-control 
-          blog="{{item}}"
-          blogId="{{item._id}}"
-          blogower="{{item.userName}}"
-          iconfont="iconfont"
-          icon-pinglun="icon-pinglun"
-          icon-fenxiang="icon-fenxiang"
-        />
-    </view>
-  </block>
+<!-- 我的博客展示盒子 -->
+  <x-display-box 
+    firstBoxName="博客数量"
+    secondBoxName="收获爱心"
+    firstBoxData="{{bloglist.length}}"
+    firstBoxIcon="icon-xieboke"
+    secondBoxIcon="icon-dianzan"
+  />
 
+<!-- 我的博客展示卡片 -->
+  <scroll-view class="blog-container" scroll-y="true">
+    <block wx:for="{{bloglist}}" wx:key="_id">
+      <view class="blog-pannel">
+          <x-blog-card 
+            blog="{{item}}"
+            bind:tap="goComment"
+            data-blogid="{{item._id}}"
+          />
+          <x-blog-control 
+            blog="{{item}}"
+            blogId="{{item._id}}"
+            blogower="{{item.userName}}"
+            iconfont="iconfont"
+            icon-pinglun="icon-pinglun"
+            icon-fenxiang="icon-fenxiang"
+          />
+      </view>
+    </block>
+  </scroll-view>
+
+<!-- 无数据时 -->
   <x-empty-content 
     content="{{bloglist}}"
     tip="去写点什么吧~"
