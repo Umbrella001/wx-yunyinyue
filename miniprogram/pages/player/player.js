@@ -214,7 +214,6 @@ Page({
       isPlaying: true
     })
     app.setMusicAnimation(true)
-
   },
 
   onPause() {
@@ -223,7 +222,6 @@ Page({
     })
 
     app.setMusicAnimation(false)
-
   },
 
   // 是否将歌曲加入我的喜爱列表
