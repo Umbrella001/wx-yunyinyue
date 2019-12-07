@@ -1,0 +1,13 @@
+    <view 
+      class="display-box {{isShowAnimation ? 'showAnimation' : ''}}"
+      style="background-image: url({{ displayImg }})"
+      >
+    <view class="display-card">
+      <i class="iconfont {{ firstBoxIcon }} icon-box"></i>
+      <text>{{ firstBoxName }}：{{ firstBoxData }} </text>
+    </view>
+    <view class="display-card">
+      <i class="iconfont {{ secondBoxIcon }} icon-box"></i>
+      <text>{{ secondBoxName }}：{{ secondBoxData }}  </text>
+    </view>
+  </view>

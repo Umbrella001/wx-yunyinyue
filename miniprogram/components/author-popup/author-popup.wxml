@@ -1,0 +1,6 @@
+<view class="container" hidden="{{!isShowPopup}}">
+  <view class="popup">
+    <i class="iconfont icon-guanbi" bind:tap="closePopup"></i>
+    <slot name="modal-content"></slot>
+  </view>
+</view>

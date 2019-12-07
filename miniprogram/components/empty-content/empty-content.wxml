@@ -1,0 +1,8 @@
+<!-- 无数据时提示  -->
+  <view class="content-empty" wx:if="{{!content.length}}">
+      <image class="empty-img" src="../../images/blog-empty.svg" mode="widthFix"></image>
+      <view class="content">
+          <text>好凄凉，神马都没有</text>
+          <view class="content-tip">{{tip}}</view>
+  </view>
+  </view>

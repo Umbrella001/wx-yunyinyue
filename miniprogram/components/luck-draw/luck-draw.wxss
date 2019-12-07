@@ -1,0 +1,190 @@
+/* pages/Luckydraw/Luckydraw.wxss */
+
+page {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-size: cover;
+  background-image: url(https://hbimg.huabanimg.com/05fd1edbf1e20099218985832cc5421faba6a76978789-WEsIFy_fw658)
+}
+
+.box {
+  position: relative;
+  width: 700rpx;
+  height: 700rpx;
+  margin: 250rpx auto 0;
+  box-sizing: border-box;
+  -webkit-box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 220rpx;
+  height: 220rpx;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+/* 抽奖过程中选定样式 */
+
+.list.change_in {
+  color: #fff;
+  background-color: #d81e06;
+}
+
+.list_t {
+  width: 90%;
+  height: 160rpx;
+}
+
+.list_t image {
+  width: 100%;
+  height: 100%;
+}
+
+.list_b {
+  width: 90%;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 根据TOP */
+
+.list:nth-child(1) {
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  background-color: #d81e06;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.list.grey:nth-child(1) {
+  background-color: #9c9c9c;
+}
+
+.again_btn{
+  position: absolute;
+  left: 50%;
+  top: -100rpx;
+  width: 300rpx;
+  transform: translateX(-50%);
+  font-size: 32rpx;
+  background: #f7f31f
+}
+
+.list:nth-child(2), .list:nth-child(3), .list:nth-child(4) {
+  top: 0;
+}
+
+.list:nth-child(6), .list:nth-child(7), .list:nth-child(8) {
+  bottom: 0;
+}
+
+.list:nth-child(5), .list:nth-child(9) {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* 根据LEFT */
+
+.list:nth-child(2), .list:nth-child(8), .list:nth-child(9) {
+  left: 0;
+}
+
+.list:nth-child(3), .list:nth-child(7) {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.list:nth-child(4), .list:nth-child(5), .list:nth-child(6) {
+  right: 0;
+}
+
+/* 奖品弹窗 */
+
+.luck-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 98;
+}
+
+.luck-popup{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 560rpx;
+  height: 560rpx;
+  background: #fff;
+  z-index: 99;
+  border-radius: 20rpx;
+  background-size: cover;
+  background-image: url(https://hbimg.huabanimg.com/f08ceb166850110894a771f06984237cd4c48eaf7ab3d-YTxhKn_fw658)
+}
+
+.luck-close{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  top: 30rpx;
+  right: 30rpx;
+}
+
+.icon-shanchu{
+  font-size: 38rpx;
+  color: #cccccc
+}
+
+.luck-image{
+  width: 360rpx;
+  height: 360rpx;
+  margin-top: 50rpx;
+  border-radius: 14rpx;
+}
+
+.luck-image image{
+  width: 100%;
+  height: 100%;
+}
+
+.luck-text{
+  width: 100%;
+  height: 50rpx;
+  font-size: 32rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #fff;
+  margin-top: 30rpx;
+}

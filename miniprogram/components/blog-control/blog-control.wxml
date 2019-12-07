@@ -1,0 +1,31 @@
+<view class="ctrl">
+  <view class="ctrl-item" bindtap="onComment">
+    <i class="iconfont icon-pinglun icon"></i>
+    <text>评论</text>
+  </view>
+  <view class="ctrl-item share">
+  <button class="share-btn" open-type="share" data-blog="{{blog}}">
+        <i class="iconfont icon-fenxiang icon"></i>
+        <text>分享</text>
+  </button>
+  </view>
+</view>
+
+<x-author 
+  isShowPopup="{{isShowPopup}}"
+  bindloginsuccess="loginSuccess"
+  bindloginfail="loginFail"
+/>
+
+<x-author-popup isShowPopup="{{isShowComment}}">
+  <form slot="modal-content" bind:submit="send" report-submit="true">
+    <textarea 
+      name="content" 
+      class="comment-content"
+      value="{{content}}"
+      placeholder="写下你的想法..."
+      fixed="true"
+    ></textarea>
+    <button class="send-btn" form-type="submit">发布</button>
+  </form>
+</x-author-popup>

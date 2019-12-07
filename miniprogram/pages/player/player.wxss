@@ -1,0 +1,190 @@
+.player-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(20rpx);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.player-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: #222;
+}
+
+.player-info{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+.player-disc::after{
+  position: absolute;
+  content: '';
+  width: 192rpx;
+  height: 274rpx;
+  top: -150rpx;
+  left: 266rpx;
+  background: url('https://s3.music.126.net/m/s/img/needle.png?702cf6d95f29e2e594f53a3caab50e12') no-repeat center/contain;
+  transform: rotate(-15deg);
+  transform-origin: 24rpx 10rpx;
+  transition: transform .3s ease-in-out;
+}
+
+.playing.player-disc::after{
+  transform: rotate(0deg)
+}
+
+.player-disc {
+  position: absolute;
+  left: 50%;
+  width: 592rpx;
+  height: 592rpx;
+  background: url('https://s3.music.126.net/mobile-new/img/disc.png?d3bdd1080a72129346aa0b4b4964b75f=') no-repeat center/contain;
+  -webki-transform: translate(-50%, 140rpx);
+  -moz-transform: translate(-50%, 140rpx);
+  -ms-transform: translate(-50%, 140rpx);
+  -o-transform: translate(-50%, 140rpx);
+  transform: translate(-50%, 140rpx);
+}
+
+.player-img {
+  position: absolute;
+  top: 19%;
+  left: 19%;
+  width: 368rpx;
+  height: 368rpx;
+  border-radius: 50%;
+  -webki-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.rotation{
+  -webkit-animation: rotation 12s linear infinite;
+  -moz-animation: rotation 12s linear infinite;
+  -ms-animation: rotation 12s linear infinite;
+  animation: rotation 12s linear infinite;
+}
+
+@keyframes rotation{
+  from{
+    transform: rotate(0deg)
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
+
+/* 歌曲选择面板 */
+.select-bar{
+  position: relative;
+  top: 760rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80rpx;
+}
+
+.select-box{
+  width: 80rpx;
+}
+
+.icon-dianzan, .icon-fenxiang, .icon-gengduo{
+  font-size: 48rpx;
+}
+
+.icon-dianzan{
+  color: #9e9e9e
+}
+
+.love{
+  font-size: 48rpx;
+  color: #d81e06;
+  animation-duration: .5s;
+  animation-name: loveAnimation;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loveAnimation{
+  0%{
+    font-size: 48rpx;
+  }
+  50%{
+    font-size: 54rpx;
+  }
+  100%{
+    font-size: 48rpx;
+  }
+}
+
+.icon-fenxiang{
+  font-size: 46rpx;
+  color: #d81e06;
+}
+
+.share-box{
+  border: none;
+  margin: 0;
+  background: transparent;
+}
+
+.share-box::after{
+  border: none
+}
+
+.icon-pinglun{
+  color: #275df0;
+  font-size: 52rpx;
+}
+
+.icon-gengduo{
+  color: #fff;
+}
+
+/* 歌曲控制进度条及控制面板 */
+.player-pause{
+  animation-play-state: paused;
+}
+
+.control{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+}
+
+.control .iconfont{
+ color: #fefefe;
+}
+
+.icon-shangyishoushangyige , .icon-xiayigexiayishou{
+  font-size: 80rpx;
+}
+
+.icon-bofang, .icon-suspend_icon{
+  font-size: 120rpx;
+  margin: 0 50rpx;
+}
+
+.progress-bar{
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  bottom: 24%;
+  transform:  translateX(-50%)
+}

@@ -1,0 +1,41 @@
+<view class="container">
+<!-- 用户编辑输入框 -->
+  <textarea class="content" 
+    placeholder="记录美好时光 ..."
+    bindinput="onInput"
+    bindfocus="onFocus"
+    bindblur="onBlur"
+    hidden="{{ play }}"
+  ></textarea>
+  <!-- 切换发布类型按钮 -->
+  <view class="public-type">
+      <button class="img-btn  {{ isBtnType ? '': 'select-btn'}}" bindtap='triggerImg'>发图片</button>
+      <button class="video-btn  {{ isBtnType ? 'select-btn': ''}}" bindtap='triggerVideo'>发视频</button>
+  </view>
+  <view class="image-list">
+  <!-- 显示图片 -->
+    <block wx:for="{{images}}" wx:key="*this" wx:if="{{!isBtnType}}">
+        <view class="image-wrap">
+          <image  class="image" src="{{item}}" mode="aspectFill" bindtap="onPreviewImg" data-imgsrc="{{item}}"></image>
+          <i class="iconfont icon-shanchu" bind:tap="delectImg" data-index="{{index}}"></i>
+        </view>
+    </block>
+    <!-- 显示视频 -->
+    <block wx:for="{{videos}}" wx:key="*this" wx:if="{{isBtnType}}">
+        <view class="image-wrap">
+          <video id="myVideo" src="{{item}}" autoplay="{{!play}}"  controls object-fit="contain" bindtap="videoTap" muted="{{!play}}">
+          </video>
+          <i class="iconfont icon-shanchu" bind:tap="delectImg" data-index="{{index}}"></i>
+        </view>
+    </block>
+  <!-- 选择图片 / 选择视频 -->
+    <view class="image-wrap selectphoto" hidden="{{!isShowSelect}}" bind:tap="uploadImg">
+      <i class="iconfont icon-jiahao"></i>
+    </view>
+  </view>
+</view>
+<!-- 发布页面底部 -->
+<view class="footer" style="bottom: {{footerHeight}}px">
+  <text class="words-num">{{wordsNum}}</text>
+  <button class="send-btn" bind:tap="testSend">发布</button>
+</view>

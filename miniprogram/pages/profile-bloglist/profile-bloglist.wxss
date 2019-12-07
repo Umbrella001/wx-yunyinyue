@@ -1,0 +1,13 @@
+.blog-background{
+  width: 100%;
+  height: 100%;
+}
+
+.blog-container{
+  width: 98%;
+  margin: 180rpx auto 0;
+}
+
+.blog-pannel{
+  margin-bottom: 10rpx;
+}

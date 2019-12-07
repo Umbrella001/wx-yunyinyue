@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "x-blog-control": "/components/blog-control/blog-control",
+    "x-blog-card": "/components/blog-card/blog-card"
+  },
+  "navigationBarTitleText": "博文博伦"
+}

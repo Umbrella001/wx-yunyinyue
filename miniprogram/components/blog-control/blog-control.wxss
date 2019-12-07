@@ -1,0 +1,70 @@
+.ctrl {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  height: 80rpx;
+  border-top: 1px solid #f0f0f0;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.ctrl-item {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #2e2e2e;
+  font-family: Arial,
+                 "PingFang SC",
+                 "Hiragino Sans GB",
+                 STHeiti,
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  font-size: 26rpx;
+}
+
+.ctrl-item .icon {
+  font-size: 32rpx;
+  margin: 12rpx;
+}
+
+.ctrl-item text {
+  font-size: 30rpx;
+}
+
+.share {
+  color: #d81f06cc;
+}
+
+.share-btn {
+  color: #d81f06cc;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  height: 100%;
+  padding: 0;
+}
+
+.share-btn::after {
+  display: none;
+}
+
+.comment-content {
+  width: 90%;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  border-radius: 30rpx;
+  padding: 30rpx;
+  caret-color: rgb(216, 30, 6, 0.6);
+}
+
+.send-btn {
+  position: absolute;
+  right: 4rpx;
+  bottom: 20rpx;
+  background: #d81e06;
+  color: #fff;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}

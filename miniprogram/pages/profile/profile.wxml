@@ -1,0 +1,114 @@
+<!-- 我的模块头部布局 -->
+<view class="profile-header">
+  <view class="avatar-url"> 
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <open-data type="userNickName" class="nickname"></open-data>
+  <view class="replace-theme">
+    <i class="iconfont icon-pifu"></i>
+    <text class="theme-text">更换主题</text>
+  </view>
+  <view class="head-frame">
+    <i class="iconfont icon-touxiang"></i>
+    <text class="theme-text">更换像框</text>
+  </view>
+  <!-- <view class="sign-day">
+    <i class="iconfont icon-ziyuan"></i>
+    <text class="sign-text">签到</text>
+  </view> -->
+</view>
+
+<!-- 我的模块导航栏布局 -->
+<view class="profile-nav">
+    <view class="nav-item">
+    <navigator class="content" 
+        hover-class="none" 
+        url="/pages/profile-playlist/profile-playlist"
+    >
+      <i class="iconfont icon-bofangliebiao icon-nav"></i>
+      <text class="text">最近播放</text>
+      <i class="iconfont icon-you"></i>
+    </navigator>
+  </view>
+    <view class="nav-item">
+    <navigator class="content" 
+        hover-class="none" 
+        url="/pages/profile-bloglist/profile-bloglist"
+    >
+      <i class="iconfont icon-xieboke icon-nav"></i>
+      <text class="text">我的博客</text>
+      <i class="iconfont icon-you"></i>
+    </navigator>
+  </view>
+    <view class="nav-item">
+    <navigator class="content" 
+        hover-class="none" 
+        url="/pages/profile-lovelist/profile-lovelist"
+    >
+      <i class="iconfont icon-xihuan icon-nav"></i>
+      <text class="text">我的喜爱</text>
+      <i class="iconfont icon-you"></i>
+    </navigator>
+  </view>
+    <view class="nav-item">
+    <navigator class="content" 
+        hover-class="none" 
+        url="/pages/profile-develop/profile-develop"
+    >
+      <i class="iconfont icon-tubiao207 icon-nav"></i>
+      <text class="text">我的金币</text>
+      <i class="iconfont icon-you"></i>
+    </navigator>
+  </view>
+  <view class="nav-item">
+    <navigator class="content" 
+        hover-class="none" 
+        url="/pages/profile-luckdraw/profile-luckdraw"
+    >
+      <i class="iconfont icon-wodefuli icon-nav"></i>
+      <text class="text">福利中心</text>
+      <i class="iconfont icon-you"></i>
+    </navigator>
+  </view>
+  <view class="nav-item">
+    <view class="content" bind:tap="getQrCode">
+      <i class="iconfont icon-erweima icon-nav"></i>
+      <text class="text">小程序码</text>
+      <i class="iconfont icon-you"></i>
+    </view>
+  </view>
+  <view class="nav-item">
+    <navigator class="content" 
+        hover-class="none" 
+        url="/pages/profile-develop/profile-develop"
+    >
+      <i class="iconfont icon-shezhi icon-nav"></i>
+      <text class="text">设置中心</text>
+      <i class="iconfont icon-you"></i>
+    </navigator>
+  </view>
+</view>
+
+<!-- 二维码弹窗 -->
+<view class="qrcode-popup" wx:if="{{showQrcode}}">
+  <!-- 二维码弹窗遮罩层 -->
+  <view class="qrcode-mask" bindtap="closePopup"></view>
+  <!-- 二维码弹窗主体 -->
+  <view class="popup {{showQrcode ? 'showAnimation' : ''}}">
+    <view class="popup-title">小程序码</view>
+    <view class="popup-img">
+      <image src="{{qrcodeImg}}" mode="widthFix" bindtap="previewImage"></image>
+    </view>
+    <view class="popup-content">
+      <view class="load-img">
+        <i class="iconfont icon-xiazai" bind:tap="onLoadImage"></i>
+      </view>
+      <button open-type="share" class="share-img">
+        <i class="iconfont icon-13"></i>
+      </button>
+    </view>
+  </view>
+</view>
+
+<!-- 全局音乐直达tab -->
+<x-global-music />

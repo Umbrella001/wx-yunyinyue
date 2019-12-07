@@ -1,0 +1,51 @@
+<scroll-view scroll-y="true" class="container">
+  <!-- 博客正文 -->
+  <view class="blog-card">
+    <x-blog-card blog="{{blog}}" blogid="{{blogid}}" />
+  </view>
+  <!-- 博客评论列表 -->
+  <view class="tab">
+    <view class="tab-item">评论列表</view>
+  </view>
+
+  <view class="comment-list">
+    <block wx:for="{{blogComment}}" wx:key="_id">
+      <view class="comment">
+        <view class="comment-title">
+          <image class="comment-avatar" src="{{item.avatarUrl}}"></image>
+          <text class="comment-nickName">{{item.nickName}}</text>
+          <text class="comment-time">{{item.commentTime}}</text>
+        </view>
+        <view class="comment-content">
+          {{item.content}}
+        </view>
+        <view class="comment-advise">
+          <i class="iconfont icon-zan1 {{ isSupport ? 'support' : ''}}" catch:tap="support"></i>
+          <text class="advise-num">{{supportNum}}</text>
+          <i class="iconfont icon-cai {{ isOppose ? 'oppose' : ''}}" catch:tap="oppose"></i>
+          <text class="advise-num">{{opposeNum}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 无评论时提示  -->
+    <view class="comment-empty" wx:if="{{!blogComment.length}}">
+      <image class="empty-img" src="../../images/blog-empty.svg"></image>
+      <view class="empty-content">
+        <text class="comment-tip">好凄凉，神马都没有~</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>
+
+<!-- 博客评论页底部控件 -->
+<view class="blog-ctrl">
+  <x-blog-control 
+    blogid="{{blog._id}}" 
+    iconfont="iconfont" 
+    icon-pinglun="icon-pinglun" 
+    icon-fenxiang="icon-fenxiang"
+    bind:RefreshComment="_loadBlogComment"
+   />
+</view>

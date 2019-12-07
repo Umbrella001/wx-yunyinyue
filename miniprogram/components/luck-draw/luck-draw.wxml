@@ -1,0 +1,27 @@
+<!-- 抽奖区域 -->
+<view class="box">
+	<view bindtap="startDraw" class="list {{drawIndex > 0 ? 'grey' : ''}}">抽奖</view>
+	<block wx:for="{{prizeList}}" wx:key="id">
+		<view class="list {{drawIndex == item.index ? 'change_in' : ''}}">
+			<view class="list_t"><image src="{{item.imgsrc}}" mode="aspectFit"></image></view>
+			<view class="list_b">{{item.prizeName}}</view>
+		</view>
+	</block>
+</view>
+
+<button class="again_btn"  bindtap="againBtn" hidden="{{!showAgain}}">再抽一次</button>
+
+<!-- 奖品弹窗 -->
+<view class="luck-display" wx:if="{{isShowLuck}}">
+  <view class="luck-mask" bindtap="closePopup"></view>
+  <view class="luck-popup">
+  <view class="luck-close" bindtap="closePopup">
+    <i class="iconfont icon-shanchu"></i>
+  </view>
+    <view class="luck-image">
+      <image src="{{awardImage}}" mode="aspectFit"></image>
+    </view>
+    <view class="luck-text">{{awardName}}</view>
+  </view>
+</view>
+ 

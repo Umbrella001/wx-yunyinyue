@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "x-search": "/components/search/search",
+    "x-author": "/components/author/author",
+    "x-blog-card": "/components/blog-card/blog-card",
+    "x-blog-control":"/components/blog-control/blog-control",
+    "x-global-music": "/components/global-music/global-music"
+  },
+  "navigationBarTitleText": "博客广场",
+  "enablePullDownRefresh": true
+}

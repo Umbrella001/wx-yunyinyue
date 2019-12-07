@@ -1,0 +1,6 @@
+<view class="music-tab" hidden="{{!isShow}}" catchtap="goPlayer">
+  <view class="music-box">
+    <image class="music-circle {{ isShowAnimation ? 'circle-animation' : '' }}" src="../../images/music-circle.svg"></image>
+    <i class="iconfont icon-yiliao icon-tab {{ isShowAnimation ? 'icon-animation' : '' }}"></i>
+  </view>
+</view>

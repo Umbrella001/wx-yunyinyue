@@ -1,0 +1,8 @@
+<x-author-popup isShowPopup="{{isShowPopup}}">
+    <view slot="modal-content">
+        <button class="login"
+            open-type="getUserInfo"
+            bind:getuserinfo="onUserInfo"
+        >微信授权登录</button>
+    </view>
+</x-author-popup>

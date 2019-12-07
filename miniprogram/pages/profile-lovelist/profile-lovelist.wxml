@@ -1,0 +1,58 @@
+<view class="love-background" style=" background-image: url({{ switchLove ? loveBackground[1] : loveBackground[0] }})">
+  <!-- 我的喜爱遮罩层 -->
+  <view class="mask"></view>
+
+  <!-- 切换我的喜爱的列表 -->
+  <view class="switch-btn {{ isShowAnimation ? 'showAnimation' : ''}}" >
+    <i class="iconfont icon-jiantou-zuo {{ switchLove ? 'rotate-blog' : 'rotate-music' }}" bind:tap="onSwitch"></i>
+  </view>
+
+  <!-- 我的博客展示盒子 -->
+  <x-display-box 
+    firstBoxName="喜欢音乐" 
+    secondBoxName="喜欢博客" 
+    firstBoxData="{{ loveList.length }}" 
+    secondBoxData="{{ blogList.length }}" 
+    firstBoxIcon="icon-yinleku" 
+    secondBoxIcon="icon-shu" 
+    displayImg="{{ switchLove ? displayImage[1] : displayImage[0] }}" 
+  />
+
+
+  <!-- 无数据时显示 -->
+  <!-- <x-empty-content content="{{loveList}}" tip="搜集我喜欢的歌曲~" /> -->
+
+  <!-- 我喜欢的歌曲列表 -->
+  <view class="love-container">
+  <!-- 我喜爱的音乐 -->
+    <x-musiclist 
+      wx:if="{{!switchLove}}"
+      musiclist="{{loveList}}"
+      indexColor="#fb937e"
+      musicColor="#fdbf5c" 
+      singerColor="#fed8bf"
+    >
+    </x-musiclist>
+    <!-- 我喜爱的博客 -->
+  <scroll-view class="blog-container" scroll-y="true"wx:if="{{switchLove}}">
+    <block wx:for="{{blogList}}" wx:key="_id">
+      <view class="blog-pannel">
+          <x-blog-card 
+            blog="{{item}}"
+            bind:tap="goComment"
+            data-blogid="{{item._id}}"
+          />
+          <x-blog-control 
+            blog="{{item}}"
+            blogId="{{item._id}}"
+            blogower="{{item.userName}}"
+            iconfont="iconfont"
+            icon-pinglun="icon-pinglun"
+            icon-fenxiang="icon-fenxiang"
+          />
+      </view>
+    </block>
+  </scroll-view>
+
+  </view>
+</view>

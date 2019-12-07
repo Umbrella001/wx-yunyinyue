@@ -1,0 +1,31 @@
+.content-empty{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.empty-img{
+  width: 50%; 
+  height: 50%;
+}
+
+.content{
+  font-family: "PingFang SC","Hiragino Sans GB",
+STHeiti,"Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  color: #fff;
+  width: 320rpx;
+  text-align: center;
+}
+
+.content-tip{
+  width: 360rpx;
+  word-break: break-all;
+  margin-top: 10rpx;
+  font-size: 32rpx;
+}

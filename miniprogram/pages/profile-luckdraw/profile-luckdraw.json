@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "x-luck-draw":"/components/luck-draw/luck-draw"
+  },
+  "navigationBarTitleText": "福利中心"
+}

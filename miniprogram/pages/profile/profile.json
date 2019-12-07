@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "x-global-music": "/components/global-music/global-music"
+  },
+  "navigationBarTitleText": "个人中心"
+}

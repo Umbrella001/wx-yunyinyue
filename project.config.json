@@ -1,0 +1,113 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"appid": "wxcf131631f83c2511",
+	"projectname": "wx-music-umbrella",
+	"libVersion": "2.8.3",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"compileType": "miniprogram",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 8,
+			"list": [
+				{
+					"id": 0,
+					"name": "更新版本体验",
+					"pathName": "pages/music/music",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "demo",
+					"pathName": "pages/demo/demo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "musiclist",
+					"pathName": "pages/musiclist/musiclist",
+					"query": "playlistId=2429488976",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "blog",
+					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "userName=\"ღMINGღ\"&avatarUrl= \"https://wx.qlogo.cn/mmopen/vi_32/ad8ia0YRCPtCsoAOK…3Ev0zzDTVAc5femia0IziayJ1gjC3jRP3erGM3iciaz8g/132\"",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "profile",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "temp",
+					"pathName": "pages/profile-luckdraw/profile-luckdraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "歌曲播放面板",
+					"pathName": "pages/player/player",
+					"query": "musicId=1345186983&index=10",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "开发中的界面",
+					"pathName": "pages/profile-develop/profile-develop",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

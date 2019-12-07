@@ -1,0 +1,31 @@
+.container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background: rgba(0, 0, 0, .6)
+}
+
+.popup{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 300rpx;
+  box-sizing: border-box;
+  border-radius: 18rpx 18rpx 0 0; 
+  background: #f8f8f8;
+}
+
+.container .icon-guanbi{
+  position: absolute;
+  right: 18rpx;
+  top: 18rpx;
+  font-size: 36rpx;
+  color: #a3a3a3;
+  padding: 10rpx;
+}

@@ -1,0 +1,46 @@
+.container{
+  display: flex;
+  align-items: center
+}
+
+.control{
+  position:  relative;
+  flex: 1;
+}
+
+.movable-area{
+  width: 100%;
+  height: 34rpx;
+  position: absolute;
+  bottom: -14rpx;
+  left: 0;
+}
+
+.movable-view{
+  width: 34rpx;
+  height: 34rpx;
+  background: #fefefe;
+  border-radius: 50%;
+}
+
+.time{
+  width: 64rpx;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  font-family: NotoSanHans-Regular;
+  font-weight: 400;
+  color: #e7e7e7;
+  line-height: 30rpx
+}
+
+.movable-view.moving {
+  width: 36rpx;
+  height: 36rpx;
+  background: #d81f06cc;
+}
+
+.time.moving {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #fff;
+}

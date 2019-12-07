@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "x-playlist": "/components/playlist/playlist",
+    "x-global-music": "/components/global-music/global-music"
+  },
+  "enablePullDownRefresh": true
+}

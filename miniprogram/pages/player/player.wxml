@@ -1,0 +1,50 @@
+<!-- 歌曲界面 -->
+<view class="player-container" style="background:url({{playerInfo.plyerImgUrl}}) no-repeat center/cover">
+</view>
+<view class="player-mask"></view>
+<view class="player-info">
+  <view class="player-disc {{ isPlaying ? 'playing': ''}}" bind:tap="lyricShowChange" hidden="{{!isLyricShow}}">
+    <image class="player-img rotation {{ isPlaying ? '' : 'player-pause'}}" src="{{ picUrl }}"></image>
+  </view>
+  <!-- 收藏与分享栏 -->
+  <view class="select-bar" hidden="{{!isLyricShow}}">
+    <view class="select-box">
+      <i class="iconfont icon-dianzan {{selected ? 'love' : ''}}" bind:tap="onSelect"></i>
+    </view>
+    <view class="select-box">
+      <i class="iconfont icon-pinglun"></i>
+    </view>
+    <button class="select-box share-box" 
+      open-type="share" 
+      data-shareimg="{{ picUrl }}"
+      data-musicname="{{musicName}}"
+    >
+      <i class="iconfont icon-fenxiang"></i>
+    </button>
+    <view class="select-box">
+      <i class="iconfont icon-gengduo"></i>
+    </view>
+  </view>
+</view>
+
+<!-- 歌词面板 -->
+  <x-lyric class="lyric" isLyricShow="{{isLyricShow}}" bindtap="lyricShowChange" lyric='{{lyric}}'/>
+
+<!-- 歌曲进度条 -->
+<view class="progress-bar">
+  <x-progress-bar 
+  bind:musicEnd='nextMusic' 
+  bind:timeUpdate='timeUpdate'
+  bind:musicPlay='onPlay'
+  bind:musicPause='onPause'
+  isSame="{{isSame}}"
+  ></x-progress-bar>
+</view>
+
+
+<!-- 控制面板 -->
+<view class="control">
+  <text class="iconfont icon-shangyishoushangyige" bindtap="prevMusic"></text>
+  <text class="iconfont {{ isPlaying ? 'icon-suspend_icon': 'icon-bofang'}}" bindtap="togglePlaying"></text>
+  <text class="iconfont icon-xiayigexiayishou" bindtap="nextMusic"></text>
+</view>

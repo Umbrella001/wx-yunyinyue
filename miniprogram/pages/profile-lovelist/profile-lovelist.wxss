@@ -1,0 +1,69 @@
+.love-background{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.love-container{
+  margin-top: 180rpx;
+}
+
+.switch-btn{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -70rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68rpx;
+  height: 68rpx;
+  z-index: 99;
+}
+
+.showAnimation{
+  top: 60rpx;
+  transition: top 1.4s ease-in-out;
+}
+
+.rotate-music{
+  transform: rotate(360deg);
+  transition: transform 1s ease-in-out;
+}
+
+.rotate-blog{
+  transform: rotate(180deg);
+  transition: transform 1s ease-in-out;
+}
+
+.icon-jiantou-zuo{
+  font-size: 60rpx;
+  color: #f1f1f1;
+  line-height: 68rpx;
+  text-align: center;
+}
+
+.mask{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, .2);
+  color: #9a97ef
+}
+
+.blog-container{
+  width: 98%;
+  margin: 180rpx auto 0;
+}
+
+.blog-pannel{
+  margin-bottom: 10rpx;
+}
