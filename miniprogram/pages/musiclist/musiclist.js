@@ -1,3 +1,5 @@
+
+
 Page({
   /**
    * 页面的初始数据
@@ -31,13 +33,7 @@ Page({
           coverImgName: pl.name
         }
       })
-      this.setMusiclist()
       wx.hideLoading()
     })
   },
-
-  // 将当前歌单所有歌曲信息储存在Storage
-  setMusiclist(){
-    wx.setStorageSync('musiclist', this.data.musiclist)
-  }
 })

@@ -6,6 +6,8 @@ let movableAreaWidth = 0, // 歌曲播放进度条宽度
   duration = 0,  // 储存歌曲总时长
   isMoving = false // 判断用户是否正在拖动进度条，是则不设置值（此时音视频不播放），否时则说明没有拖动
 const backgroundAudioManager = wx.getBackgroundAudioManager()
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -82,8 +84,9 @@ Component({
 
     // 监听背景音频播放事件
     _bindBGMEvent() {
-      backgroundAudioManager.onPlay(() => {
+      backgroundAudioManager.onPlay(() => {      
         console.log('onPlay')
+
         this.setData({
           isMoving: false
         })
@@ -98,6 +101,8 @@ Component({
       // 监听背景音频暂停事件
       backgroundAudioManager.onPause(() => {
         console.log('onPause')
+
+        app.setPlaying(false)
         this.triggerEvent('musicPause')
       })
 
@@ -123,10 +128,10 @@ Component({
         if (!this.data.isMoving) {
           console.log('onTimeUpdate')
           playingTime = backgroundAudioManager.currentTime
-          console.log('123321',playingTime)
+
           this._formatTime(playingTime)
           playingSec = playingTime.toString().split('.')[0]
-          console.log('44444', playingSec)
+
           if (playingSec !== signTime) {
             this._setProgress()
 

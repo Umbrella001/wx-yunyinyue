@@ -5,11 +5,11 @@
   </view>
   <open-data type="userNickName" class="nickname"></open-data>
   <view class="replace-theme">
-    <i class="iconfont icon-pifu"></i>
+    <i class="iconfont icon-pifu icon-nav"></i>
     <text class="theme-text">更换主题</text>
   </view>
   <view class="head-frame">
-    <i class="iconfont icon-touxiang"></i>
+    <i class="iconfont icon-touxiang icon-nav"></i>
     <text class="theme-text">更换像框</text>
   </view>
   <!-- <view class="sign-day">

@@ -1,5 +1,6 @@
 let musiclist = [] // 歌单歌曲列表
 let currentMusicIndex = 0 // 当前播放歌曲的索引
+let globalMusicList = [] // 存储全局的歌单歌曲列表
 
 const backgroundAudioManager = wx.getBackgroundAudioManager() // 获取全局唯一的背景音频管理器
 const app = getApp() // 获取全局app实例
@@ -10,13 +11,13 @@ Page({
    */
   data: {
     picUrl: '', // 歌曲的封面图
-    musicName: '',  // 歌曲名字
+    musicName: '', // 歌曲名字
     isPlaying: false, // 歌曲是否播放中，默认false没有播放
     isLyricShow: true, // 显示歌曲歌词，默认true不显示歌词
-    selected: false,  // 是否喜欢当前歌曲
+    selected: false, // 是否喜欢当前歌曲
     lyric: '', // 歌曲歌词
     isSame: false, // 是否同一首歌 
-    loveList: []  // 我喜欢的歌曲列表
+    loveList: [] // 我喜欢的歌曲列表
   },
 
   /**
@@ -24,13 +25,16 @@ Page({
    */
   onLoad(options) {
     currentMusicIndex = options.index
-    musiclist = wx.getStorageSync('musiclist') // 获取歌单歌曲
-    this.isHaveMusic()
+    console.log(app.globalData.isPlaying)
+    this.setData({
+      isPlaying: app.globalData.isPlaying
+    })
     this._loadMusicDetail(options.musicId)
+    this.isHaveMusic()
   },
 
-  // 判断当前歌曲是否存在于我西黄列表
-  isHaveMusic(){
+  // 判断当前歌曲是否存在于我喜欢列表
+  isHaveMusic() {
     let storageLovelist = wx.getStorageSync(app.globalData.musicOpenid) // 获取储存的歌单列表
     this.setData({
       loveList: storageLovelist
@@ -57,6 +61,12 @@ Page({
         isSame: true
       })
     } else {
+      // 拿去全局的歌曲列表，将歌单所有歌曲信息储存在Storage
+      globalMusicList = app.globalData.musicList
+      wx.setStorageSync('musiclist', globalMusicList)
+
+      // 获取歌单歌曲
+      musiclist = wx.getStorageSync('musiclist') 
       this.setData({
         isSame: false
       })
@@ -96,9 +106,9 @@ Page({
           image: "../../images/music-vip.png",
           duration: 2500
         })
-        setTimeout(()=>{
+        setTimeout(() => {
           this.nextMusic()
-        },2000)
+        }, 2000)
         return
       }
       if (!this.data.isSame) {
@@ -107,6 +117,10 @@ Page({
         backgroundAudioManager.coverImgUrl = musicInfo.al.picUrl
         backgroundAudioManager.singer = musicInfo.ar[0].name
         backgroundAudioManager.epname = musicInfo.ar.name
+
+        this.setData({
+          isPlaying: true
+        })
 
         //  将播放的歌曲放入最近播放storage中
         this.historyMusic()
@@ -118,12 +132,8 @@ Page({
         app.setMusicAnimation(true)
       }
 
-      this.setData({
-        isPlaying: true
-      })
-
       wx.hideLoading()
-
+      
       // 加载歌词
       wx.cloud.callFunction({
         name: 'music',
@@ -143,15 +153,15 @@ Page({
   },
 
   // 将播放历史储存进对应的storage中
-  historyMusic(){
+  historyMusic() {
     let music = musiclist[currentMusicIndex],
-    openid = app.globalData.openid
+      openid = app.globalData.openid
 
     let historyList = wx.getStorageSync(openid),
-    ishave = false
+      ishave = false
 
-    for(let i = 0,len = historyList.length;i < len;i++){
-      if(historyList[i].id == music.id){
+    for (let i = 0, len = historyList.length; i < len; i++) {
+      if (historyList[i].id == music.id) {
         ishave = true
         break
       }
@@ -167,11 +177,13 @@ Page({
 
   // 点击播放按钮切换播放和暂停 
   togglePlaying() {
-    this.data.isPlaying ? backgroundAudioManager.pause() : backgroundAudioManager.play()
+    console.log("xxx",this.data.isPlaying)
 
-    if(this.data.isPlaying){
+    this.data.isPlaying  ? backgroundAudioManager.pause() : backgroundAudioManager.play()
+
+    if (this.data.isPlaying) {
       app.setMusicAnimation(true)
-    }else{
+    } else {
       app.setMusicAnimation(false)
     }
 
@@ -213,6 +225,7 @@ Page({
     this.setData({
       isPlaying: true
     })
+    app.setPlaying(true)
     app.setMusicAnimation(true)
   },
 
@@ -220,20 +233,20 @@ Page({
     this.setData({
       isPlaying: false
     })
-
+    app.setPlaying(false)
     app.setMusicAnimation(false)
   },
 
   // 是否将歌曲加入我的喜爱列表
-  onSelect(){
+  onSelect() {
     let newLovelist = []
-    if(!this.data.selected){
+    if (!this.data.selected) {
       newLovelist = this.data.loveList.unshift(musiclist[currentMusicIndex])
-    }else{
+    } else {
       let delMusicId = musiclist[currentMusicIndex].id
-      for(let i = 0,len = this.data.loveList.length; i < len; i ++){
-        if(this.data.loveList[i].id == delMusicId){
-          let prom = this.data.loveList.splice(i,1)
+      for (let i = 0, len = this.data.loveList.length; i < len; i++) {
+        if (this.data.loveList[i].id == delMusicId) {
+          let prom = this.data.loveList.splice(i, 1)
           break
         }
       }
@@ -242,7 +255,7 @@ Page({
       selected: !this.data.selected
     })
 
-    if(this.data.selected){
+    if (this.data.selected) {
       wx.showToast({
         title: '添加到我的喜爱',
         image: '../../images/show-success.png',
@@ -254,12 +267,12 @@ Page({
   },
 
   /**
- * 用户点击右上角分享
- */
-  onShareAppMessage: function (event) {
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(event) {
     console.log(event)
     let music = event.target.dataset
-    return{
+    return {
       title: '快来听听这首 >> ' + music.musicname,
       path: `/pages/player/player?musicId=${musiclist[currentMusicIndex].id}&index=${currentMusicIndex}`,
       imageUrl: music.shareimg

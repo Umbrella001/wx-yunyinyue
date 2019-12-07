@@ -1,5 +1,5 @@
-// components/musiclist/musiclist.js
 const app = getApp();
+
 Component({
   /**
    * 组件的属性列表
@@ -47,6 +47,9 @@ Component({
    */
   methods: {
     handleSelect(event) {
+      // 将当前歌单所有歌曲信息储存在全局的musicList中
+      app.setMusicList(this.properties.musiclist)
+      
       const eventData = event.currentTarget.dataset
       this.setData({
         playerId: eventData.musicid

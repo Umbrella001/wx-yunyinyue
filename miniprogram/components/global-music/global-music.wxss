@@ -1,5 +1,6 @@
 .music-tab {
   position: fixed;
+  z-index: 999;
   bottom: 100rpx;
   right: 48rpx;
 }

@@ -32,7 +32,9 @@ App({
       globalMusicInfo:{      // 全局音乐需要的信息
         musicId: "",
         musicIndex: -1
-      }
+      },
+      musicList: [],   // 存储进入歌单歌曲列表页时的歌曲信息
+      isPlaying: false  // 歌曲是否进行播放（修复BUG）
     }
   },
   
@@ -63,6 +65,11 @@ App({
     })
   },
 
+  // 修复： 点击tab显示错误歌曲信息播放面板
+  setMusicList(arr){
+    this.globalData.musicList = arr
+  },
+
   // 设置全局音乐tab的显示与否
   setGlobalMusic(sign){
     this.globalData.showGlobalMusic = sign
@@ -76,6 +83,11 @@ App({
   // 设置全局音乐tab的信息
   setMusicInfo(obj){
     this.globalData.globalMusicInfo = obj
+  },
+
+  // 修复： 暂停音乐后，再次进入时仍然会执行旋转动画的BUG
+  setPlaying(sign){
+    this.globalData.isPlaying = sign
   },
 
    // 获取用户的openid并储存在storage中
