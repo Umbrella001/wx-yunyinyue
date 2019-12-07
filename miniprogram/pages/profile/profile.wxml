@@ -108,11 +108,7 @@
       </button>
     </view>
   </view>
-<<<<<<< HEAD
-</view>
-=======
 </view>
 
 <!-- 全局音乐直达tab -->
 <x-global-music />
->>>>>>> 九宫格抽奖 全局音乐导航优化

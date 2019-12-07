@@ -3,12 +3,8 @@
     "x-search": "/components/search/search",
     "x-author": "/components/author/author",
     "x-blog-card": "/components/blog-card/blog-card",
-<<<<<<< HEAD
-    "x-blog-control":"/components/blog-control/blog-control"
-=======
     "x-blog-control":"/components/blog-control/blog-control",
     "x-global-music": "/components/global-music/global-music"
->>>>>>> 九宫格抽奖 全局音乐导航优化
   },
   "navigationBarTitleText": "博客广场",
   "enablePullDownRefresh": true

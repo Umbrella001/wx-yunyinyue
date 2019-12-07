@@ -6,10 +6,8 @@
   <view class="player-disc {{ isPlaying ? 'playing': ''}}" bind:tap="lyricShowChange" hidden="{{!isLyricShow}}">
     <image class="player-img rotation {{ isPlaying ? '' : 'player-pause'}}" src="{{ picUrl }}"></image>
   </view>
-<<<<<<< HEAD
-=======
+
   <!-- 收藏与分享栏 -->
->>>>>>> 九宫格抽奖 全局音乐导航优化
   <view class="select-bar" hidden="{{!isLyricShow}}">
     <view class="select-box">
       <i class="iconfont icon-dianzan {{selected ? 'love' : ''}}" bind:tap="onSelect"></i>

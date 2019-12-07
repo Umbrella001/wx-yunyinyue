@@ -118,11 +118,7 @@ page {
   font-size: 36rpx;
 }
 
-<<<<<<< HEAD
-.iconfont {
-=======
 .icon-nav {
->>>>>>> 九宫格抽奖 全局音乐导航优化
   font-size: 38rpx;
   margin-left: 8rpx;
   color: #d81e06;
