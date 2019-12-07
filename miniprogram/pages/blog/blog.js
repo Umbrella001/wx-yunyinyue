@@ -28,6 +28,10 @@ Page({
     this._loadBlogList()
   },
 
+  onPageScroll(e){
+    console.log(e)
+  },
+
   // 从数据库中载入数据
   _loadBlogList(start = 0) {
     wx.showLoading({
