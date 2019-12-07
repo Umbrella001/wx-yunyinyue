@@ -51,6 +51,10 @@ Page({
 
   // 加载歌曲的信息包括歌词 
   _loadMusicDetail(musicId) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 九宫格抽奖 全局音乐导航优化
     if (musicId == app.getMusicId()) {
       this.setData({
         isSame: true
@@ -109,6 +113,16 @@ Page({
 
         //  将播放的歌曲放入最近播放storage中
         this.historyMusic()
+<<<<<<< HEAD
+=======
+        console.log("测试13",musicInfo,currentMusicIndex)
+        app.setMusicInfo({
+          musicId: musicInfo.id,
+          musicIndex: currentMusicIndex
+        })
+        app.setGlobalMusic(true)
+        app.setMusicAnimation(true)
+>>>>>>> 九宫格抽奖 全局音乐导航优化
       }
 
       this.setData({
@@ -162,6 +176,15 @@ Page({
   togglePlaying() {
     this.data.isPlaying ? backgroundAudioManager.pause() : backgroundAudioManager.play()
 
+<<<<<<< HEAD
+=======
+    if(this.data.isPlaying){
+      app.setMusicAnimation(true)
+    }else{
+      app.setMusicAnimation(false)
+    }
+
+>>>>>>> 九宫格抽奖 全局音乐导航优化
     this.setData({
       isPlaying: !this.data.isPlaying
     })
@@ -200,12 +223,20 @@ Page({
     this.setData({
       isPlaying: true
     })
+<<<<<<< HEAD
+=======
+    app.setMusicAnimation(true)
+>>>>>>> 九宫格抽奖 全局音乐导航优化
   },
 
   onPause() {
     this.setData({
       isPlaying: false
     })
+<<<<<<< HEAD
+=======
+    app.setMusicAnimation(false)
+>>>>>>> 九宫格抽奖 全局音乐导航优化
   },
 
   // 是否将歌曲加入我的喜爱列表
@@ -225,6 +256,16 @@ Page({
     this.setData({
       selected: !this.data.selected
     })
+<<<<<<< HEAD
+=======
+    if(this.data.selected){
+      wx.showToast({
+        title: '添加到我的喜爱',
+        image: '../../images/show-success.png',
+        duration: 2000
+      })
+    }
+>>>>>>> 九宫格抽奖 全局音乐导航优化
 
     wx.setStorageSync(app.globalData.musicOpenid, this.data.loveList)
   },

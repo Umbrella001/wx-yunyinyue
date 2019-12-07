@@ -1,0 +1,60 @@
+.music-tab {
+  position: fixed;
+  bottom: 100rpx;
+  right: 48rpx;
+}
+
+.music-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 86rpx;
+  height: 86rpx;
+}
+
+.music-circle {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.circle-animation{
+  animation-name: clockwise;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+}
+
+@keyframes clockwise {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.icon-tab {
+  position: absolute;
+  top: 22rpx;
+  left: 22rpx;
+  font-size: 40rpx;
+  color: #d81e06;
+}
+
+.icon-animation{
+  animation-name: antiClockwise;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+}
+
+@keyframes antiClockwise {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(-360deg)
+  }
+}

@@ -1,4 +1,10 @@
 {
+<<<<<<< HEAD
   "usingComponents": {},
+=======
+  "usingComponents": {
+    "x-global-music": "/components/global-music/global-music"
+  },
+>>>>>>> 九宫格抽奖 全局音乐导航优化
   "navigationBarTitleText": "个人中心"
 }

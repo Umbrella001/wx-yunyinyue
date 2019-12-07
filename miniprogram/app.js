@@ -27,6 +27,15 @@ App({
       openid: '',  //  用户的openid （用户使用同一个小程序openid不变）
       musicOpenid: '' ,  // 用户喜欢歌曲列表openid
       blogOpenid: '',  // 用户喜欢的博客列表openid
+<<<<<<< HEAD
+=======
+      showGlobalMusic: false, // 是否显示全局音乐tab
+      showAnimation: true, // 是否进行全局音乐的动画
+      globalMusicInfo:{      // 全局音乐需要的信息
+        musicId: "",
+        musicIndex: -1
+      }
+>>>>>>> 九宫格抽奖 全局音乐导航优化
     }
   },
   
@@ -57,6 +66,24 @@ App({
     })
   },
 
+<<<<<<< HEAD
+=======
+  // 设置全局音乐tab的显示与否
+  setGlobalMusic(sign){
+    this.globalData.showGlobalMusic = sign
+  },
+
+  // 设置全局音乐的tab动画显示
+  setMusicAnimation(sign){
+    this.globalData.showAnimation = sign
+  },
+
+  // 设置全局音乐tab的信息
+  setMusicInfo(obj){
+    this.globalData.globalMusicInfo = obj
+  },
+
+>>>>>>> 九宫格抽奖 全局音乐导航优化
    // 获取用户的openid并储存在storage中
    getOpenid(){
     wx.cloud.callFunction({

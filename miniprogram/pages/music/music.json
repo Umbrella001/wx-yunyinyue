@@ -1,6 +1,11 @@
 {
   "usingComponents": {
+<<<<<<< HEAD
       "x-playlist":"/components/playlist/playlist"
+=======
+    "x-playlist": "/components/playlist/playlist",
+    "x-global-music": "/components/global-music/global-music"
+>>>>>>> 九宫格抽奖 全局音乐导航优化
   },
   "enablePullDownRefresh": true
 }
