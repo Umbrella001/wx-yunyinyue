@@ -3,6 +3,8 @@ const cloud = require('wx-server-sdk')
 
 cloud.init()
 
+const EVALUATE_ID = 'V1lGF_YoFGVNuAKUytkEuQbsnM6uTRB8q7IaWKfiG4Y'
+
 // 云函数入口函数
 exports.main = async (event, context) => {
   try {
@@ -20,7 +22,7 @@ exports.main = async (event, context) => {
           value: event.content
         }
       },
-      templateId: 'V1lGF_YoFGVNuAKUytkEuQbsnM6uTRB8q7IaWKfiG4Y',
+      templateId: EVALUATE_ID,
       formId: event.formId
     })
     return result

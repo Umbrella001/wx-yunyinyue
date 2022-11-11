@@ -7,16 +7,16 @@ cloud.init({
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-
-  console.log(event)
-
   const { OPENID } = cloud.getWXContext()
+
+  // 拓展其他类型
+  const { msgtype = 'text', Content } = event
 
   const result = await cloud.openapi.customerServiceMessage.send({
     touser: OPENID,
-    msgtype: 'text',
-    text: {
-      content: '收到：' + event.Content,
+    msgtype,
+    [msgtype]: {
+      content: Content
     }
   })
 
